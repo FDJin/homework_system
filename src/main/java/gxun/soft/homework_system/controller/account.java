@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class account {
 
 
+
     @RequestMapping("/login")
     public String suc(){
         return "success";
