@@ -1,9 +1,12 @@
 package gxun.soft.homework_system.domain;
 
-public class account {
+
+public class Account {
     private Integer userId;
     private String password;
     private Integer accountType;
+
+
 
     public Integer getUserId() {
         return userId;
