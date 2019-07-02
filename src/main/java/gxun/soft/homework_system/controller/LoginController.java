@@ -21,24 +21,24 @@ import javax.servlet.http.HttpSession;
 public class LoginController {
     @Autowired
     private LoginService loginService;
-    /**
-     * 首页
-     * @return
-     */
-    @RequestMapping(value = {"/"})
-    public String index(){
-
-        return "login";
-    }
-    @RequestMapping("/index")
-    public String index1(){
-        return "index";
-    }
+//    /**
+//     * 首页
+//     * @return
+//     */
+//    @RequestMapping(value = {"/"})
+//    public String index(){
+//
+//        return "login";
+//    }
+//    @RequestMapping("/index")
+//    public String index1(){
+//        return "index";
+//    }
 
 
     //修改密码页面
     @RequestMapping(value = {"/updatepassword"})
-    public String updatepassword(Model model, Integer id){
+    public String updatePassword(Model model, Integer id){
 //        User user=userLoginService.findById(id);
 //        model.addAttribute("user",user);
         return "password";
@@ -49,7 +49,7 @@ public class LoginController {
         String password = request.getParameter("password");
         if(password != null){
             model.addAttribute("msg","密码错误!请重新输入");
-            loginService.updatepassword(account);
+            loginService.updatePassword(account);
             return "redirect:login";
         }else{
             return "password";
@@ -69,26 +69,32 @@ public class LoginController {
      * @param request
      * @return
      */
-    @PostMapping
-    @RequestMapping(value = {"/login"})
-    public ModelAndView login(Account account, HttpServletRequest request, HttpSession session, Model model) {
-        ModelAndView mav = new ModelAndView();
-        String userId = request.getParameter("userId");
+   @PostMapping(value = {"/login"})
+    public String login(Account account, HttpServletRequest request, HttpSession session) {
+        Integer userId = Integer.parseInt(request.getParameter("userId"));
         String password = request.getParameter("password");
-        //account.setUserId(userId);
+        account.setUserId(userId);
         account.setPassword(password);
         account =this.loginService.userLogin(account);
         if (account != null) {
             session=request.getSession();
             session.setAttribute("userId", userId);
             session.setAttribute("password",password);
-            mav.setViewName("index");
-            return mav;
+            Integer accountType = account.getAccountType();
+            switch (accountType){
+                case 0:
+//                    获取用户姓名
+//                    String stuName = ...
+                    return "student";
+                case 1:
+                    return "teacher";
+                case 2:
+                    return "admin";
+                    default: return "login";
+            }
         } else {
-            model.addAttribute("errormsg","账号或密码错误！");
-            mav.setViewName("login");
+            return "login";
         }
-        return mav;
     }
     @GetMapping
     @RequestMapping(value = {"/loginout"})
