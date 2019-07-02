@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>作业批改系统</title>
+		<meta charset="utf-8" >
+		<link rel="stylesheet" type="text/css" href="css/stu.css" media="screen" />
+		<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.min.js"></script>
+		<script type="text/javascript" src="stu_js/exit.js"></script>
+		<script type="text/javascript" src="stu_js/time.js"></script>
+	 </head>
+	 <body >
+	 	<div class="wrapper">
+	 		<div id="header">
+	 			<div id="header_top">  </div>
+	 			<div id="header_boom"> 欢迎您，丫丫同学
+					<span id="mytime">  </span>
+	 			</div>
+	 		</div>
+	 		<aside id = "menu" class="sidebar" >
+	 			<nav>
+	 			<h1 >功能菜单</h1>
+	 			<ul>
+	 				<li><a id="index" href="#">首页 </a></li>
+	 				<!--<li><a id="work" href="#">  完成作业  </a> </li>-->
+	 				<li><a id="score" href="#">  查看分数   </a> </li>
+					<li><a id="me" href="#">  个人信息   </a> </li>
+	 				<li onclick="exit()"> <a href="#">退出系统</a></li>
+	 			</ul>
+	 			</nav>
+	 		</aside>
+	 		<div class="content">
+			<h1>学生界面</h1>		
+	 		<!--首页-->
+            <div id="d1" class="col_w700">
+            <div class="col_w300">
+                <h2>welcome</h2>
+            </div>
+            <div class="col_w500" style="height:600px;">
+                <h2 style="text-align: left;">最近发布的作业：</h2>
+                    <TABLE border=0 cellpadding=1 cellspacing=1 id="table_work" width="800"  style="font-size: 18px;">
+                       <thead>
+                          <TR style="background:#999FDD;">
+                              <th>作业编号</th> 
+                              <th>作业题目</th>
+                              <th>发布老师</th> 
+                              <th>发布时间</th>
+                              <th>结束时间</th>
+                              <th>是否完成</th>
+                           </TR>
+                        </thead>
+                        <tbody style="height:475px;">
+                           <TR class="tr_work"><td>W10001</td> <td>作业题目1</td> <td>杨老师</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>是</td></TR>
+                           <TR class="tr_work"><td>W10002</td> <td>作业题目2</td> <td>徐老师</td> <td>2018/6/29 20:00</td><td>2018/6/30 20:00</td><td>是</td></TR>
+                           <TR class="tr_work"><td>W10003</td> <td>作业题目3</td> <td>林老师</td> <td>2018/6/15 21:00</td><td>2018/6/30 20:00</td><td>是</td></TR>
+                           <TR class="tr_work"><td>W10004</td> <td>作业题目4</td> <td>宋老师</td> <td>2018/6/03 20:00</td><td>2018/6/30 20:00</td><td>是</td></TR>
+                           <TR class="tr_work"><td>W10005</td> <td>作业题目5</td> <td>梁老师</td> <td>2018/6/01 22:00</td><td>2018/6/30 20:00</td><td>是</td></TR>
+                           <TR class="tr_work"><td>W10001</td> <td>作业题目1</td> <td>杨老师</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>是</td></TR>
+                           <TR class="tr_work"><td>W10002</td> <td>作业题目2</td> <td>徐老师</td> <td>2018/6/29 20:00</td><td>2018/6/30 20:00</td><td>是</td></TR>
+                           <TR class="tr_work"><td>W10003</td> <td>作业题目3</td> <td>林老师</td> <td>2018/6/15 21:00</td><td>2018/6/30 20:00</td><td>是</td></TR>
+                           <TR class="tr_work"><td>W10004</td> <td>作业题目4</td> <td>宋老师</td> <td>2018/6/03 20:00</td><td>2018/6/30 20:00</td><td>是</td></TR>
+                           <TR class="tr_work"><td>W10005</td> <td>作业题目5</td> <td>梁老师</td> <td>2018/6/01 22:00</td><td>2018/6/30 20:00</td><td>是</td></TR>
+                           <TR class="tr_work"><td>W10001</td> <td>作业题目1</td> <td>杨老师</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>是</td></TR>
+                           <TR class="tr_work"><td>W10002</td> <td>作业题目2</td> <td>徐老师</td> <td>2018/6/29 20:00</td><td>2018/6/30 20:00</td><td>是</td></TR>
+                           <TR class="tr_work"><td>W10003</td> <td>作业题目3</td> <td>林老师</td> <td>2018/6/15 21:00</td><td>2018/6/30 20:00</td><td>是</td></TR>
+                           <TR class="tr_work"><td>W10004</td> <td>作业题目4</td> <td>宋老师</td> <td>2018/6/03 20:00</td><td>2018/6/30 20:00</td><td>是</td></TR>
+                           <TR class="tr_work"><td>W10005</td> <td>作业题目5</td> <td>梁老师</td> <td>2018/6/01 22:00</td><td>2018/6/30 20:00</td><td>是</td></TR>
+                         </tbody>
+                     </TABLE>
+                  </div>
+                  </div>
+							
+			<!--查看分数-->
+			<div id="d3" class="col_w700">
+               <div class="col_w300">
+                  <h2>查看分数</h2>
+               </div>
+               <div class="col_w300" style="font-size: 22px;">
+                  <div id="tc_form">
+                     <form>
+                        <p>.
+                            <input  type="text" placeholder="请输入作业题目" id="input_find" class="input_field" style="float:left;position:relative;left:20%;"/>
+                            <input type="submit" value="搜索" id="find_submit" class="submit_btn float_r" onclick="not()" style="float:left;position:relative;left:30%;"/>
+                        </p>          
+                     </form>
+                     <div class="cleaner"></div>
+                   </div>                 
+                </div>
+                <div class="col_w500" style="height:560px;">
+                    <TABLE border=0 cellpadding=1 cellspacing=1 id="table_score" width="800"  style="font-size: 18px;">
+                       <thead>
+                          <TR style="background:#799FDD;">
+                              <th>作业编号</th>
+                              <th>作业题目</th> 
+                              <th>发布时间</th> 
+							  <th>结束时间</th>
+                              <th>分数</th>
+                          </TR>
+                       </thead> 
+                       <tbody style="height:490px;">
+                          <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                          <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                          <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                          <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                          <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                          <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                          <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                          <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                          <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                          <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                          <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                          <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                          <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                          <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                          <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                          <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                          <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                       </tbody>
+                    </TABLE>
+                 </div>
+            </div>
+				
+			<!--个人信息-->
+			<div id="d4" class="col_w700">
+                <div class="col_w300">
+                    <h2>个人信息</h2>
+                </div>
+
+                <div class="col_w500" style="margin-left:220px;width:400px;height:600px;">
+       	            <div id="tc_form">
+                        <p>&nbsp;</p>
+                        <form  id="tc_publish_form" action="addWord" method="post">
+                            <div class="cleaner_h10">
+                            </div>
+                            <label>姓名：
+                        
+                                &nbsp;&nbsp;&nbsp; <input type="text" id="stu_name" class="input_field1"  readonly value="丫丫"/>
+                            </label>
+                            <div class="cleaner_h10">
+                                </div>
+                            <div class="cleaner_h10">
+                            </div>          
+                            <label>学号：
+                                
+                                &nbsp;&nbsp;&nbsp; <input type="text" id="stu_id"  class="input_field1" readonly value="10001"/>
+                            </label>
+                            <div class="cleaner_h10">
+                                </div>
+                            <div class="cleaner_h10">
+                            </div>
+              
+                            <label>班级：
+                                
+                                &nbsp;&nbsp;&nbsp; <input type="text" id="stu_class"  class="input_field1" readonly value="软件1班"/>
+                            </label>
+                            <div class="cleaner_h10">
+                                </div>
+                            <div class="cleaner_h10">
+                            </div>
+               
+                            <label>学院：
+                                
+                                &nbsp;&nbsp;&nbsp; <input type="text" id="stu_grate"  class="input_field1" readonly value="软信学院"/>
+                            </label>
+                            <div class="cleaner_h10">
+                                </div>
+                            <div class="cleaner_h10">
+                            </div>
+               
+                            <label>密码：
+                                
+                                &nbsp;&nbsp;&nbsp; <input type="text" id="stu_grate"  class="input_field1" readonly value="1111"/>
+                            </label>
+                            <div class="cleaner_h10">
+                            </div>
+                            <div class="cleaner_h20">
+                            </div>
+                            <div class="cleaner_h20">
+                            </div>
+                                <input type="button" value="修改密码" id="update_submit" name="submit" class="submit_btn float_l" style="float:left;position:relative;left:35%;" onClick="msgbox(1)"/>   
+								<!--修改密码界面-->
+                                <div id="inputbox" class="box">
+                                     <a class='x' href=''; onclick="msgbox(0); return false;">返回</a>
+                                     <div style="font-size:22px">
+                                          原密码：                              
+                                               <input type="text" id="stu_oldpaw"  class="input_field"  value="1111" style="width: 100%"/>
+                                     </div>
+                                     <div class="cleaner_h20">
+                                     </div>
+                                     <div style="font-size:22px">
+                                           新密码：                              
+                                               <input type="text" id="stu_newpaw1"  class="input_field" readonly value="1111" style="width: 100%"/>
+                                     </div>
+									 
+									 <div class="cleaner_h20">
+                                     </div>
+                                     <div style="font-size:22px">
+                                           重复新密码：                              
+                                               <input type="text" id="stu_newpaw2"  class="input_field" readonly value="1111" style="width: 100%"/>
+                                     </div>
+                                         
+                                         <input type="submit" value="确定" style="margin-left:150px; margin-top:30px"> 
+                                </div>  
+								<script>  
+                                   function msgbox(n){
+                                       document.getElementById('inputbox').style.display=n?'block':'none';     /* 点击按钮打开/关闭 对话框 */
+                                   }
+                                </script>                
+       	                 </form>			  
+              	         <div class="cleaner_h10"></div>           
+                      </div>
+                   </div>
+                </div> 	
+				
+				<!--完成作业-->
+				<div id="d5" class="col_w700"  style="height: 700px;">
+                <div class="col_w300">
+                <h2>完成作业</h2>
+                </div>
+
+<div class="col_w500" style="height: 620px;">
+
+       	  <div id="tc_form">       
+                <form  action="#"  id="tc_correct_form" method="post" style="margin-top: 5px;">
+                <label>作业编号：
+                   <input type="text"  id="word_iid" readonly class="input_field"  style="margin-top: 5px;"/>
+                    <div class="cleaner_h10"></div>
+                 </label>
+                 <label>作业题目：
+                   <input type="text"  id="word_title" readonly class="input_field" style="margin-top: 5px;" />
+                 </label>
+                 <div class="cleaner_h10"></div>
+                 <label>发布老师：
+                   <input type="text"  id="word_class" readonly class=" input_field" style="margin-top: 5px;" />
+                 </label>
+                 <div class="cleaner_h10"></div>                                
+                  <label>答题区域：</label>
+                <textarea    id="correct_content"  ></textarea>
+                  </label>
+                    <div class="cleaner_h10"></div>             
+					<input type="submit" value="提交" id="correct_submit" name="submit" class="submit_btn float_l" onClick="not()" style="float:left;position:relative;left:45%;" />
+                   
+
+                    
+                    
+       	    </form>
+			  
+              	<div class="cleaner"></div>
+            
+            </div>
+             </div>
+</div>
+				<!--end-->
+    </div> 		
+	 	<footer id="footer"> 
+	 		  Copyright &copy; 2019广西民族大学软件与信息安全学院课程设计作业批改系统
+	 	</footer>	
+</div>
+	 	<script src="stu_js/function.js"></script>
+	 	<script src="stu_js/time.js"></script>
+		<SCRIPT LANGUAGE="JavaScript">
+           window.onload = function() {
+                doubleBgColor(document.getElementById("table_score"),"#D1D7E7","#ececec")
+                doubleBgColor(document.getElementById("table_work"),"#D1D7E7","#ececec")
+                doubleBgColor(document.getElementById("table_work2"),"#D1D7E7","#ececec")
+                doubleBgColor(document.getElementById("table_work3"),"#D1D7E7","#ececec")
+           }
+        function doubleBgColor(Table,Bg1,Bg2) {
+            for (var i=0;i<Table.rows.length;i++) Table.rows[i].bgColor=i%2?Bg2:Bg1;
+        }
+</SCRIPT>
+  </body>
+</html>
