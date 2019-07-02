@@ -14,16 +14,16 @@ public class LoginService {
     //用户登录
     public Account userLogin(Account account){
 
-        account=this.accountMapper.userLogin(account.getUserId(),account.getPassword());
+        account=this.accountMapper.accountLogin(account.getUserId(),account.getPassword());
         return account;
     }
-    public int updatepassword(Account account){
+    public int updatePassword(Account account){
 
         System.out.println(account);
-        return accountMapper.updatepassword(account);
+        return accountMapper.updatePassword(account);
     }
     public Account findById(Integer id){
-        return accountMapper.findById(id);
+        return accountMapper.findAccountById(id);
     }
     //添加用户
     public int addAccount(Account account){

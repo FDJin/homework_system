@@ -18,40 +18,8 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface AccountMapper {
     //用户登录
-    Account userLogin(@Param("userI") Integer userId, @Param("password") String password);
-    int updatepassword(Account account);
-    Account findById(Integer id);
+    Account accountLogin(@Param("userId") Integer userId, @Param("password") String password);
+    int updatePassword(Account account);
+    Account findAccountById(Integer id);
     int addAccount(Account account);
 }
-
-
-//public interface AccountMapper extends BaseMapper<Account> {
-//
-//    @Select("SELECT a.* FROM account a where 1=1 ${where}  order by userId desc")
-//    List<JSONObject> queryAll(@Param("where") Integer userId);
-//
-//
-//    @Select("SELECT * from account where 1 = 1 and number = '${number}'  ")
-//    JSONObject queryUserByUserId(@Param("userId") Integer userId);
-//
-//
-//    @Select("select count(1) total from account where 1=1 ${where} ")
-//    JSONObject getPageCount(@Param("where") Integer where);
-//
-//    @Select("select count(1) total from account where 1=1  ")
-//    JSONObject getPageCount_default();
-//
-//    @Select("SELECT a.* FROM account a " +
-//            "JOIN (SELECT id from student where 1=1 ${where} order by userId desc LIMIT #{index}, #{size}" +
-//            ")b ON a.id=b.id order by a.userId desc ")
-//    List<JSONObject> getTeacherPage(@Param("where") Integer where,
-//                             @Param("index") int index,
-//                             @Param("size") int size);
-//
-//    @Select("SELECT a.* FROM account a " +
-//            "JOIN (SELECT id from student where 1=1 ${where} order by userId desc LIMIT #{index}, #{size}" +
-//            ")b ON a.id=b.id order by a.userId desc ")
-//    List<JSONObject> getStudentPage(@Param("where") Integer where,
-//                             @Param("index") int index,
-//                             @Param("size") int size);
-//}
