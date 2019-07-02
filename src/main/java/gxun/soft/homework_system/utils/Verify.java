@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * Created by Taller on 2017/9/9.
  */
-public class V {
+public class Verify {
     /**
      * 验证是否为空
      * */
@@ -43,7 +43,7 @@ public class V {
         JSONObject result = new JSONObject();
         result.put("check",false);
         for(String key :keys){
-            if(V.isEmpty(vObject.get(key))){
+            if(Verify.isEmpty(vObject.get(key))){
                 result.put("check",true);
                 result.put("message",kv.get(key));
                 break;

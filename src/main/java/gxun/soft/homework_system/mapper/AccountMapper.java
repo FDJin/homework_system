@@ -9,6 +9,22 @@
 //
 //import java.util.List;
 //
+package gxun.soft.homework_system.mapper;
+
+import gxun.soft.homework_system.domain.Account;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+@Mapper
+public interface AccountMapper {
+    //用户登录
+    Account userLogin(@Param("userI") Integer userId, @Param("password") String password);
+    int updatepassword(Account account);
+    Account findById(Integer id);
+    int addAccount(Account account);
+}
+
+
 //public interface AccountMapper extends BaseMapper<Account> {
 //
 //    @Select("SELECT a.* FROM account a where 1=1 ${where}  order by userId desc")
