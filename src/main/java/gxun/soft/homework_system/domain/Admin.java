@@ -1,8 +1,8 @@
 package gxun.soft.homework_system.domain;
 
-import com.baomidou.mybatisplus.annotations.TableName;
-
-@TableName("admin")
+//import com.baomidou.mybatisplus.annotations.TableName;
+//
+//@TableName("admin")
 public class Admin {
     private Integer adminId;
     private String adminName;

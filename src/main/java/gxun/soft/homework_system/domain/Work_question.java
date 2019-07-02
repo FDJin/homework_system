@@ -1,8 +1,8 @@
 package gxun.soft.homework_system.domain;
 
-import com.baomidou.mybatisplus.annotations.TableName;
-
-@TableName("work_question")
+//import com.baomidou.mybatisplus.annotations.TableName;
+//
+//@TableName("work_question")
 public class Work_question {
     private Integer workQuestionId;
     private Integer questionId;

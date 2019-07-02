@@ -34,27 +34,27 @@
         </dependency>
 
 
-        <!-- mybatis-plus begin -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>
-        <!--mybatis plus会维护mybatis依赖，去除该依赖-->
+        <!--&lt;!&ndash; mybatis-plus begin &ndash;&gt;-->
         <!--<dependency>-->
-            <!--<groupId>org.mybatis.spring.boot</groupId>-->
-            <!--<artifactId>mybatis-spring-boot-starter</artifactId>-->
-            <!--<version>${mybatis-spring-boot-starter.version}</version>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-jdbc</artifactId>-->
         <!--</dependency>-->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus</artifactId>
-            <version>2.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatisplus-spring-boot-starter</artifactId>
-            <version>1.0.5</version>
-        </dependency>
+        <!--&lt;!&ndash;mybatis plus会维护mybatis依赖，去除该依赖&ndash;&gt;-->
+        <!--&lt;!&ndash;<dependency>&ndash;&gt;-->
+            <!--&lt;!&ndash;<groupId>org.mybatis.spring.boot</groupId>&ndash;&gt;-->
+            <!--&lt;!&ndash;<artifactId>mybatis-spring-boot-starter</artifactId>&ndash;&gt;-->
+            <!--&lt;!&ndash;<version>${mybatis-spring-boot-starter.version}</version>&ndash;&gt;-->
+        <!--&lt;!&ndash;</dependency>&ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>com.baomidou</groupId>-->
+            <!--<artifactId>mybatis-plus</artifactId>-->
+            <!--<version>2.1.0</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>com.baomidou</groupId>-->
+            <!--<artifactId>mybatisplus-spring-boot-starter</artifactId>-->
+            <!--<version>1.0.5</version>-->
+        <!--</dependency>-->
 
 
         <!--swagger2的jar包-->
