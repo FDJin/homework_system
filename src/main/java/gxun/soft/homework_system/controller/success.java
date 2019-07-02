@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class success {
-    @RequestMapping("/success")
+    @RequestMapping("/stu")
     public String suc(){
-        return "success";
+        return "stu";
     }
 }
