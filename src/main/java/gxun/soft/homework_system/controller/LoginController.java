@@ -7,6 +7,7 @@ import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -33,6 +34,8 @@ public class LoginController {
     public String index1(){
         return "index";
     }
+
+
     //修改密码页面
     @RequestMapping(value = {"/updatepassword"})
     public String updatepassword(Model model, Integer id){
@@ -41,7 +44,7 @@ public class LoginController {
         return "password";
     }
     //修改密码功能
-    @PostMapping("/updatepwd")
+    @PostMapping("/updatepassword")
     public String update(Account account, HttpServletRequest request, Model model){
         String password = request.getParameter("password");
         if(password != null){
@@ -66,6 +69,7 @@ public class LoginController {
      * @param request
      * @return
      */
+    @PostMapping
     @RequestMapping(value = {"/login"})
     public ModelAndView login(Account account, HttpServletRequest request, HttpSession session, Model model) {
         ModelAndView mav = new ModelAndView();
@@ -76,7 +80,7 @@ public class LoginController {
         account =this.loginService.userLogin(account);
         if (account != null) {
             session=request.getSession();
-            session.setAttribute("username", userId);
+            session.setAttribute("userId", userId);
             session.setAttribute("password",password);
             mav.setViewName("index");
             return mav;
@@ -86,6 +90,7 @@ public class LoginController {
         }
         return mav;
     }
+    @GetMapping
     @RequestMapping(value = {"/loginout"})
     public String loginout(Model model, HttpServletRequest request){
         if(request.getSession().getAttribute("user")!=null){
