@@ -1,5 +1,7 @@
 package gxun.soft.homework_system.domain;
 
+import springfox.documentation.spring.web.json.Json;
+
 //import com.baomidou.mybatisplus.annotations.TableName;
 //
 //@TableName("stu_work" )
@@ -9,7 +11,7 @@ public class Stu_work {
     private Integer stuId;
     private Integer questionType;
     private Integer score;
-    private String answerList;
+    private Json answerList;
     private Integer status;
 
     public Integer getStuWorkId() {
@@ -52,11 +54,11 @@ public class Stu_work {
         this.score = score;
     }
 
-    public String getAnswerList() {
+    public Json getAnswerList() {
         return answerList;
     }
 
-    public void setAnswerList(String answerList) {
+    public void setAnswerList(Json answerList) {
         this.answerList = answerList;
     }
 
