@@ -1,17 +1,18 @@
 package gxun.soft.homework_system.domain;
 
-
+//import com.baomidou.mybatisplus.annotations.TableName;
+//
+//@TableName("class")
 public class Class {
-    private Integer classes;
+    private Integer classId;
     private String className;
 
-
-    public Integer getClasses() {
-        return classes;
+    public Integer getClassId() {
+        return classId;
     }
 
-    public void setClasses(Integer classes) {
-        this.classes = classes;
+    public void setClassId(Integer classId) {
+        this.classId = classId;
     }
 
     public String getClassName() {

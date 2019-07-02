@@ -16,7 +16,7 @@ import gxun.soft.homework_system.domain.Account;
 public class AccountController {
 
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     @ApiOperation(value = "用户统一登录")
     public Object login(@RequestBody gxun.soft.homework_system.domain.Account object){
 

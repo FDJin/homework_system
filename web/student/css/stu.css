@@ -10,7 +10,9 @@ body {
 	font-size: 12px;
 	line-height: 1.5em;
 	background-color: #fff;
-    background-image: url(../images/a.jpg);
+    /*background-image: url(../images/a.jpg);*/
+	background-image: url(../images/bg.jpg);
+	background-size:100%;
 	background-repeat: repeat-x;
 	background-position: top;
 }
@@ -148,7 +150,7 @@ tbody td + td + td {
 	margin-right: 20px;
 	margin-bottom: 5px;
 	padding: 10px;
-	background-color: rgba(	0,245,255,0.1);
+	background-color: rgba(	230,245,255,0.5);
 	font-family: "微软雅黑";
 	
 	-moz-box-sizing: border-box;
@@ -191,7 +193,7 @@ a:visited{
 	float: left;
 	width: 80%;
 	height: 800px;
-	background-color: rgba(	135,206,250,0.1);
+	background-color: rgba(	210,225,250,0.5);
 	margin-bottom: 10px;	
 	padding: 10px;
 	
@@ -343,7 +345,7 @@ a.btn_more span {
 	float:left;
 	display: block;
 	font-size: 18px;
-	width: 206px;
+	width: 200px;
 	height: 35px;
 	padding: 15px 0 0 0;
 	margin-right: 0px;
@@ -352,11 +354,8 @@ a.btn_more span {
 	font-weight: bold;
 	text-align: center;
 	outline:none;
-
-
+	
 }
-
-
 
 #menu ul li a:hover, #menu ul .current {
 	color: #fff;
@@ -571,7 +570,7 @@ a.btn_more span {
 
 #tc_form form textarea {
 	width: 780px;
-	height: 290px;
+	height: 310px;
 	padding: 5px;
 	background: #E5F1FB;
 	border: 1px solid #999;
