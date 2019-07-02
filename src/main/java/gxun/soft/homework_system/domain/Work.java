@@ -1,6 +1,8 @@
 package gxun.soft.homework_system.domain;
 
+import com.baomidou.mybatisplus.annotations.TableName;
 
+@TableName("work")
 public class Work {
     private Integer workId;
     private Integer teaId;

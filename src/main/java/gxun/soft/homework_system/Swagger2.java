@@ -18,15 +18,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @date
  */
 @Configuration
-@EnableSwagger2
 public class Swagger2 {
-    @Value("${swagger2.enable}")
-    private boolean swagger2Enable;
 
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .enable(swagger2Enable)
                 .apiInfo(apiInfo())
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("gxun.soft.homework_system"))
