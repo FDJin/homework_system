@@ -1,17 +1,8 @@
 package gxun.soft.homework_system.domain;
 
 public class Work_class {
-    private Integer workClassId;
     private Integer workId;
     private Integer classId;
-
-    public Integer getWorkClassId() {
-        return workClassId;
-    }
-
-    public void setWorkClassId(Integer workClassId) {
-        this.workClassId = workClassId;
-    }
 
     public Integer getWorkId() {
         return workId;

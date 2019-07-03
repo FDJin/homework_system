@@ -1,13 +1,25 @@
 package gxun.soft.homework_system.mapper;
 
 import gxun.soft.homework_system.domain.Teacher;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface TeacherMapper {
-    int addTeacher(Teacher teacher);
-    int updateTeacherPassword(Teacher teacher);
-    int deleteTeacherById(Integer id);
-    Teacher findTeacherById(Integer id);
+
+    //教师操作
+
+    int addTeacher(@Param("teacher") Teacher teacher);
+
+    int updateTeacherPassword(@Param("teacher") Teacher teacher);
+
+    int deleteTeacherByTeacherId(@Param("teaId") Integer teaId);
+
+    Teacher findTeacherByTeacherId(@Param("teaId") Integer teaId);
+
+    List<Teacher> findTeacherByTeacherName(@Param("teaName") String teaName);
+
+    List<Teacher> findTeacherByClassId(@Param("classId") Integer classId);
+
     List<Teacher> getAllTeacher();
 }

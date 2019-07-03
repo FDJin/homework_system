@@ -1,12 +1,8 @@
 package gxun.soft.homework_system.domain;
 
 import springfox.documentation.spring.web.json.Json;
-
 import java.util.Date;
 
-//
-//import com.baomidou.mybatisplus.annotations.TableName;
-//
 //@TableName("work")
 public class Work {
     private Integer workId;
