@@ -23,14 +23,14 @@ public class MyMvcConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/webjars/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
-                .excludePathPatterns("/",
-                "/login",
-                "/login.html",
-                "/index/html",
-                "/swagger-ui.html#")
-                .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**");;
-    }
+//    @Override
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
+//                .excludePathPatterns("/",
+//                "/login",
+//                "/login.html",
+//                "/index/html",
+//                "/swagger-ui.html#")
+//                .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**");;
+//    }
 }
