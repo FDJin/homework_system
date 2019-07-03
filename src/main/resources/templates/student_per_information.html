@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作业批改系统</title>
+    <link rel="stylesheet" type="text/css" href="css/stu.css" media="screen" />
+    <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.min.js"></script>
+    <script type="text/javascript" src="js/stu_js/exit.js"></script>
+    <script type="text/javascript" src="js/stu_js/time.js"></script>
+    <script type="text/javascript">
+        $("#me").ready(function(){
+        $("#index").attr("class","");
+        $("#score").attr("class","");
+        $("#me").attr("class","current");
+        });
+    </script>
+    <!--import引入-->
+    <link rel="import" href="include/header.html" id="header"/>
+    <link rel="import" href="include/menu.html" id="menu"/>
+</head>
+<body>
+<div class="wrapper">
+    <!--引入头部-->
+    <div >
+        <script type="text/javascript">
+            document.write(header.import.body.innerHTML);
+        </script>
+    </div>
+    <!--引入菜单-->
+    <div>
+        <script type="text/javascript">
+            document.write(menu.import.body.innerHTML);
+        </script>
+    </div>
+    <!--引入内容-->
+    <div class="content">
+        <h1>学生界面</h1>
+        <!--个人信息-->
+        <div id="d4" class="col_w700">
+            <div class="col_w300">
+                <h2>个人信息</h2>
+            </div>
+
+            <div class="col_w500" style="margin-left:220px;width:400px;height:600px;">
+                <div id="tc_form">
+                    <p>&nbsp;</p>
+                    <form  id="tc_publish_form" action="addWord" method="post">
+                        <div class="cleaner_h10">
+                        </div>
+                        <label>姓名：
+
+                            &nbsp;&nbsp;&nbsp; <input type="text" id="stu_name" class="input_field1"  readonly value="丫丫"/>
+                        </label>
+                        <div class="cleaner_h10">
+                        </div>
+                        <div class="cleaner_h10">
+                        </div>
+                        <label>学号：
+
+                            &nbsp;&nbsp;&nbsp; <input type="text" id="stu_id"  class="input_field1" readonly value="10001"/>
+                        </label>
+                        <div class="cleaner_h10">
+                        </div>
+                        <div class="cleaner_h10">
+                        </div>
+
+                        <label>班级：
+
+                            &nbsp;&nbsp;&nbsp; <input type="text" id="stu_class"  class="input_field1" readonly value="软件1班"/>
+                        </label>
+                        <div class="cleaner_h10">
+                        </div>
+                        <div class="cleaner_h10">
+                        </div>
+
+                        <label>学院：
+
+                            &nbsp;&nbsp;&nbsp; <input type="text" id="stu_grate"  class="input_field1" readonly value="软信学院"/>
+                        </label>
+                        <div class="cleaner_h10">
+                        </div>
+                        <div class="cleaner_h10">
+                        </div>
+
+                        <label>密码：
+
+                            &nbsp;&nbsp;&nbsp; <input type="text" id="stu_grate"  class="input_field1" readonly value="1111"/>
+                        </label>
+                        <div class="cleaner_h10">
+                        </div>
+                        <div class="cleaner_h20">
+                        </div>
+                        <div class="cleaner_h20">
+                        </div>
+                        <input type="button" value="修改密码" id="update_submit" name="submit" class="submit_btn float_l" style="float:left;position:relative;left:35%;" onClick="msgbox(1)"/>
+                        <!--修改密码界面-->
+                        <div id="inputbox" class="box">
+                            <a class='x' href=''; onclick="msgbox(0); return false;">返回</a>
+                            <div style="font-size:22px">
+                                原密码：
+                                <input type="text" id="stu_oldpaw"  class="input_field"  value="1111" style="width: 100%"/>
+                            </div>
+                            <div class="cleaner_h20">
+                            </div>
+                            <div style="font-size:22px">
+                                新密码：
+                                <input type="text" id="stu_newpaw1"  class="input_field" readonly value="1111" style="width: 100%"/>
+                            </div>
+
+                            <div class="cleaner_h20">
+                            </div>
+                            <div style="font-size:22px">
+                                重复新密码：
+                                <input type="text" id="stu_newpaw2"  class="input_field" readonly value="1111" style="width: 100%"/>
+                            </div>
+
+                            <input type="submit" value="确定" style="margin-left:150px; margin-top:30px">
+                        </div>
+                        <script>
+                            function msgbox(n){
+                                document.getElementById('inputbox').style.display=n?'block':'none';     /* 点击按钮打开/关闭 对话框 */
+                            }
+                        </script>
+                    </form>
+                    <div class="cleaner_h10"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--尾部-->
+    <footer id="footer">
+        Copyright &copy; 2019广西民族大学软件与信息安全学院课程设计作业批改系统
+    </footer>
+</div>
+<SCRIPT LANGUAGE="JavaScript">
+    window.onload = function() {
+        doubleBgColor(document.getElementById("table_score"),"#D1D7E7","#ececec")
+        doubleBgColor(document.getElementById("table_work"),"#D1D7E7","#ececec")
+        doubleBgColor(document.getElementById("table_work2"),"#D1D7E7","#ececec")
+        doubleBgColor(document.getElementById("table_work3"),"#D1D7E7","#ececec")
+    }
+    function doubleBgColor(Table,Bg1,Bg2) {
+        for (var i=0;i<Table.rows.length;i++) Table.rows[i].bgColor=i%2?Bg2:Bg1;
+    }
+</SCRIPT>
+
+
+</body>
+</html>

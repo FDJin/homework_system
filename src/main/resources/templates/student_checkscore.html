@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作业批改系统</title>
+    <link rel="stylesheet" type="text/css" href="css/stu.css" media="screen" />
+    <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.min.js"></script>
+    <script type="text/javascript" src="js/stu_js/exit.js"></script>
+    <script type="text/javascript" src="js/stu_js/time.js"></script>
+    <script type="text/javascript">
+        $("#me").ready(function(){
+            $("#index").attr("class","");
+            $("#score").attr("class","current");
+            $("#me").attr("class","");
+        });
+    </script>
+    <!--import引入-->
+    <link rel="import" href="include/header.html" id="header"/>
+    <link rel="import" href="include/menu.html" id="menu"/>
+</head>
+<body>
+<div class="wrapper">
+    <!--引入头部-->
+    <div >
+        <script type="text/javascript">
+            document.write(header.import.body.innerHTML);
+        </script>
+    </div>
+    <!--引入菜单-->
+    <div>
+        <script type="text/javascript">
+            document.write(menu.import.body.innerHTML);
+        </script>
+    </div>
+    <!--引入内容-->
+    <div class="content">
+        <h1>学生界面</h1>
+        <!--查看分数-->
+        <div id="d3" class="col_w700">
+            <div class="col_w300">
+                <h2>查看分数</h2>
+            </div>
+            <div class="col_w300" style="font-size: 22px;">
+                <div id="tc_form">
+                    <form>
+                        <p>.
+                            <input  type="text" placeholder="请输入作业题目" id="input_find" class="input_field" style="float:left;position:relative;left:20%;"/>
+                            <input type="submit" value="搜索" id="find_submit" class="submit_btn float_r" onclick="not()" style="float:left;position:relative;left:30%;"/>
+                        </p>
+                    </form>
+                    <div class="cleaner"></div>
+                </div>
+            </div>
+            <div class="col_w500" style="height:560px;">
+                <TABLE border=0 cellpadding=1 cellspacing=1 id="table_score" width="800"  style="font-size: 18px;">
+                    <thead>
+                    <TR style="background:#799FDD;">
+                        <th>作业编号</th>
+                        <th>作业题目</th>
+                        <th>发布时间</th>
+                        <th>结束时间</th>
+                        <th>分数</th>
+                    </TR>
+                    </thead>
+                    <tbody style="height:490px;">
+                    <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                    <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                    <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                    <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                    <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                    <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                    <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                    <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                    <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                    <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                    <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                    <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                    <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                    <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                    <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                    <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                    <TR> <td>W10001</td><td>作业题目1</td> <td>2018/6/30 20:00</td><td>2018/6/30 20:00</td><td>77</td></TR>
+                    </tbody>
+                </TABLE>
+            </div>
+        </div>
+    </div>
+    <!--尾部-->
+    <footer id="footer">
+        Copyright &copy; 2019广西民族大学软件与信息安全学院课程设计作业批改系统
+    </footer>
+</div>
+<SCRIPT LANGUAGE="JavaScript">
+    window.onload = function() {
+        doubleBgColor(document.getElementById("table_score"),"#D1D7E7","#ececec")
+        doubleBgColor(document.getElementById("table_work"),"#D1D7E7","#ececec")
+        doubleBgColor(document.getElementById("table_work2"),"#D1D7E7","#ececec")
+        doubleBgColor(document.getElementById("table_work3"),"#D1D7E7","#ececec")
+    }
+    function doubleBgColor(Table,Bg1,Bg2) {
+        for (var i=0;i<Table.rows.length;i++) Table.rows[i].bgColor=i%2?Bg2:Bg1;
+    }
+</SCRIPT>
+
+</body>
+</html>
