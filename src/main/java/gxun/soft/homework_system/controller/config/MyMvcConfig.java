@@ -8,8 +8,8 @@ import org.springframework.web.servlet.config.annotation.*;
 public class MyMvcConfig implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry){
-        registry.addRedirectViewController("/","login");
-        registry.addRedirectViewController("/login","login");
-        registry.addRedirectViewController("/index","login");
+        registry.addRedirectViewController("/","index");
+        registry.addRedirectViewController("home","index");
+        registry.addRedirectViewController("/index","index");
     }
 }
