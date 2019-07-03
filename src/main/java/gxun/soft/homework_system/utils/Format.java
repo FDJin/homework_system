@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by Taller on 2017/9/9.
  */
-public class F {
+public class Format {
     public static String s(String format,Object... str){
         return String.format(format,str);
     }
@@ -43,9 +43,9 @@ public class F {
     }
 
     public static JSONObject f2j(JSONObject objects,String... fields){
-        if(!V.isEmpty(objects)) {
+        if(!Verify.isEmpty(objects)) {
             for (String field : fields) {
-                if (!V.isEmpty(objects.getString(field))) {
+                if (!Verify.isEmpty(objects.getString(field))) {
                     objects.put(field, objects.getString(field));
                 }
             }
@@ -56,10 +56,10 @@ public class F {
     }
 
     public static JSONObject g2j(JSONObject objects,String... fields){
-        if(!V.isEmpty(objects)) {
+        if(!Verify.isEmpty(objects)) {
             JSONObject o = new JSONObject();
             for (String field : fields) {
-                if (!V.isEmpty(objects.getString(field))) {
+                if (!Verify.isEmpty(objects.getString(field))) {
                     o.put(field, objects.getString(field));
                 }
             }

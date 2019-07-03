@@ -6,6 +6,7 @@ package gxun.soft.homework_system.domain;
 public class Teacher {
     private Integer teaId;
     private String teaName;
+    private Integer classId;
 
     public Integer getTeaId() {
         return teaId;
@@ -21,5 +22,13 @@ public class Teacher {
 
     public void setTeaName(String teaName) {
         this.teaName = teaName;
+    }
+
+    public Integer getClassId() {
+        return classId;
+    }
+
+    public void setClassId(Integer classId) {
+        this.classId = classId;
     }
 }

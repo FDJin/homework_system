@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html lang="zxx">
+
+<head>
+	<title>登录账号</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords" content=""
+	/>
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+		function check() {
+            var Login = document.getElementById('Login');
+            var Username = document.getElementById('username').value;
+            var Password = document.getElementById('password').value;
+            var check_Name = /^\d{8,12}$/;
+            var check_password = /^[\d_a-zA-Z]{6,20}$/;
+            //提交表单的事件监听
+            Login.onsubmit = function (){
+                if(check_Name.test(Username)&&check_password.test(Password))
+                    return true;
+                else {
+                    alert("格式不正确！");
+                    return false;
+				}
+            }
+        }
+	</script>
+	<!-- Meta tag Keywords -->
+	<!-- css files -->
+	<link rel="stylesheet" href="./login/css/style.css" type="text/css" media="all" />
+	<!-- Style-CSS -->
+	<link rel="stylesheet" href="./login/css/fontawesome-all.css">
+	<!-- Font-Awesome-Icons-CSS -->
+	<!-- //css files -->
+	<!-- web-fonts -->
+	<link href="http://maxcdn.bootstrapcdn.com/css?family=Josefin+Sans:100,100i,300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+	<link href="http://maxcdn.bootstrapcdn.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+	<!-- //web-fonts -->
+</head>
+
+<body>
+	<!-- bg effect -->
+	<div id="bg">
+		<canvas></canvas>
+		<canvas></canvas>
+		<canvas></canvas>
+	</div>
+	<!-- //bg effect -->
+	<!-- title -->
+	<h1>作业批改系统</h1>
+	<!-- //title -->
+	<!-- content -->
+	<div class="sub-main-w3">
+		<form action="#" method="post" id="Login">
+			<h2>请登录
+				<i class="fas fa-level-down-alt"></i>
+			</h2>
+			<div class="form-style-agile">
+				<label>
+					<i class="fas fa-user"></i>
+					账号
+				</label>
+				<input placeholder="请输入账号" name="Name" id="username" type="text" required="">
+			</div>
+			<div class="form-style-agile">
+				<label>
+					<i class="fas fa-unlock-alt"></i>
+					密码
+				</label>
+				<input placeholder="请输入密码" name="Password"  id="password" type="password" required="">
+			</div>
+			<!-- checkbox -->
+			<div class="wthree-text">
+				<ul>
+					<li>
+						<label class="anim">
+							<input type="checkbox" class="checkbox" id="btn_login">
+							<span>记住登录状态</span>
+						</label>
+					</li>
+					<li>
+						<a href="#">忘记密码</a>
+					</li>
+				</ul>
+			</div>
+			<!-- //checkbox -->
+			<input type="submit" value="登录" onClick="return check()">
+		</form>
+	</div>
+	<!-- //content -->
+
+	<!-- copyright -->
+	<div class="footer">
+		<p>Copyright &copy; 2019广西民族大学软件与信息安全学院课程设计作业批改系统</p>
+	</div>
+	<!-- //copyright -->
+
+	<!-- Jquery -->
+	<script src="./login/js/jquery-3.3.1.min.js"></script>
+	<!-- //Jquery -->
+
+	<!-- effect js -->
+	<script src="./login/js/canva_moving_effect.js"></script>
+	<!-- //effect js -->
+
+</body>
+
+</html>

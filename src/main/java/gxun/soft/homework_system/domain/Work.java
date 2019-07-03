@@ -1,4 +1,9 @@
 package gxun.soft.homework_system.domain;
+
+import springfox.documentation.spring.web.json.Json;
+
+import java.util.Date;
+
 //
 //import com.baomidou.mybatisplus.annotations.TableName;
 //
@@ -7,8 +12,9 @@ public class Work {
     private Integer workId;
     private Integer teaId;
     private String workName;
-    private Integer startTime;
-    private Integer endTime;
+    private Date startTime;
+    private Date endTime;
+    private Json correctAnswerList;
 
     public Integer getWorkId() {
         return workId;
@@ -34,19 +40,27 @@ public class Work {
         this.workName = workName;
     }
 
-    public Integer getStartTime() {
+    public Date getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Integer startTime) {
+    public void setStartTime(Date startTime) {
         this.startTime = startTime;
     }
 
-    public Integer getEndTime() {
+    public Date getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Integer endTime) {
+    public void setEndTime(Date endTime) {
         this.endTime = endTime;
+    }
+
+    public Json getCorrectAnswerList() {
+        return correctAnswerList;
+    }
+
+    public void setCorrectAnswerList(Json correctAnswerList) {
+        this.correctAnswerList = correctAnswerList;
     }
 }

@@ -1,7 +1,6 @@
 package gxun.soft.homework_system.utils;
 
 import com.alibaba.fastjson.JSONObject;
-import gxun.soft.homework_system.utils.StatusKit;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -12,7 +11,8 @@ import java.util.Map;
  * Created by Taller on 2017/9/7.
  * 统一返回对象
  */
-public class R extends HashMap<String,Object> {
+public class
+Return extends HashMap<String,Object> {
 
     public static ResponseEntity error(){
         return error(500,"server error");
@@ -24,7 +24,7 @@ public class R extends HashMap<String,Object> {
         return error(StatusKit.http(status),message,new JSONObject());
     }
     public static ResponseEntity error(HttpStatus status, String message, Object object){
-        R r = new R();
+        Return r = new Return();
         r.put("message",message);
         r.put("result",object);
         return new ResponseEntity<Map<String,Object>>(r,status);
@@ -37,12 +37,12 @@ public class R extends HashMap<String,Object> {
         return ok("操作成功",object);
     }
     public static ResponseEntity ok(String message, Object object){
-        R r = new R();
+        Return r = new Return();
         r.put("message",message);
         r.put("result",object);
         return new ResponseEntity<Map<String,Object>>(r, HttpStatus.OK);
     }
-    public R put(String key,Object val){
+    public Return put(String key, Object val){
         super.put(key,val);
         return this;
     }
