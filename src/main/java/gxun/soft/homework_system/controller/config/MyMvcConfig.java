@@ -13,9 +13,10 @@ public class MyMvcConfig implements WebMvcConfigurer {
         registry.addViewController("/home").setViewName("index");
         registry.addViewController("/homework").setViewName("index");
         registry.addViewController("/admin").setViewName("index");
+//        registry.addViewController("/Swagger2").setViewName("swagger-ui");
     }
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**").excludePathPatterns("/","/login","/login.html","/index/html");
-    }
+//    @Override
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**").excludePathPatterns("/","/login","/login.html","/index/html","/swagger-ui");
+//    }
 }
