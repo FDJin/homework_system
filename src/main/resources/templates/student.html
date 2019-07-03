@@ -3,12 +3,12 @@
 	<head>
 		<title>作业批改系统</title>
 		<meta charset="utf-8" >
-		<link rel="stylesheet" type="text/css" href="student/css/stu.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="css/stu.css" media="screen" />
 		<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.min.js"></script>
-		<script type="text/javascript" src="student/stu_js/exit.js"></script>
-		<script type="text/javascript" src="student/stu_js/time.js"></script>
-        <script src="student/stu_js/function.js"></script>
-        <script src="student/stu_js/time.js"></script>
+		<script type="text/javascript" src="js/stu_js/exit.js"></script>
+		<script type="text/javascript" src="js/stu_js/time.js"></script>
+        <script src="js/stu_js/function.js"></script>
+        <script src="js/stu_js/time.js"></script>
 	 </head>
 	 <body >
 	 	<div class="wrapper">
@@ -213,49 +213,41 @@
                    </div>
                 </div> 	
 				
-				<!--完成作业-->
-				<div id="d5" class="col_w700"  style="height: 700px;">
-                <div class="col_w300">
-                <h2>完成作业</h2>
-                </div>
-
-<div class="col_w500" style="height: 620px;">
-
-       	  <div id="tc_form">       
-                <form  action="#"  id="tc_correct_form" method="post" style="margin-top: 5px;">
+<!--完成作业-->
+<div id="d5" class="col_w700"  style="height: 700px;">
+    <div class="col_w300">
+        <h2>完成作业</h2>
+    </div>
+    <div class="col_w500" style="height: 620px;">
+        <div id="tc_form">
+            <form  action="#"  id="tc_correct_form" method="post" style="margin-top: 5px;">
                 <label>作业编号：
-                   <input type="text"  id="word_iid" readonly class="input_field"  style="margin-top: 5px;"/>
+                    <input type="text"  id="word_iid" readonly class="input_field"  style="margin-top: 5px;"/>
                     <div class="cleaner_h10"></div>
-                 </label>
-                 <label>作业题目：
-                   <input type="text"  id="word_title" readonly class="input_field" style="margin-top: 5px;" />
-                 </label>
-                 <div class="cleaner_h10"></div>
-                 <label>发布老师：
-                   <input type="text"  id="word_class" readonly class=" input_field" style="margin-top: 5px;" />
-                 </label>
-                 <div class="cleaner_h10"></div>                                
-                  <label>答题区域：</label>
-                <textarea    id="correct_content"  ></textarea>
-                  </label>
-                    <div class="cleaner_h10"></div>             
-					<input type="submit" value="提交" id="correct_submit" name="submit" class="submit_btn float_l" onClick="not()" style="float:left;position:relative;left:45%;" />
-                   
-
-                    
-                    
-       	    </form>
-			  
-              	<div class="cleaner"></div>
-            
-            </div>
-             </div>
+                </label>
+                <label>作业题目：
+                    <input type="text"  id="word_title" readonly class="input_field" style="margin-top: 5px;" />
+                </label>
+                <div class="cleaner_h10"></div>
+                <label>发布老师：
+                    <input type="text"  id="word_class" readonly class=" input_field" style="margin-top: 5px;" />
+                </label>
+                <div class="cleaner_h10"></div>
+                <label>答题区域：</label>
+                <textarea  id="correct_content"  ></textarea>
+                </label>
+                <div class="cleaner_h10"></div>
+                <input type="submit" value="提交" id="correct_submit" name="submit" class="submit_btn float_l" onClick="not()" style="float:left;position:relative;left:45%;" />
+            </form>
+            <div class="cleaner"></div>
+        </div>
+    </div>
 </div>
-				<!--end-->
-    </div> 		
-	 	<footer id="footer"> 
+				<!--完成作业end-->
+    </div>
+	 	<footer id="footer">
 	 		  Copyright &copy; 2019广西民族大学软件与信息安全学院课程设计作业批改系统
-	 	</footer>	
+	 	</footer>
 </div>
 
 		<SCRIPT LANGUAGE="JavaScript">
