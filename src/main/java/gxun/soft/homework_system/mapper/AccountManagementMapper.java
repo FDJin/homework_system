@@ -15,11 +15,17 @@ import gxun.soft.homework_system.domain.Account;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 @Mapper
-public interface AccountMapper {
-    //用户登录
-    Account accountLogin(@Param("userId") Integer userId, @Param("password") String password);
-    int updatePassword(Account account);
-    Account findAccountById(Integer id);
+public interface AccountManagementMapper {
+
     int addAccount(Account account);
+
+    int updatePassword(Account account);
+
+    Account findAccountById(Integer id);
+
+    List<Account> getAllAccounts();
+
 }
