@@ -32,3 +32,4 @@
         $("#score").attr("class","");
 		$("#me").attr("class","");
 	});
+
