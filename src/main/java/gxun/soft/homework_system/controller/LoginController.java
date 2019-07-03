@@ -95,6 +95,7 @@ public class LoginController {
         } else {
             return "login";
         }
+
     }
     @GetMapping
     @RequestMapping(value = {"/loginout"})
