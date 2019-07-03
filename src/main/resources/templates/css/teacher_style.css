@@ -78,7 +78,7 @@ a:visited{
 	box-sizing: border-box;
 }
 
-a, a:link, a:visited { color: ##0eb4fa; text-decoration: underline; }
+a, a:link, a:visited { color: #0eb4fa; text-decoration: underline; }
 a:hover { text-decoration: none; }
 
 p { margin: 0 0 15px 0; padding: 0; }
@@ -258,15 +258,15 @@ a.btn_more span {
 }
 @font-face {
 	font-family:MarkaziText;
-	src: url(../teacher/font/MarkaziText-Regular.ttf);
+	src: url(../font/MarkaziText-Regular.ttf);
 }
 @font-face {
 	font-family:shuyan;
-	src: url(../teacher/font/shuyan.ttf);
+	src: url(../font/shuyan.ttf);
 }
 @font-face {
 	font-family:思源宋体;
-	src: url(../teacher/font/思源宋体.otf);
+	src: url(../font/思源宋体.otf);
 }
 
 .wrapper{
@@ -369,7 +369,7 @@ a.btn_more span {
 }*/
 
 #main {
-	float:left
+	float:left;
 	clear: both;
 	width: 80%;
 	padding: 30px 0;
@@ -395,15 +395,15 @@ a.btn_more span {
 }
 
 #frontpage_services .sp1 {
-	background: url(images/onebit_08.png) no-repeat center left;
+	background: url(../images/onebit_08.png) no-repeat center left;
 }
 
 #frontpage_services .sp2 {
-	background: url(images/onebit_12.png) no-repeat center left;
+	background: url(../images/onebit_12.png) no-repeat center left;
 }
 
 #frontpage_services .sp3 {
-	background: url(images/onebit_17.png) no-repeat center left;
+	background: url(../images/onebit_17.png) no-repeat center left;
 }
 
 .sp_services_box {
@@ -545,7 +545,7 @@ a.btn_more span {
 	
 	font-size: 21px;
 	padding: 5px 14px;
-	color: ##799FDD;
+	color: #799FDD;
 	border: 1px solid #6fb1c7;
 	background-image: -moz-linear-gradient(#aae5f7, #73d0f1);
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#73d0f1), to(#aae5f7));
@@ -640,7 +640,7 @@ a.btn_more span {
 	margin: 0 auto;
 	text-align: center;
 	color: #fff;
-	background: url(images/templatemo-footer.jpg) no-repeat;
+	background: url(../images/templatemo-footer.jpg) no-repeat;
 }
 
 #tc_footer a { color: #fff; }
