@@ -7,7 +7,6 @@ public class Work_question {
     private Integer workQuestionId;
     private Integer questionId;
     private Integer workId;
-    private String correctAnswerList;
 
     public Integer getWorkQuestionId() {
         return workQuestionId;
@@ -33,11 +32,4 @@ public class Work_question {
         this.workId = workId;
     }
 
-    public String getCorrectAnswerList() {
-        return correctAnswerList;
-    }
-
-    public void setCorrectAnswerList(String correctAnswerList) {
-        this.correctAnswerList = correctAnswerList;
-    }
-}
+ }
