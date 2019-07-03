@@ -89,10 +89,10 @@ public class LoginController {
                     return "teacher";
                 case 2:
                     return "admin";
-                    default: return "login";
+                    default: return "index";
             }
         } else {
-            return "login";
+            return "index";
         }
 
     }
