@@ -1,0 +1,313 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+@font-face {
+	font-family:MarkaziText;
+	src: url(../font/MarkaziText-Regular.ttf);
+}
+@font-face {
+	font-family:shuyan;
+	src: url(../font/shuyan.ttf);
+}
+@font-face {
+	font-family:思源宋体;
+	src: url(../font/思源宋体.otf);
+}
+
+.wrapper{
+	width: 1240px;
+	margin-left: auto;
+	margin-right: auto;
+	align-content: center;
+	overflow: scrool;
+}
+
+   /*头部*/
+#header{
+	margin-top: 5px;
+	height: 100px;
+	width: 100%;
+	margin-bottom: 10px;
+	border: 1px ;	
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	
+}
+#header_top{
+	width: 100%;
+	height: 80px;
+	text-align: center;
+	font-family: "微软雅黑";
+	font-size: -webkit-xxx-large;
+	color: cornflowerblue;	
+}
+#header_boom{
+	text-align: right;
+}
+#mytime{
+	margin-left: 50px;
+}
+
+	/*侧边栏*/
+.sidebar{
+	float: left;
+	width: 220px;
+	height: 800px;
+	margin-right: 20px;
+	margin-bottom: 5px;
+	padding: 10px;
+	background-color: rgba(	0,245,255,0.1);
+	font-family: "微软雅黑";
+	
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;	
+}
+.sidebar ul{
+	align-content: center;
+	list-style: none;
+	margin-left: 10px;
+}
+.sidebar li{
+	display: list-item;
+	text-align: -webkit-match-parent;
+	margin-top: 15px;
+	font-family: "微软雅黑";
+	color: black;
+	font-size: large;	
+}
+.sidebar h1{
+	color: #6495ED;
+	font-family: "微软雅黑";
+	font-size: xx-large;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+a:hover{
+	color: red;
+}
+a:visited{
+	color: #000000;
+}
+
+	/*中间内容*/	
+.content{	
+	float: left;
+	width: 80%;
+	height: 800px;
+	background-color: rgba(	135,206,250,0.1);
+	margin-bottom: 10px;	
+	padding: 10px;
+	
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#add_academy,#add_student{	
+	width: 360px;
+	height: 360px;
+	border: 1px  solid black;
+	float: left;
+	margin-left: 50px;
+	margin-top: 50px;
+}
+#add_class,#add_teacher{
+	width: 360px;
+	height: 360px;
+	border: 1px  solid black;
+	float: right;
+	margin-right: 50px;
+	margin-top: 50px;
+	position:relative;
+}
+
+#academy_top{
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	font-family: "微软雅黑";
+	font-size: 20px;
+}
+.input_control{
+	width: 80%;
+	height: 100%;
+	margin: 20px auto;
+}
+
+/*#academy_class,#student_teacher{
+	align-content: center;
+	float: left;
+	width: 100%;
+	height: 50%;
+}*/
+ input[type="text"]{
+	box-sizing: border-box;
+	text-align: center;
+	font-size: 15px;
+	height: 2.5em;
+	border-radius: 4px;
+	border: 1px solid #c8cccf;
+	color: #6a6f77;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	display: block;
+	outline: 0;
+	padding: 0 1em;
+	text-decoration: none;
+	width: 100%;
+}
+#submit:hover{
+	background: dodgerblue;
+}
+#submit{
+	margin-bottom: 10%;
+	margin-left: 30%;		
+	align-content: center;
+	box-sizing: border-box;
+	text-align: center;
+	font-size: 1.4em;
+	height: 1.5em;
+	border-radius: 4px;
+	border: 1px solid #c8cccf;
+	color: #6a6f77;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	display: block;
+	outline: 0;
+	padding: 0 1em;
+	text-decoration: none;
+	width: 40%;
+}
+input[type="text"]:focus,#add_class  input[type="text"]:focus,
+#add_student [type="text"]:focus,#add_teacher input[type="text"]:focus{
+	border:  1px solid #ff7496;
+}
+::-moz-placeholder{
+	color: #6A6F77;
+}
+input::-webkit-input-placeholder,#add_class,#add_class,#add_teacher  input::-webkit-input-placeholder,
+{
+	color: #6A6F77;
+}
+#add_class  input[type="text"]{
+	box-sizing: border-box;
+	text-align: center;
+	font-size: 1.0em;
+	height: 1.8em;
+	border-radius: 4px;
+	border: 1px solid #c8cccf;
+	color: #6a6f77;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	display: block;
+	outline: 0;
+	padding: 0 1em;
+	text-decoration: none;
+	width: 100%;
+}
+
+/*#add_class,#add_teacher{
+	width: 38%;
+	height: 100%;
+	border: 1px  solid black;
+	float: right;
+	margin-right: 50px;
+	margin-top: 50px;
+}*/
+
+#add_student input[type="text"],#add_teacher input[type="text"] {
+	float: right;
+	box-sizing: border-box;
+	text-align: center;
+	font-size: 0.8em;
+	height: 2.0em;
+	border-radius: 4px;
+	border: 1px solid #c8cccf;
+	color: #6a6f77;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	display: block;
+	outline: 0;
+	padding: 0 1em;
+	text-decoration: none;
+	width: 60%;
+}
+
+
+/*学生,老师*/
+#student_search{
+	float: left;
+	margin-top: 10px auto;
+	align-content: center;
+	width: 100%;
+	text-align: center;
+	margin-bottom: 8%;
+}
+#search_button{
+	float: right;
+	align-items: auto;
+	margin-left: 20px;
+	height: 35px;
+	width: 40px;
+}
+#search_input{
+
+	float: right;
+	text-align: center;
+	height: 35px;
+	width: 15% ;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #c0c0c0;
+   }
+
+th,td {
+    border: 1px solid #d0d0d0;
+    color: #404060;
+    padding: 10px;
+    }
+
+        th {
+            background-color: #09c;
+            font: bold 16px "微软雅黑";
+            color: #fff;
+        }
+
+        td {
+            font: 14px "微软雅黑";
+        }
+        tbody tr {
+            background-color: #f0f0f0;
+        }
+        tbody tr:hover {
+            cursor: pointer;
+            background-color: #fafafa;
+        }
+        
+   /*脚注*/
+#footer{
+	background: #93A5C4;
+	text-align: center;
+	height: auto;
+	clear: both;
+	padding: 10px;
+	text-align: center;
+	font-size: 15px;
+	
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}

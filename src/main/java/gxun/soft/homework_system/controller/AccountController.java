@@ -15,19 +15,4 @@ import gxun.soft.homework_system.domain.Account;
 @RequestMapping("/v1")
 public class AccountController {
 
-
-    @PostMapping("/login")
-    @ApiOperation(value = "用户统一登录")
-    public Object login(@RequestBody gxun.soft.homework_system.domain.Account object){
-
-        //用户名密码
-        String password = object.getPassword();
-        Integer userId = object.getUserId();
-
-        //登录验证
-
-
-
-        return "success";
-    }
 }

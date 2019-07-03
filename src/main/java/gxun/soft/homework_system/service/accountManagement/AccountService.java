@@ -1,16 +1,16 @@
 package gxun.soft.homework_system.service.accountManagement;
 
 import gxun.soft.homework_system.domain.Account;
-import gxun.soft.homework_system.mapper.AccountManagementMapper;
+import gxun.soft.homework_system.mapper.AccountMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class AccountManagementService {
+public class AccountService {
     @Autowired
-    AccountManagementMapper accountManagementMapper;
+    AccountMapper accountManagementMapper;
 
     /**
      * 新增账户

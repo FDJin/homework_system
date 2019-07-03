@@ -4,19 +4,19 @@ package gxun.soft.homework_system.controller;
 import gxun.soft.homework_system.domain.Account;
 import gxun.soft.homework_system.service.login.LoginService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
-@Api(value = "/")
+@Api(value = "登录")
 @Controller
-@RequestMapping("/")
 public class LoginController {
     @Autowired
     private LoginService loginService;
@@ -68,13 +68,15 @@ public class LoginController {
      * @param request
      * @return
      */
+    @ApiOperation(value = "登录")
    @PostMapping(value = {"/login"})
-    public String login(Account account, HttpServletRequest request, HttpSession session) {
+    public String login(Account account, @RequestBody HttpServletRequest request, HttpSession session) {
         Integer userId = Integer.parseInt(request.getParameter("userId"));
         String password = request.getParameter("password");
         account.setUserId(userId);
         account.setPassword(password);
         account =this.loginService.accountLogin(account);
+        System.out.println("account>>>>>>>"+account);
         if (account != null) {
             session=request.getSession();
             session.setAttribute("userId", userId);
@@ -88,7 +90,7 @@ public class LoginController {
                 case 1:
                     return "teacher";
                 case 2:
-                    return "admin";
+                    return "success";
                     default: return "index";
             }
         } else {
