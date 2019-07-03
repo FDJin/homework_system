@@ -34,4 +34,13 @@ public class Account {
     public void setAccountType(Integer accountType) {
         this.accountType = accountType;
     }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "userId=" + userId +
+                ", password='" + password + '\'' +
+                ", accountType=" + accountType +
+                '}';
+    }
 }

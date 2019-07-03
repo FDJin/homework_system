@@ -73,6 +73,7 @@ public class LoginController {
         String password = request.getParameter("password");
         account.setUserId(userId);
         account.setPassword(password);
+        System.out.println(account.toString());
         account =this.loginService.accountLogin(account);
         System.out.println("account>>>>>>>"+account);
         if (account != null) {
