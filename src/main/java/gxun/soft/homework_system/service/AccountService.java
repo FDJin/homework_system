@@ -1,11 +1,13 @@
 package gxun.soft.homework_system.service;
 
 import gxun.soft.homework_system.domain.Account;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 public interface AccountService {
+
     /**
      * 新增账户
      * @param account
@@ -21,11 +23,11 @@ public interface AccountService {
     int updatePassword(Account account);
 
     /**
-     * 按ID查找账户
-     * @param id
+     * 按userId查找账户
+     * @param userId
      * @return
      */
-    Account findAccountById(Integer id);
+    Account findAccountByUserId(Integer userId);
 
     /**
      * 查找所有用户
