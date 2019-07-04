@@ -1,24 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>题库管理</title>
+<style>
+    /*修改密码*/
+    .box{
+        width:400px; margin-top:10%; margin:auto; padding:28px;
+        height:350px; border:1px #111 solid;
+        display:none;            /* 默认对话框隐藏 */
+        background-color: #E5F1FB;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        margin-left: -120px;
+        margin-top: -120px;
+    }
+    .box.show{display:block;}
+    .box .x{ font-size:18px; text-align:right; display:block;}
+    .box input{width:25%; font-size:18px; margin-top:5px;}
+</style>
+
 </head>
 <body>
+
 <!--<input type="button" onclick="refurbishIndex()" value="点击查看所有"/>-->
     <div>
-        <a href="/questionAdd">添加</a>
+       <!-- <a id="add1" href="/questionAdd" onClick="msgbox(1)">添加</a>-->
+        <input type="button" value="添加" id="update_submit" name="submit"   onClick="msgbox(1)"/>
+        <!--修改密码界面-->
+        <div id="inputbox" class="box">
+            <a class='x' href=''; onclick="msgbox(0); return false;" >返回</a>
+            <div class="form-group" align="center">
+                <input  type="button" value="选择题" id="button1" name="submit" onClick="window.location.reload('OptionalQuestion.html');" ><br><br>
+                <input  type="button" value="填空题" id="button2" name="submit"  onClick="window.location.reload('FillBlankQuestion.html');"><br><br>
+                <input  type="button" value="简答题" id="button3" name="submit"  onClick="window.location.reload('WritingQuestion.html');"><br><br>
+            </div>
+        </div>
+        <script>
+            function msgbox(n){
+                document.getElementById('inputbox').style.display=n?'block':'none';     /* 点击按钮打开/关闭 对话框 */
+            }
+        </script>
     </div>
 
     <form class="form-inline m-t-15 m-b-10">
         <div class="form-group form-group-sm">
-            <label>题目类型：</label>
-            <select class="form-control">
-                <!--<option value="-1">-请选择-</option>-->
-                <option value="0">选择题</option>
-                <option value="1">填空题</option>
-                <option value="2">简答题</option>
-            </select>
             <!--<input type="text" class="form-control" size="8">-->
         </div>
         <div class="form-group form-group-sm">
@@ -36,7 +63,7 @@
         <tr>
             <th>编号</th>
             <th>题目</th>
-            <th>操作&nbsp;&nbsp;删除</th>
+            <th>操作</th>
         </tr>
         <tbody id="tbodydata"></tbody>
     </table>
@@ -57,7 +84,7 @@
     });
 
     //删除
-    function del(workId) {
+    function del(questionId) {
         $.ajax({
             type: "get",
             url: "/questionDelete/" + questionId,
