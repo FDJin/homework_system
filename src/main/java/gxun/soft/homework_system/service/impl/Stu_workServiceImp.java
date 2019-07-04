@@ -5,9 +5,11 @@ import gxun.soft.homework_system.domain.Stu_work;
 import gxun.soft.homework_system.mapper.Stu_workMapper;
 import gxun.soft.homework_system.service.Stu_workService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class Stu_workServiceImp implements Stu_workService {
 
     @Autowired

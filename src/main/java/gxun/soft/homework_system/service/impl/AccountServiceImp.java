@@ -4,9 +4,11 @@ import gxun.soft.homework_system.domain.Account;
 import gxun.soft.homework_system.mapper.AccountMapper;
 import gxun.soft.homework_system.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class AccountServiceImp implements AccountService {
 
     @Autowired

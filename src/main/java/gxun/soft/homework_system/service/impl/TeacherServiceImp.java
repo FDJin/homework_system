@@ -6,11 +6,13 @@ import gxun.soft.homework_system.mapper.AccountMapper;
 import gxun.soft.homework_system.mapper.TeacherMapper;
 import gxun.soft.homework_system.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
 
+@Service
 public class TeacherServiceImp implements TeacherService {
 
     @Autowired

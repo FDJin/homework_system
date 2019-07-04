@@ -7,11 +7,13 @@ import gxun.soft.homework_system.mapper.AdminMapper;
 import gxun.soft.homework_system.service.AccountService;
 import gxun.soft.homework_system.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
 
+@Service
 public class AdminServiceImp implements AdminService {
 
     @Autowired

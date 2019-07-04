@@ -4,9 +4,11 @@ import gxun.soft.homework_system.domain.Work_class;
 import gxun.soft.homework_system.mapper.Work_classMapper;
 import gxun.soft.homework_system.service.Work_classService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class Work_classServiceImp implements Work_classService {
 
     @Autowired
