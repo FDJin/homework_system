@@ -53,7 +53,7 @@
 
 						<div class="form-group">
 							<div class="col-md-10 col-md-offset-2">
-								<button type="submit" class="btn btn-primary">保存</button>
+								<button type="submit" onclick="addStudent()" class="btn btn-primary">保存</button>
 								<a th:href="@{studentAdd}"  class="btn btn-default">取消</a>
 							</div>
 						</div>
@@ -89,21 +89,21 @@
 	}).on("changeDate", function () {
 		validator.element(this);
 	});
-    function add () {
+    function addStudent() {
         var stuId=$("input[name='stuId']").val();
         var stuName=$("input[name='stuName']").val();
         var classId=$("input[name='classId']").val();
         $.ajax({
             url:'/addTeacher',
             type:"post",
-            dataType:"text",
+            dataType:"json",
             data:{"stuId":stuId,"stuName":stuName,"classId":classId},
             success:function(data){
                 window.alert("添加成功");
-                window.location.href='/teacher'
+                window.location.href='/student'
             },
             error:function () {
-                window.alert("添加失败");
+                window.alert("添加失败,请确认输入是否正确");
             }
         });
     };
