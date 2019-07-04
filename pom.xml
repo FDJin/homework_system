@@ -130,6 +130,13 @@
             <version>${commons-lang3.version}</version>
         </dependency>
 
+        <!--thymeleaf的编码规范过于严格，使用此依赖就可以完美解决Thymeleaf对Html代码及JS代码转义的问题-->
+        <!--<dependency>-->
+            <!--<groupId>net.sourceforge.nekohtml</groupId>-->
+            <!--<artifactId>nekohtml</artifactId>-->
+            <!--<version>1.9.21</version>-->
+        <!--</dependency>-->
+
     </dependencies>
 
 

@@ -6,9 +6,7 @@
 </head>
 <body>
 <!--<input type="button" onclick="refurbishIndex()" value="点击查看所有"/>-->
-<div>
-    <a href="/workAdd">发布作业</a>
-</div>
+
 <table id="list">
     <tr>
         <th>作业ID</th>
@@ -28,7 +26,7 @@
     //点击查看所有
     $(function () {
             var res = $.ajax({
-                url:"/findAllGradeList",
+                url:"/findMyGradeList",
                 type:"get",
                 dataType:"json",
                 success:function (data) {
@@ -66,7 +64,7 @@
                     "<td >"+data[i]['score']+"</td>\n" +
                     "<td>\n" +
                     "<td>"
-                    // +
+                //     +
                 //     // "<input type='button' id='upBtn' value='修改'/>"
                 // "<a href=\"/workUpdate?id="+data[i].workId+"\">修改</a>&nbsp;&nbsp;\n"
                 //     +"<input type='button' id='delBtn' value='删除' onclick='del("+data[i].id+")'/>"+"</td>"+
