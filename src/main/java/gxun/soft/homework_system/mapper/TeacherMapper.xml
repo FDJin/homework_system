@@ -7,7 +7,7 @@
     </insert>
     
     <delete id="deleteTeacherByTeacherId" parameterType="int">
-        delete from teacher where teaId = #{teaId}
+        delete from account where userId = #{teaId}
     </delete>
 
     <select id="findTeacherByTeacherId" parameterType="int" resultType="gxun.soft.homework_system.domain.Teacher">
