@@ -15,7 +15,7 @@
     </select>
 
     <select id="findTeacherByTeacherName" parameterType="String" resultType="gxun.soft.homework_system.domain.Teacher">
-        select * from teacher where teaName = #{teaName}
+        select * from teacher where teaName like "%"#{teaName}"%"
     </select>
 
     <select id="findTeacherByClassId" parameterType="int" resultType="gxun.soft.homework_system.domain.Teacher">
