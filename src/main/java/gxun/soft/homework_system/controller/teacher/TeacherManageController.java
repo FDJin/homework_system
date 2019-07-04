@@ -34,5 +34,4 @@ public class TeacherManageController {
         JSONArray teacherListJsonArray = ToJsonArray.teacherListToJsonArray(teacherList);
         return teacherListJsonArray;
     }
-
 }
