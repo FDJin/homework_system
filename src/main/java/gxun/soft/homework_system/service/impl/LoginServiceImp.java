@@ -21,7 +21,6 @@ public class LoginServiceImp implements LoginService {
      */
     @Override
     public Account accountLogin(@Param("account") Account account){
-        System.out.println("account>>>>>>>>>!!!!!"+account.toString());
         account = loginMapper.accountLogin(account);
         return account;
     }

@@ -22,11 +22,43 @@ public class ClassManageController {
     @Autowired
     private MyClassService myClassService;
 
-    @ApiOperation(value = "班级管理")
+    @ApiOperation(value = "班级列表")
     @GetMapping("/classList")
     public String getClassList(Model model){
         List<MyClass> myClassList = myClassService.getAllClasses();
         model.addAttribute("myClassList", myClassList);
         return "admin/classList";
     }
+
+    @ApiOperation(value = "班级查询")
+    @GetMapping("/findByClassName")
+    public String findByClassName(@Param("className")String className, Model model){
+        List<MyClass> myClassList = myClassService.findClassByClassName(className);
+        model.addAttribute("myClassList", myClassList);
+        return "admin/classList";
+    }
+
+    @ApiOperation(value = "班级添加")
+    @GetMapping("/addClass")
+    public String findByClassName(@Param("className")String className,@Param("classId") Integer classId,
+                                   Model model){
+        MyClass myClass = new MyClass();
+        myClass.setClassId(classId);
+        myClass.setClassName(className);
+        myClassService.addClass(myClass);
+        List<MyClass> myClassList = myClassService.getAllClasses();
+        model.addAttribute("myClassList", myClassList);
+        return "admin/classList";
+    }
+
+    @ApiOperation(value = "班级删除")
+    @GetMapping("/deleteClass")
+    public String findByClassName(@Param("classId") Integer classId,
+                                  Model model){
+        myClassService.deleteClassByClassId(classId);
+        List<MyClass> myClassList = myClassService.getAllClasses();
+        model.addAttribute("myClassList", myClassList);
+        return "admin/classList";
+    }
+
 }
