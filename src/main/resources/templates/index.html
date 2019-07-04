@@ -1,87 +1,121 @@
-<!DOCTYPE html>
-<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE HTML>
+<html lang="zxx"
+	  xmlns:th="http://www.thymeleaf.org">
+
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>登录账号</title>
+	<!-- Meta tag Keywords -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>欢迎登录</title>
-	<link th:href="@{/css/bootstrap.min.css}"  rel="stylesheet">
-	<link th:href="@{/css/style.css}" rel="stylesheet">
+	<meta charset="UTF-8" />
+	<meta name="keywords" content=""
+	/>
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+		function check() {
+            var Login = document.getElementById('Login');
+            var Username = document.getElementById('username').value;
+            var Password = document.getElementById('password').value;
+            var check_Name = /^\d{8,12}$/;
+            var check_password = /^[\d_a-zA-Z]{6,20}$/;
+            //提交表单的事件监听
+            Login.onsubmit = function (){
+                if(check_Name.test(Username)&&check_password.test(Password))
+                    return true;
+                else {
+                    alert("格式不正确！");
+                    return false;
+				}
+            }
+        }
+	</script>
+	<!-- Meta tag Keywords -->
+	<!-- css files -->
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+	<link th:href="@{/css/style.css}"  rel="stylesheet">
+	<!-- Style-CSS -->
+	<link rel="stylesheet" href="css/fontawesome-all.css">
+	<link th:href="@{/css/fontawesome-all.css}"  rel="stylesheet">
+	<!-- Font-Awesome-Icons-CSS -->
+	<!-- //css files -->
+	<!-- web-fonts -->
+	<link href="http://maxcdn.bootstrapcdn.com/css?family=Josefin+Sans:100,100i,300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+	<link th:href="@{http://maxcdn.bootstrapcdn.com/css?family=Josefin+Sans:100,100i,300,300i,400,400i,600,600i,700,700i}"  rel="stylesheet">
+	<link href="http://maxcdn.bootstrapcdn.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+	<link th:href="@{http://maxcdn.bootstrapcdn.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i}"  rel="stylesheet">
+	<!-- //web-fonts -->
 </head>
 
 <body>
-	<div class="login-half-bg">
-		<div class="cover"></div>
+	<!-- bg effect -->
+	<div id="bg">
+		<canvas></canvas>
+		<canvas></canvas>
+		<canvas></canvas>
 	</div>
-
-	<div class="container">
-		<form class="login-form" th:action="@{/login}" action="/login" method="post">
-			<h4 class="login-head">SIGN IN</h4>
-
-			<div class="form-group has-feedback">
-				<!--<label class="control-label">USERNAME</label>-->
-				<input type="text" class="form-control" name="userId" placeholder="帐号">
-				<span class="glyphicon glyphicon-user form-control-feedback"></span>
-			</div>
-
-			<div class="form-group has-feedback">
-				<!--<label class="control-label">PASSWORD</label>-->
-				<input type="password" class="form-control" name="password" placeholder="密码">
-				<span class="glyphicon glyphicon-lock form-control-feedback"></span>
-			</div>
-
-
-			<div class="form-group">
-				<label class="checkbox-inline">
-					<input type="checkbox" id="rememberMe">记住我
+	<!-- //bg effect -->
+	<!-- title -->
+	<h1>作业批改系统</h1>
+	<!-- //title -->
+	<!-- content -->
+	<div class="sub-main-w3">
+		<form action="#" method="post" id="Login">
+			<h2>请登录
+				<i class="fas fa-level-down-alt"></i>
+			</h2>
+			<div class="form-style-agile">
+				<label>
+					<i class="fas fa-user"></i>
+					账号
 				</label>
-				<a href="#" class="pull-right">忘记密码?</a>
+				<input placeholder="请输入账号" name="Name" id="username" type="text" required="">
 			</div>
-
-
-			<div style="color: red" th:text="${errormsg}">
-
+			<div class="form-style-agile">
+				<label>
+					<i class="fas fa-unlock-alt"></i>
+					密码
+				</label>
+				<input placeholder="请输入密码" name="Password"  id="password" type="password" required="">
 			</div>
-
-			<div class="form-group">
-				<button type="submit" class="btn btn-primary btn-block">登录</button>
+			<!-- checkbox -->
+			<div class="wthree-text">
+				<ul>
+					<li>
+						<label class="anim">
+							<input type="checkbox" class="checkbox" id="btn_login">
+							<span>记住登录状态</span>
+						</label>
+					</li>
+					<li>
+						<a href="#">忘记密码</a>
+					</li>
+				</ul>
 			</div>
+			<!-- //checkbox -->
+			<input type="submit" value="登录" onClick="return check()">
 		</form>
-	</div><!--/.container-->
+	</div>
+	<!-- //content -->
 
+	<!-- copyright -->
+	<div class="footer">
+		<p>Copyright &copy; 2019广西民族大学软件与信息安全学院课程设计作业批改系统</p>
+	</div>
+	<!-- //copyright -->
 
-	<script th:src="@{/js/jquery-1.12.4.min.js}" ></script>
-	<script th:src="@{/js/jquery.validate.min.js}"></script>
-	<script th:src="@{/js/bootstrap.min.js}" ></script>
-	<script th:src="@{/plugins/layer/layer.js}"></script>
-	<script th:src="@{/js/base.js}"></script>
-	<script>
+	<!-- Jquery -->
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<!-- //Jquery -->
 
-		/* 表单验证 */
-		$(".login-form").validate({
-			rules: {
-				username: {
-					required: true
-				},
-				password: {
-					required: true
-				},
-			},
-			messages: {
-				username: {
-					required: "请输入帐号"
-				},
-				password: {
-					required: "请输入密码"
-				},
-			},
-			submitHandler: function (form) {
-				//alert($(form).serialize());
-				form.submit();
-			}
-		});
-
-	</script>
-
+	<!-- effect js -->
+	<script src="js/canva_moving_effect.js"></script>
+	<!-- //effect js -->
 </body>
+
 </html>
