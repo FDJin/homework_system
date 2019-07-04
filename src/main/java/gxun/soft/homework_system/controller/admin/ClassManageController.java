@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiOperation;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,10 +31,11 @@ public class ClassManageController {
     @ApiOperation(value = "查询所有班级")
     @ResponseBody
     @GetMapping("/findAllClassList")
-    public JSONArray getClassList(){
+    public String getClassList(Model model){
         List<MyClass> myClassList = myClassService.getAllClasses();
-        JSONArray classListJsonArray = ToJsonArray.classListToJsonArray(myClassList);
-        return classListJsonArray;
+        model.addAttribute("myClassList", myClassList);
+//        JSONArray classListJsonArray = ToJsonArray.classListToJsonArray(myClassList);
+        return null;
     }
 //
 //    @ApiOperation(value = "班级模糊查询")

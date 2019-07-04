@@ -9,6 +9,7 @@ import gxun.soft.homework_system.service.TeacherService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -29,9 +30,10 @@ public class TeacherManageController {
     @ApiOperation(value = "查询所有老师")
     @ResponseBody
     @GetMapping("/findAllTeacherList")
-    public JSONArray getClassList(){
+    public String getClassList(Model model){
         List<Teacher> teacherList = teacherService.getAllTeacher();
-        JSONArray teacherListJsonArray = ToJsonArray.teacherListToJsonArray(teacherList);
-        return teacherListJsonArray;
+        model.addAttribute("teacherList",teacherList);
+//        JSONArray teacherListJsonArray = ToJsonArray.teacherListToJsonArray(teacherList);
+        return null;
     }
 }
