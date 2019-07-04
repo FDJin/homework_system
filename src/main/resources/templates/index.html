@@ -4,101 +4,84 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>作业批改系统</title>
+	<title>欢迎登录</title>
 	<link th:href="@{/css/bootstrap.min.css}"  rel="stylesheet">
 	<link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 
 <body>
+	<div class="login-half-bg">
+		<div class="cover"></div>
+	</div>
 
-<header th:include="include/header :: header"></header>
-
-<article>
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="content">
+		<form class="login-form" th:action="@{/login}" action="/login" method="post">
+			<h4 class="login-head">SIGN IN</h4>
 
-					<h4>欢迎使用《作业批改系统》</h4>
-					<hr>
+			<div class="form-group has-feedback">
+				<!--<label class="control-label">USERNAME</label>-->
+				<input type="text" class="form-control" name="userId" placeholder="帐号">
+				<span class="glyphicon glyphicon-user form-control-feedback"></span>
+			</div>
 
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<b>运行环境信息</b>
-						</div>
-						<table class="table table-bordered">
-							<tr>
-								<td class="active text-center" width="150">运行环境</td>
-								<td>
-									Java(TM) SE Runtime Environment 1.8.0_161-b12
-								</td>
-							</tr>
-							<tr>
-								<td class="active text-center">内存消耗</td>
-								<td>
+			<div class="form-group has-feedback">
+				<!--<label class="control-label">PASSWORD</label>-->
+				<input type="password" class="form-control" name="password" placeholder="密码">
+				<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+			</div>
 
-									<div class="progress m-b-0">
-										<div class="progress-bar progress-bar-info"
-										     aria-valuemin="0"
-										     aria-valuemax="100"
-										     aria-valuenow="18.08"
-										     style="width:18.08%">
-											<span>18.08 %</span>
-										</div>
-									</div>
-									<span>71.78M</span> /
-									<span>397.0M</span>
-								</td>
-							</tr>
-						</table>
-					</div>
 
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<b>服务器信息</b>
-						</div>
-						<table class="table table-bordered">
-							<tr>
-								<td class="active text-center" width="150">服务器名称</td>
-								<td>
-									localhost [0:0:0:0:0:0:0:1]
-								</td>
-							</tr>
-							<tr>
-								<td class="active text-center">操作系统</td>
-								<td>
-									Windows 10 64 CN  zh
-								</td>
-							</tr>
-							<tr>
-								<td class="active text-center">用户目录</td>
-								<td>/</td>
-							</tr>
-							<tr>
-								<td class="active text-center">服务器时间</td>
-								<td>
-									Tue Nov 13 22:12:28 CST 2018 Asia/Shanghai
-								</td>
-							</tr>
-						</table>
-					</div>
+			<div class="form-group">
+				<label class="checkbox-inline">
+					<input type="checkbox" id="rememberMe">记住我
+				</label>
+				<a href="#" class="pull-right">忘记密码?</a>
+			</div>
 
-				</div><!--/.content-->
-			</div><!--/.col-md-12-->
-		</div><!--/.row-->
+
+			<div style="color: red" th:text="${errormsg}">
+
+			</div>
+
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary btn-block">登录</button>
+			</div>
+		</form>
 	</div><!--/.container-->
-</article>
 
-<footer>
-	<p class="copyright">
-		&copy;2019 <a href="#"></a> 作业批改系统
-	</p>
-</footer>
 
-<script th:src="@{/js/jquery-1.12.4.min.js}" ></script>
-<script th:src="@{/js/bootstrap.min.js}" ></script>
-<script th:src="@{/plugins/layer/layer.js}"></script>
-<script th:src="@{/js/base.js}"></script>
+	<script th:src="@{/js/jquery-1.12.4.min.js}" ></script>
+	<script th:src="@{/js/jquery.validate.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}" ></script>
+	<script th:src="@{/plugins/layer/layer.js}"></script>
+	<script th:src="@{/js/base.js}"></script>
+	<script>
+
+		/* 表单验证 */
+		$(".login-form").validate({
+			rules: {
+				username: {
+					required: true
+				},
+				password: {
+					required: true
+				},
+			},
+			messages: {
+				username: {
+					required: "请输入帐号"
+				},
+				password: {
+					required: "请输入密码"
+				},
+			},
+			submitHandler: function (form) {
+				//alert($(form).serialize());
+				form.submit();
+			}
+		});
+
+	</script>
 
 </body>
 </html>

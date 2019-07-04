@@ -31,9 +31,9 @@
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a th:href="@{index}"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
-					<li><a th:href="@{workList}" ><span class="glyphicon glyphicon-list"></span> 作业管理</a></li>
-					<li><a th:href="@{questionList}"><span class="glyphicon glyphicon-user"></span> 题库管理</a></li>
-					<li><a th:href="@{gradesList}"><span class="glyphicon glyphicon-grain"></span> 成绩管理</a></li>
+					<li><a th:href="@{/teacher/workList}" ><span class="glyphicon glyphicon-list"></span> 作业管理</a></li>
+					<li><a th:href="@{/teacher/questionList}"><span class="glyphicon glyphicon-user"></span> 题库管理</a></li>
+					<li><a th:href="@{/teacher/gradesList}"><span class="glyphicon glyphicon-grain"></span> 成绩管理</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
@@ -46,7 +46,7 @@
 							<li><a th:href="@{updateprofile}">个人资料</a></li>
 							<li><a th:href="@{updatepassword}">修改密码</a></li>
 							<li role="separator" class="divider"></li>
-							<li><a href="../login.html">退出</a></li>
+							<li><a href="../index.html">退出</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -79,7 +79,7 @@
 						<div class="form-group">
 							<label class="control-label col-md-2">作业名称：</label>
 							<div class="col-md-4">
-								<label th:value="*{workName}"  name="workName" type="text" class="form-control" />
+								<input th:value="*{workName}"  name="workName" type="text" class="form-control" />
 							</div>
 						</div>
 
@@ -107,7 +107,7 @@
 						<div class="form-group">
 							<div class="col-md-4 col-md-offset-2">
 								<button type="submit" class="btn btn-primary">保存</button>
-								<a th:href="@{update_classes}" class="btn btn-default">取消</a>
+								<a th:href="@{/teacher/workUpdate}" class="btn btn-default">取消</a>
 							</div>
 						</div>
 					</form>

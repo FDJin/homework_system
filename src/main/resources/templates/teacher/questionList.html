@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>题库管理</title>
+</head>
+<body>
+<!--<input type="button" onclick="refurbishIndex()" value="点击查看所有"/>-->
+<div>
+    <a href="/questionAdd">添加</a>
+</div>
+
+<table id="list">
+    <tr>
+        <th>编号</th>
+        <th>题目</th>
+        <th>操作&nbsp;&nbsp;删除</th>
+    </tr>
+    <tbody id="tbodydata"></tbody>
+</table>
+</body>
+</html>
+<script src="../js/jquery-1.12.4.min.js" ></script>
+<script type="text/javascript">
+    //点击查看所有
+    $(function () {
+            var res = $.ajax({
+                url:"/findQuestionList",
+                type:"get",
+                dataType:"json",
+                success:function (data) {
+                    render.list(data);
+                }
+            });
+    });
+    //删除
+    function del(workId){
+        $.ajax({
+            type:"get",
+            url:"/questionDelete/"+questionId,
+            dataType:"json",
+            success:function(data){
+                alert("删除成功");
+                render.list(data);
+            },
+            error:function (data) {
+                alert("删除失败");
+            }
+        });
+    };
+
+    var render = {
+        list:function (data) {
+            var html = '';
+            for (var i = 0; i < data.length; i++) {
+                var d = data[i];
+                html += "<tr >" +
+                    "<td >"+data[i]['questionId']+"</td>\n" +
+                    "<td >"+data[i]['questionType']+"</td>\n" +
+                    "<td >"+d['details']+"</td>\n" +
+                    "<td >"+d['correctAnswer']+"</td>\n" +
+                    "<td>\n" +
+                    "<td>"+
+                    // "<input type='button' id='upBtn' value='修改'/>"
+                "<a href=\"/questionUpdate?id="+data[i].questionId+"\">修改</a>&nbsp;&nbsp;\n"
+                    +"<input type='button' id='delBtn' value='删除' onclick='del("+data[i].questionId+")'/>"+"</td>"+
+                    "</tr>\n";
+            }
+            $("#tbodydata").html(html);
+        }
+    }
+</script>
