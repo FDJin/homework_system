@@ -6,7 +6,7 @@
         insert into student(stuId, classId, stuName) values (#{student.stuId},#{student.classId},#{student.stuName})
     </insert>
     
-    <delete id="deleteStudentById" parameterType="int">
+    <delete id="deleteStudentByStudentId" parameterType="int">
         delete from account where userId = #{stuId}
     </delete>
 
