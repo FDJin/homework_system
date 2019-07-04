@@ -1,0 +1,337 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>作业批改系统</title>
+
+
+<link href="teacher/css/teacherindex_style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.min.js"></script>
+
+
+</head>
+
+<body>
+	<div id="allbig">
+		<div id="whole">
+          <div class="cleaner"></div>
+		  <div id="menu">
+            <div class ="col_w200">
+            <h1> 题库界面</h1>
+            </div>
+            <div class="col_w200"></div>
+				<ul>
+					<li><a id="qe_choice" href="#" class="current">选择题</a></li>
+					<li><a id="qe_blank" href="#">填空题</a></li>
+					<li><a id="qe_judge" href="#" >判断题</a></li>
+					<li><a id="qe_calc" href="#">应用题</a></li>
+				</ul>
+
+                
+			</div>
+			
+			
+			<div class="col_w200">
+
+<div class="col_w200" style="height:30px;font-size: 28px;">
+<div class="current"></div>
+
+<div id="qe_form">
+  <form>
+<p>搜索题目：
+<input type="text" placeholder="请输入作业题目"  id="find_work1" class="input_field" size="20" m
+style="height:25px"/>
+             <input type="submit" value="搜索" id="btn_find" class="submit_btn float_l" style="float:left;position:relative;left:70%;+margin-top:1px;" /></p>
+          
+</form> 
+      
+			
+			<!-- end of templatemo_menu -->
+
+<div id="main">
+<div id="d1" class="col_w700">
+<div class="col_w200">
+
+<h2>选择题
+<input type="submit" value="添加题目" id="add_1" name="submit" class="submit_btn float_l"style="float:right;position:relative;right:2%; margin-top: 6px;font-size: 20px;" />
+</h2>
+</div>
+
+<div class="col_w500">
+
+<div class="col_w300" style="height:90px;font-size: 28px;">
+<div class="cleaner_h10"></div>
+
+<div id="tc_form">
+  
+
+  <TABLE border=0 cellpadding=1 cellspacing=1 id="table_work" width="800"  style="font-size: 18px;">
+	 		        <thead>
+	 		          <TR style="background:#999FDD;">
+	 		          
+								
+								<th class="style1"></th>
+								<th class="style2">题目</th>
+								<th class="style3">操作</th>
+
+ 		              </TR>
+ 		            </thead>
+	 		        <tbody>
+	 		          <tr class="tr_work">
+	 		           
+								<td class="style1">1</td>
+								<td class="style2">080606110</td>
+								<td th:text=
+								<td class="style3">
+									<a href="#" id="modify_1">修改</a>&nbsp;&nbsp;
+									<a href="#" id="del_1" onclick="javascript:return del();">删除</a>
+								</td>
+ 		             
+ 		            </tbody>
+ 		          </TABLE>
+
+</div>
+</div>
+</div>
+</div>
+ 
+ 
+<div id="d2" class="col_w700">
+<div class="col_w200">
+<h2>填空题
+<input type="submit" value="添加题目" id="add_2" name="submit" class="submit_btn float_l"style="float:right;position:relative;right:2%; margin-top: 6px;font-size: 20px;" />
+</h2>
+</div>
+
+<div class="col_w500">
+
+<div class="col_w300" style="height:90px;font-size: 28px;">
+<div class="cleaner_h10"></div>
+
+<div id="tc_form">
+  
+
+  <TABLE border=0 cellpadding=1 cellspacing=1 id="table_work" width="800"  style="font-size: 18px;">
+	 		        <thead>
+	 		          <TR style="background:#999FDD;">
+	 		          
+								
+								<th class="style1"></th>
+								<th class="style2">题目</th>
+								<th class="style3">操作</th>
+
+ 		              </TR>
+ 		            </thead>
+	 		        <tbody>
+	 		          <tr class="tr_work">
+	 		           
+								<td class="style1">1</td>
+								<td class="style2">080606110</td>
+								<td class="style3" th:text=
+								<td>
+									<a href="#" id="modify_2">修改</a>&nbsp;&nbsp;
+									<a href="#" id="del_2" onclick="javascript:return del();">删除</a>
+								</td>
+ 		             
+ 		            </tbody>
+ 		          </TABLE>
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div id="d5" class="col_w700">
+<div class="col_w200">
+
+<h2>判断题
+<input type="submit" value="添加题目" id="add_3" name="submit" class="submit_btn float_l"style="float:right;position:relative;right:2%; margin-top: 6px;font-size: 20px;" />
+</h2>
+</div>
+
+<div class="col_w500">
+
+<div class="col_w300" style="height:90px;font-size: 28px;">
+<div class="cleaner_h10"></div>
+
+<div id="tc_form">
+  
+
+  <TABLE border=0 cellpadding=1 cellspacing=1 id="table_work" width="800"  style="font-size: 18px;">
+	 		        <thead>
+	 		          <TR style="background:#999FDD;">
+	 		           
+								
+								<th class="style1"></th>
+								<th class="style2">题目</th>
+								<th class="style3">操作</th>
+
+ 		              </TR>
+ 		            </thead>
+	 		        <tbody>
+	 		          <tr class="tr_work">
+	 		            
+								<td class="style1">1</td>
+								<td class="style2">080606110</td>
+								<td class="style3" th:text=
+								<td>
+									<a href="#" id="modify_3">修改</a>&nbsp;&nbsp;
+									<a href="#" id="del_3" onclick="javascript:return del();">删除</a>
+								</td>
+ 		             
+ 		            </tbody>
+ 		          </TABLE>
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div id="d3" class="col_w700"  >
+<div class="col_w300">
+<h2>题目</h2>
+</div>
+
+<div class="col_w500" >
+
+       	  <div id="tc_form">
+
+                
+                 <p>&nbsp;</p>
+                <form  action="#"  id="tc_correct_form" method="post">
+                
+                 
+                 <div class="cleaner_h10"></div>
+                 <div class="cleaner_h10"></div>
+                  <label>题目内容：
+                <textarea    id="correct_content" disable="false" ></textarea>
+                  </label>
+                    <div class="cleaner_h10"></div>  
+                            
+						<div class="cleaner_h10"></div>
+                 <div class="cleaner_h10"></div>
+					<input type="submit" value="取消" id="correct_submit" name="submit" class="submit_btn float_l"  style="float:left;position:relative;left:25%;" />
+					<input type="submit" value="确定" id="correct_modification" name="modification" class="submit_btn float_l"  style="float:right;position:relative;right:25%;" />
+                 </form>  
+       	 
+
+              	<div class="cleaner"></div>
+            
+            </div>
+             </div>
+</div>
+
+
+
+
+<div id="d4" class="col_w700">
+<div class="col_w200">
+<h2>应用题
+<input type="submit" value="添加题目" id="add_4" name="submit" class="submit_btn float_l"style="float:right;position:relative;right:2%; margin-top: 6px;font-size: 20px;" />
+</h2>
+</div>
+
+<div class="col_w500">
+
+<div class="col_w300" style="height:90px;font-size: 28px;">
+<div class="cleaner_h10"></div>
+
+<div id="tc_form">
+  
+
+  <TABLE border=0 cellpadding=1 cellspacing=1 id="table_work" width="800"  style="font-size: 18px;">
+	 		        <thead>
+	 		          <TR style="background:#999FDD;">
+	 		           	
+								
+								<th class="style1"></th>
+								<th class="style2">题目</th>
+								<th class="style3">操作</th>
+
+ 		              </TR>
+ 		            </thead>
+	 		        <tbody>
+	 		          <tr class="tr_work">
+	 		           
+								<td class="style1">1</td>
+								<td class="style2">080606110</td>
+								<td class="style3" th:text=
+								<td>
+									<a href="#" id="modify_4">修改</a>&nbsp;&nbsp;
+									<a href="#" id="del_4" onclick="javascript:return del();">删除</a>
+								</td></tr>
+ 		             
+ 		            </tbody>
+ 		          </TABLE>
+
+</div>
+</div>
+
+</div>
+</div>
+
+<!--添加题目-->
+<div id="add" class="col_w700" >
+   <div class="col_w300">
+       <h2>添加题目</h2>
+   </div>
+   
+   <div class="col_w500">
+       	  <div id="tc_form">               
+                 <p>&nbsp;</p>
+                 <form  action="#"  id="tc_correct_form" method="post">                    
+                      <div class="cleaner_h10"></div>
+                      <div class="cleaner_h10"></div>
+                      <label>题目内容：
+                           <textarea    id="correct_add" style = "height:500px;width:775px;margin-top:10px;margin-left:10px;font-size:20px" ></textarea>
+                      </label>
+					  
+                      <div class="cleaner_h10"></div>                           
+					  <div class="cleaner_h10"></div>
+                      <div class="cleaner_h10"></div>
+					  <input type="submit" value="取消" id="back_add" name="submit" class="submit_btn float_l"  style="float:left;position:relative;left:25%;font-size:20px;" />
+					  <input type="submit" value="确定" id="sure_add" name="modification" class="submit_btn float_l"  style="float:right;position:relative;right:25%;font-size:20px" />
+           	          <div class="cleaner"></div>
+				</form>	  
+            
+          </div>
+    </div>
+  </div>
+<!--添加题目end-->
+
+</div>
+
+		<!-- end of wrapper -->
+
+
+    
+<script src="js/divchange.js"></script>
+<SCRIPT LANGUAGE="JavaScript">
+
+window.onload = function() {
+
+doubleBgColor(document.getElementById("table_score"),"#D1D7E7","#ececec")
+doubleBgColor(document.getElementById("table_work"),"#D1D7E7","#ececec")
+doubleBgColor(document.getElementById("table_work2"),"#D1D7E7","#ececec")
+doubleBgColor(document.getElementById("table_work3"),"#D1D7E7","#ececec")
+}
+
+ 
+
+function doubleBgColor(Table,Bg1,Bg2) {
+
+for (var i=0;i<Table.rows.length;i++) Table.rows[i].bgColor=i%2?Bg2:Bg1;
+
+}
+
+
+
+
+</SCRIPT>
+</body>
+</html>
