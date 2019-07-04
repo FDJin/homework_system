@@ -33,5 +33,6 @@ public class QuestionServiceImp implements QuestionService {
     @Override
     public List<Question> getAllQuestions() {
         return questionMapper.getAllQuestions();
+
     }
 }
