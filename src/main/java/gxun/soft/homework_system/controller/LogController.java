@@ -7,6 +7,7 @@ import gxun.soft.homework_system.service.impl.LoginServiceImp;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -75,9 +76,9 @@ public class LogController {
         Account account = new Account();
         Integer id = Integer.parseInt(userId);
         String psw = password;
+
         account.setUserId(id);
         account.setPassword(psw);
-        System.out.println(account.toString());
         account = loginService.accountLogin(account);
         if (account != null) {
             session.setAttribute("userId", userId);
@@ -91,7 +92,7 @@ public class LogController {
                 case 1:
                     return "teacher";
                 case 2:
-                    return "success";
+                    return "admin/admin";
                     default: return "index";
             }
         } else {
@@ -101,7 +102,7 @@ public class LogController {
 
     }
 
-   @GetMapping(value = {"/loginout"})
+   @GetMapping(value = {"/logout"})
     public String loginout(HttpServletRequest request){
         if(request.getSession().getAttribute("user")!=null){
             request.getSession().removeAttribute("user");
