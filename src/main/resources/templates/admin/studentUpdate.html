@@ -76,28 +76,27 @@
 <script src="../js/base.js"></script>
 <script>
 	// 日期控件
-	$(".datepicker").datepicker({
-		format: "yyyy-mm-dd",
-		language: "zh-CN",
-		todayBtn: "linked",
-		todayHighlight: true,
-		autoclose: true
-	}).on("changeDate", function () {
-		validator.element(this);
-	});
+	// $(".datepicker").datepicker({
+	// 	format: "yyyy-mm-dd",
+	// 	language: "zh-CN",
+	// 	todayBtn: "linked",
+	// 	todayHighlight: true,
+	// 	autoclose: true
+	// }).on("changeDate", function () {
+	// 	validator.element(this);
+	// });
 
 </script>
 
 <script>
 	function updateStudent() {
 		var stuId=$("input[name='stuId']").val();
-		var stuName=$("input[name='stuName']").val();
-		var className=$("input[name='className']").val();
+		var password=$("input[name='password']").val();
 		$.ajax({
-			url:'/updateStudent'+'/'+stuId+'-'+stuName+"-"+className,
+			url:'/updateStudent',
 			type:"post",
 			dataType:"text",
-			data:{"stuId":stuId,"stuName":stuName,"className":className},
+			data:{"stuId":stuId,"stuName":stuName,"password":password},
 			success:function(data){
 				window.alert("添加学生成功");
 				window.location.href='/studentUpdate'
