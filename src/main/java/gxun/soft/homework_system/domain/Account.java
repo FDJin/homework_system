@@ -1,9 +1,8 @@
 package gxun.soft.homework_system.domain;
 
 import com.baomidou.mybatisplus.annotations.TableName;
+import org.springframework.context.annotation.Bean;
 
-//
-@TableName("account")
 public class Account {
     private Integer userId;
     private String password;
