@@ -5,4 +5,42 @@
         insert into account(userId, password, accountType) values(#{account.userId},#{account.password},#{account.accountType})
     </insert>
 
+    <update id="updatePassword" parameterType="gxun.soft.homework_system.domain.Account">
+        update account set password = #{account.password} where userId = #{account.userId}
+    </update>
+
+    <delete id="deleteAccountByUserId" parameterType="int">
+        delete from account where userId = #{userId}
+    </delete>
+
+    <select id="findAccountByUserId" parameterType="int" resultType="gxun.soft.homework_system.domain.Account">
+        select * from account where userId = #{userId}
+    </select>
+
+    <select id="getAllAccounts" resultType="gxun.soft.homework_system.domain.Account">
+        select * from account
+    </select>
+
 </mapper>
+
+<!--        int deleteAccountByUserId(@Param("userId") Integer userId);-->
+
+<!--        /**-->
+<!--        * 更新账户密码-->
+<!--        * @param account-->
+<!--        * @return-->
+<!--        */-->
+<!--        int updatePassword(@Param("account") Account account);-->
+
+<!--        /**-->
+<!--        * 按userId查找账户-->
+<!--        * @param userId-->
+<!--        * @return-->
+<!--        */-->
+<!--        Account findAccountByUserId(@Param("userId") Integer userId);-->
+
+<!--        /**-->
+<!--        * 获取全部账户-->
+<!--        * @return-->
+<!--        */-->
+<!--        List<Account> getAllAccounts();-->
