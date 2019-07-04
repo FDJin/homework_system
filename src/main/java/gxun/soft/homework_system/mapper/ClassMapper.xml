@@ -19,7 +19,7 @@
 
 <!--    按班级名称查找班级-->
     <select id="findClassByClassName" parameterType="string" resultType="gxun.soft.homework_system.domain.Class">
-        select * from  class where className = #{className}
+        select * from  class where className like "%"#{className}"%"
     </select>
 
 <!--    查看所有班级-->

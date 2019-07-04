@@ -32,7 +32,7 @@ public interface ClassMapper {
     Class findClassByClassId(@Param("classId") Integer classId);
 
     /**
-     * 按班级名查找班级
+     * 按className模糊查找班级
      * @param className
      * @return
      */

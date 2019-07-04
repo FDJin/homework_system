@@ -14,8 +14,12 @@ public class AccountServiceImp implements AccountService {
 
     @Override
     public int addAccount(Account account) {
-
         return accountMapper.addAccount(account);
+    }
+
+    @Override
+    public int deleteAccountByUserId(Integer userId) {
+        return accountMapper.deleteAccountByUserId(userId);
     }
 
     @Override

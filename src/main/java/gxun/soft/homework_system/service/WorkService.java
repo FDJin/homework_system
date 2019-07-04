@@ -1,6 +1,9 @@
 package gxun.soft.homework_system.service;
 
 import gxun.soft.homework_system.domain.Work;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.Date;
 import java.util.List;
 
 public interface WorkService {
@@ -10,6 +13,21 @@ public interface WorkService {
      * @return
      */
     int addWork(Work work);
+
+    int updateWorkNameByWorkId(Integer workId, String workName);
+
+    /**
+     * 按workId更改作业结束时间
+     * @param workId
+     * @param endTime
+     * @return
+     */
+    int updateWorkEndTimeByWorkId(Integer workId,Date endTime);
+    /**
+     * 按workId删除作业
+     * @param workId
+     * @return
+     */
 
     /**
      * 按workId删除作业

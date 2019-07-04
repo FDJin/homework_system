@@ -39,6 +39,13 @@ public interface QuestionMapper {
     List<Question> getQuestionsByQuestionType(@Param("questionType") Integer questionType);
 
     /**
+     * 按questionType，以及模糊questionName查找题目 0：选择题  1：填空题  2：简答题
+     * @param questionType
+     * @return
+     */
+    List<Question> getQuestionsByQuestionNameAndType(@Param("questionName") String questionName,@Param("questionType") Integer questionType);
+
+    /**
      * 获取所有题目
      * @return
      */

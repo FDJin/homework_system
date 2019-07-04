@@ -35,6 +35,7 @@ public interface QuestionService {
      */
     List<Question> getQuestionsByQuestionType(Integer questionType);
 
+
     /**
      * 获取所有题目
      * @return
