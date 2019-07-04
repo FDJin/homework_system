@@ -1,4 +1,4 @@
-package gxun.soft.homework_system.controller.student;
+package gxun.soft.homework_system.controller.admin;
 
 import com.alibaba.fastjson.JSONArray;
 import gxun.soft.homework_system.component.ToJsonArray;
@@ -21,17 +21,10 @@ public class StudentManageController {
 
     @ApiOperation(value = "学生管理")
     @GetMapping("/studentList")
-    public String classManage(){
-        return "student/workList";
-    }
-
-    @ApiOperation(value = "查询所有学生")
-    @ResponseBody
-    @GetMapping("/findAllStudentList")
-    public String getStudentList(Model model){
+    public String classManage(Model model){
         List<Student> studentList = studentService.getAllStudent();
         model.addAttribute("studentList",studentList);
-//        JSONArray studentListJsonArray = ToJsonArray.studentListToJsonArray(studentList);
-        return null;
+        return "admin/studentList";
     }
+
 }
