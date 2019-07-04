@@ -69,7 +69,7 @@ a:visited{
 	width: 80%;
 	height: 800px;
 	background-color: rgba(	135,206,250,0.1);
-	margin-bottom: 10px;	
+	/*margin-bottom: 10px;	*/
 	padding: 10px;
 	
 	-moz-box-sizing: border-box;
@@ -298,7 +298,7 @@ a.btn_more span {
 	font-family: "微软雅黑";
 	font-size: 4em;
 	color: cornflowerblue;
-	margin-top: 5px;	
+	/*margin-top: 5px;	*/
 }
 #header_boom{
 	text-align: right;
@@ -422,16 +422,25 @@ a.btn_more span {
 .col_w700{
 	float: left;
 	width: 840px;
-	height: 800px;
+	height: 787px;
 	
 	margin-left: 60px;
 	border:2px solid #39F;
 	}
 	
+.col_w600{
+	float: left;
+	width: 840px;
+	height: 600px;
+	margin-right: 60px;
+	
+	margin-top: 10px;
+	}
+
 .col_w500{
 	float: left;
 	width: 800px;
-	height: 600px;
+	height: 650px;
 	margin-left: 20px;
 	
 	border:2px solid #39F;

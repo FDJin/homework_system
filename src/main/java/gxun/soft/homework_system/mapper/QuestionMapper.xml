@@ -19,6 +19,10 @@
         select * from question where questionType = #{questionType}
     </select>
 
+    <select id="getQuestionsByQuestionNameAndType" resultType="gxun.soft.homework_system.domain.Question">
+        select * from question where questionType = #{questionType} and questionName = "%"#{questionName}"%"
+    </select>
+
     <select id="getAllQuestions" resultType="gxun.soft.homework_system.domain.Question">
         select * from question;
     </select>

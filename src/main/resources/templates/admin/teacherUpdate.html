@@ -31,7 +31,9 @@
 							<div class="col-md-3">
 								<input th:value="*{teaId}"  name="teaId" type="text" class="form-control" required>
 							</div>
+						</div>
 
+						<div class="form-group">
 							<label class="control-label col-md-2">姓名：</label>
 							<div class="col-md-3">
 								<input th:value="*{teaName}" name="teaName" type="text" class="form-control" required>
@@ -43,10 +45,11 @@
 							<div class="col-md-3">
 								<input th:value="*{className}" name="className" type="text" class="form-control" required>
 							</div>
+						</div>
 
 						<div class="form-group">
 							<div class="col-md-10 col-md-offset-2">
-								<button type="submit" class="btn btn-primary">确定</button>
+								<button type="submit" class="btn btn-primary" onclick="updateTeacher()">确定</button>
 								<a th:href="@{teacherUpdate}"  class="btn btn-default">取消</a>
 							</div>
 						</div>
@@ -83,6 +86,27 @@
 		validator.element(this);
 	});
 
+</script>
+
+<script>
+	function updateTeacher() {
+		var teaId=$("input[name='teaId']").val();
+		var teaName=$("input[name='teaName']").val();
+		var className=$("input[name='className']").val();
+		$.ajax({
+			url:'/updateTeacher'+'/'+teaId+'-'+teaName+"-"+className,
+			type:"post",
+			dataType:"text",
+			data:{"teaId":teaId,"teaName":teaName,"teaName":teaName},
+			success:function(data){
+				window.alert("添加老师成功");
+				window.location.href='/teacherUpdate'
+			},
+			error:function () {
+				window.alert("添加失败");
+			}
+		});
+	};
 </script>
 
 </body>

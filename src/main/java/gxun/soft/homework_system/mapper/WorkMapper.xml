@@ -5,6 +5,13 @@
         insert into work (workId, teaId, workName, startTime, endTime, correctAnswerList) values(#{work.workId},#{work.teaId},#{work.workName},#{work.startTime},#{work.endTime},#{work.correctAnswerList})
     </insert>
 
+    <update id="updateWorkNameByWorkId">
+        update work set workName = #{workName} where workId = #{workId}
+    </update>
+
+    <update id="updateWorkEndTimeByWorkId">
+        update work set endTime = #{endTime} where workId = #{workId}
+    </update>
     <delete id="deleteWorkByWorkId" parameterType="int">
         delete from work where workId = #{workId}
     </delete>

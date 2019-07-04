@@ -55,7 +55,7 @@
 								<!--<td th:text="${myclass.cdesc}">19软件工程</td>-->
 								<td>
 									<a th:href="@{/classUpdate(id=${myclass.classId})}">修改</a>&nbsp;&nbsp;
-									<a th:href="@{/delete(classId=${myclass.classId})}" onclick="javascript:return del();">删除</a>
+									<a th:href="@{/delete(classId=${myclass.classId})}" onclick="javascript:return delClass();">删除</a>
 								</td>
 							</tr>
 							</tbody>
@@ -95,7 +95,7 @@
             for (var i = 0; i < data.length; i++) {
                 var d = data[i];
                 html += "<tr >" +
-                    "<td >"+data[i]['id']+"</td>\n" +
+                    "<td >"+data[i]['classId']+"</td>\n" +
                     "<td >"+data[i]['className']+"</td>\n" +
                     "<td>\n" +
                     "<td>"
@@ -118,7 +118,7 @@
             }
         });
     });
-    function del() {
+    function delClass() {
         var msg = "您真的确定要删除吗？\n\n请确认！";
         if (confirm(msg)==true){
             return true;
@@ -140,12 +140,12 @@
 					var d = data[i];
 					html += "<tr >" +
 							"<td><input type=\"checkbox\" class=\"checkItem\"></td>\n" +
-							"<td >"+data[i]['id']+"</td>\n" +
+							"<td >"+data[i]['classId']+"</td>\n" +
 							"<td >"+d['className']+"</td>\n" +
 							// "<td >"+data[i].cdesc+"</td>\n" +
 							"<td>\n" +
-							"<a href=\"/classUpdate?id="+data[i]['id']+"\">修改</a>&nbsp;&nbsp;\n" +
-							"<a href=\"/delete?id="+data[i]['id']+"\" onclick=\"javascript:return del();\">删除</a>\n" +
+							"<a href=\"/classUpdate?id="+data[i]['classId']+"\">修改</a>&nbsp;&nbsp;\n" +
+							"<a href=\"/delete?id="+data[i]['classId']+"\" onclick=\"javascript:return delClass();\">删除</a>\n" +
 							"</td>\n" +
 							"</tr>\n";
 				}

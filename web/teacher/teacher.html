@@ -4,6 +4,9 @@
 		<title>作业批改系统</title>
 		<meta charset="utf-8" >
         <link href="css/teacher_style.css" rel="stylesheet" type="text/css" />
+        
+       
+        <script type="text/javascript" src="js/exit.js"></script>
 
 		<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.min.js"></script>
 		
@@ -35,11 +38,12 @@
 	 			<h1 >功能菜单</h1>
 	 			<ul>
 	 				<li><a id="tc_index" href="#">首页 </a></li>
-	 				<li><a  id="tc_publish"   href="#">  发布作业  </a> </li>
-	 				<li><a  id="tc_correct"   href="#">  批改作业   </a>
-                     </li><li><a  id="tc_score"   href="#">  成绩统计  </a> </li>
-                     <li><a  id="tc_ques"   href="#">  题库管理   </a> </li>
-                      <li><a  id="tc_personal"   href="#">  个人信息   </a> </li>
+	 				<li><a  id="tc_publish"   href="#">发布作业</a> </li>
+	 				<li><a  id="tc_correct"   href="#">批改作业</a>
+                     </li><li><a  id="tc_score"   href="#">成绩统计</a> </li>
+                     <li><a  id="tc_ques"   href="question.html">题库管理 </a> </li>
+                      <li><a  id="tc_personal"   href="#">个人信息</a> </li>
+                      <li onclick="exit()"> 退出系统</li>
 	 			</ul>
 	 			</nav>
 	 		</aside>
@@ -111,7 +115,7 @@
        	  <div id="tc_form">
                  <p>&nbsp;</p>
                 <form  id="tc_publish_form" >
-                 <label>作业标题：
+                 <label>作业题目：
                    <input type="text" id="task_title" class="input_field"  placeholder="请输入作业标题"/>
                  </label>
                  <div class="cleaner_h10"></div>
@@ -129,14 +133,19 @@
                 <div class="cleaner_h10"></div>
                   <label>作业内容：
                 <textarea  id="task_content" placeholder="请输入作业内容"></textarea>
+               
                   </label>
                   <div class="cleaner_h10"></div>   
+                  <label>
+                    <input type="button" value="从题库选择" id="btn_ques" name="submit" class="submit_btn float_l" style="float:left;position:relative;left:15%;"/> 
+                 
+                  </label>
+                   <div class="cleaner_h10"></div>   
                   <label>上传附件：
                     <input type="file" class="input_field" id="task_file"  />
-                  </label>   
-                  <div class="cleaner_h10"></div>
+                    </label>
                  <div class="cleaner_h10"></div>
-                   <input type="submit" value="提交" id="publish_submitt" name="submit" class="submit_btn float_l" style="float:left;position:relative;left:20%;"/>
+                   <input type="submit" value="提交" id="publish_submitt" name="submit" class="submit_btn float_l" style="float:left;position:relative;left:30%;"/>
 				  <input type="reset" value="重置" id="reset" name="reset" class="submit_btn float_r" style="float:right;position:relative;right:30%;"/>
                    
        	    </form>
@@ -196,7 +205,7 @@
 </div>
 
 
-<div id="d3" class="col_w700"  style="height: 1000px;">
+<div id="d3" class="col_w700" s>
 <div class="col_w300">
 <h2>批改作业</h2>
 </div>
@@ -419,27 +428,50 @@
                  <div class="cleaner_h10"></div>
                 <label>我的密码：
                 <div class="cleaner_h10"></div>
-                   &nbsp;&nbsp;&nbsp; <input type="text" id="tea_passwd"  class="input_field" value="10001"/>
+                   &nbsp;&nbsp;&nbsp; <input type="text" id="tea_passwd"  class="input_field" disabled="true" value="10001"/>
                 </label>
                   <div class="cleaner_h30"></div>
                  <div class="cleaner_h20"></div>
-                   <input type="submit" value="修改密码" id="update_submit" name="submit" class="submit_btn float_l" style="float:left;position:relative;left:35%;"/>
-				  
+                   <input type="button" value="修改密码" id="change_passwd" onClick="msgbox(1)"  class="submit_btn float_l" style="float:left;position:relative;left:35%;"/>
+
+<style>
+.box{
+    width:50%; margin-top:10%; margin:center; padding:28px;
+    height:250px; border:1px #111 solid;
+    display:none;            /* 默认对话框隐藏 */
+}
+.box.show{display:block;} 
+.box .x{ font-size:18px; text-align:right; display:block;}
+.box input{width:80%; font-size:18px; margin-top:18px;}
+</style>
+
+<script>  
+        function msgbox(n){
+            document.getElementById('inputbox').style.display=n?'block':'none';     /* 点击按钮打开/关闭 对话框 */
+        }
+     </script>  
+     
+     <div id='inputbox' class="box" style="margin-left:75px;background:#e5feff;">
+        <a  href='' class='x'; onclick="msgbox(0); return false;">返回</a>
+         <label>原密码：
+                <div class="cleaner_h10"></div>
+         &nbsp;&nbsp;&nbsp; <input type="text" id="tea_passwd"></label>
+       		   <div class="cleaner_h10"></div>
+         <label>新密码：
+                <div class="cleaner_h10"></div>
+         &nbsp;&nbsp;&nbsp; <input type="text" id="tea_passwd"></label>
+          <div class="cleaner_h10"></div>
+        <input type="button" value="确定" class="submit_btn float_l" style="float:left;width:80px;position:relative;left:30%;" >
+     </div>				  
                    
-       	    </form>
+</form>
 			  
-              	<div class="cleaner_h10"></div>
+<div class="cleaner_h10"></div>
             
-            </div>
+</div>
 </div>
 </div>   
-
-             
-             
-	 		<!--<footer id="footer"> 
-	 		 Copyright &copy; 2019广西民族大学软信学院课程设计作业批改系统 | 
-	 		<a href="http://www.miitbeian.gov.cn/" target="_blank" rel="nofollow">桂ICP备1000000号</a>
-	 		</footer>-->
+  
 	 		
 	 	</div>
 	 	<script src="js/jsss.js"></script>

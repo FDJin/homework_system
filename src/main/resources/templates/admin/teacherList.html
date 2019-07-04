@@ -45,7 +45,7 @@
 							</select>
 						</div>
 						<div class="form-group form-group-sm">
-							<button type="submit" class="btn btn-primary btn-sm">
+							<button type="submit" class="btn btn-primary btn-sm" onclick="findByTeacherName()">
 								<span class="glyphicon glyphicon-search"></span> 搜索
 							</button>
 						</div>
@@ -64,14 +64,14 @@
 							</tr>
 							</thead>
 							<tbody>
-							<tr th:each="stu:${list}">
+							<tr th:each="tea:${list}">
 								<td><input type="checkbox" class="checkItem"></td>
-								<td th:text="${tea.teaid}">080606110</td>
+								<td th:text="${tea.teaId}">080606110</td>
 								<td th:text="${tea.teacherName}">唐僧</td>
 								<td th:text="${tea.classId}">cname</td>
 								<td>
 									<a th:href="@{/teacherUpdate(id=${tea.id})}">修改</a>&nbsp;&nbsp;
-									<a th:href="@{/deleteById(id=${tea.id})}" onclick="javascript:return del();">删除</a>
+									<a th:href="@{/deleteById(id=${tea.id})}" onclick="javascript:return delTeacher();">删除</a>
 								</td>
 							</tr>
 							</tbody>
@@ -110,21 +110,78 @@
 <script th:src="@{/templates/js/base.js}"></script>
 <script>
 	// 日期控件
-	$(".datepicker").datepicker({
-		format: "yyyy-mm-dd",
-		language: "zh-CN",
-		todayBtn: "linked",
-		todayHighlight: true,
-		autoclose: true
-	});
+	// $(".datepicker").datepicker({
+	// 	format: "yyyy-mm-dd",
+	// 	language: "zh-CN",
+	// 	todayBtn: "linked",
+	// 	todayHighlight: true,
+	// 	autoclose: true
+	// });
 
-	function del() {
+    var render = {
+        list:function (data) {
+            var html = '';
+            for (var i = 0; i < data.length; i++) {
+                var d = data[i];
+                html += "<tr >" +
+                    "<td >"+data[i]['teaId']+"</td>\n" +
+                    "<td >"+data[i]['teaName']+"</td>\n" +
+                    "<td>\n" +
+                    "<td>"
+                // +
+                //     // "<input type='button' id='upBtn' value='修改'/>"
+                // "<a href=\"/workUpdate?id="+data[i].workId+"\">修改</a>&nbsp;&nbsp;\n"
+                //     +"<input type='button' id='delBtn' value='删除' onclick='del("+data[i].id+")'/>"+"</td>"+
+                //     "</tr>\n";
+            }
+            $("#tbodydata").html(html);
+        }
+    }
+    $(function () {
+        var res = $.ajax({
+            url:"/findAllTeacherList",
+            type:"get",
+            dataType:"json",
+            success:function (data) {
+                render.list(data);
+            }
+        });
+    });
+	function delTeacher() {
 		var msg = "您真的确定要删除吗？\n\n请确认！";
 		if (confirm(msg)==true){
 			return true;
 		}else{
 			return false;
 		}
+	}
+
+	function findByTeacherName() {
+		var className = $("#teaName").val();
+		var res = $.ajax({
+			url:"/findByTeacherName/"+teaName,
+			type:"get",
+			dataType:"json",
+			success:function (data) {
+				var html = '';
+
+				for (var i = 0; i < data.length; i++) {
+					var d = data[i];
+					html += "<tr >" +
+							"<td><input type=\"checkbox\" class=\"checkItem\"></td>\n" +
+							"<td >"+data[i]['teaId']+"</td>\n" +
+							"<td >"+d['teaName']+"</td>\n" +
+							// "<td >"+data[i].cdesc+"</td>\n" +
+							"<td>\n" +
+							"<a href=\"/classUpdate?id="+data[i]['teaId']+"\">修改</a>&nbsp;&nbsp;\n" +
+							"<a href=\"/delete?id="+data[i]['teaId']+"\" onclick=\"javascript:return delTeacher();\">删除</a>\n" +
+							"</td>\n" +
+							"</tr>\n";
+				}
+
+				$("#list_result").html(html);
+			}
+		});
 	}
 </script>
 

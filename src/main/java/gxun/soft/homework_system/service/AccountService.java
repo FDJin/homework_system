@@ -1,7 +1,6 @@
 package gxun.soft.homework_system.service;
 
 import gxun.soft.homework_system.domain.Account;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +13,8 @@ public interface AccountService {
      * @return
      */
     int addAccount(Account account);
+
+    int deleteAccountByUserId(Integer userId);
 
     /**
      * 修改密码

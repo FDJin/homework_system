@@ -3,7 +3,7 @@
 <mapper namespace="gxun.soft.homework_system.mapper.ClassMapper">
 
 <!--    新增班级-->
-    <insert id="addClass" parameterType="gxun.soft.homework_system.domain.Class">
+    <insert id="addClass" parameterType="gxun.soft.homework_system.domain.MyClass">
         insert into class(classId, className) values (#myClass.classId, #myClass.className)
     </insert>
 
@@ -13,17 +13,17 @@
     </delete>
 
 <!--    按班级id查找班级-->
-    <select id="findClassByClassId" parameterType="int" resultType="gxun.soft.homework_system.domain.Class">
+    <select id="findClassByClassId" parameterType="int" resultType="gxun.soft.homework_system.domain.MyClass">
         select * from class where classId = classId = #{classId}
     </select>
 
 <!--    按班级名称查找班级-->
-    <select id="findClassByClassName" parameterType="string" resultType="gxun.soft.homework_system.domain.Class">
-        select * from  class where className = #{className}
+    <select id="findClassByClassName" parameterType="string" resultType="gxun.soft.homework_system.domain.MyClass">
+        select * from  class where className like "%"#{className}"%"
     </select>
 
 <!--    查看所有班级-->
-    <select id="getAllClasses" resultType="gxun.soft.homework_system.domain.Class">
+    <select id="getAllClasses" resultType="gxun.soft.homework_system.domain.MyClass">
         select * from class
     </select>
 </mapper>
