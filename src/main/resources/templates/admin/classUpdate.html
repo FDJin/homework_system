@@ -17,50 +17,61 @@
 			<div class="col-md-12">
 				<div class="content">
 					<h4>
-						<strong>班级管理</strong>
-						<a class="btn btn-info btn-xs" th:href="@{classAdd}">
-							<span class="glyphicon glyphicon-plus"></span> 添加
-						</a>
-
+						<strong>班级修改</strong>
 					</h4>
 					<hr/>
-
-					<form class="form-inline m-t-15 m-b-10" >
-						<div class="form-group form-group-sm">
-							<label>班级名称：</label>
-							<input name="className" id="className" type="text" class="form-control">
+					<form class="form-horizontal" th:action="@{update}" method="post">
+						<div class="form-group">
+							<label class="control-label col-md-2">班级编号：</label>
+							<div class="col-md-4">
+								<input id="classId" name="classId" type="text" class="form-control" required>
+								<div style="color: red" th:text="${errormsg}"></div>
+							</div>
+							<label class="control-label col-md-2">班级名称：</label>
+							<div class="col-md-4">
+								<input id="className" name="className" type="text" class="form-control" required>
+								<div style="color: red" th:text="${errormsg}"></div>
+							</div>
 						</div>
-						<div class="form-group form-group-sm">
-						<input type="button" onclick="findByClassName()" class="btn btn-primary btn-sm"
-							   value="搜索">
-					</div>
+						<!--<div class="form-group">-->
+						<!--<label class="control-label col-md-2">班级描述：</label>-->
+						<!--<div class="col-md-4">-->
+						<!--<label id="cdesc" name="cdesc" class="form-control" rows="5"/>-->
+						<!--</div>-->
+						<!--</div>-->
+						<div class="form-group">
+							<div class="col-md-4 col-md-offset-2">
+								<button id="buttonid"  class="btn btn-primary"  onclick="updateClass()" type="submit">保存</button>
+								<a th:href="@{/admin/classUpdate}" class="btn btn-default">取消</a>
+							</div>
+						</div>
 					</form>
 
-					<div class="table-responsive">
-						<table class="table table-bordered table-hover">
-							<thead>
-							<tr>
-								<th><input type="checkbox" class="checkAll"></th>
-								<th>编号</th>
-								<th>班级名称</th>
-								<th>班级描述</th>
-								<th></th>
-							</tr>
-							</thead>
-							<tbody id="list_result">
-							<tr th:each="myclass:${list}">
-								<td><input type="checkbox" class="checkItem"></td>
-								<td th:text="${myclass.classId}">1</td>
-								<td th:text="${myclass.className}">19软件</td>
-								<!--<td th:text="${myclass.cdesc}">19软件工程</td>-->
-								<td>
-									<a th:href="@{/classUpdate(id=${myclass.classId})}">修改</a>&nbsp;&nbsp;
-									<a th:href="@{/delete(classId=${myclass.classId})}" onclick="javascript:return del();">删除</a>
-								</td>
-							</tr>
-							</tbody>
-						</table>
-					</div>
+					<!--<div class="table-responsive">-->
+						<!--<table class="table table-bordered table-hover">-->
+							<!--<thead>-->
+							<!--<tr>-->
+								<!--<th><input type="checkbox" class="checkAll"></th>-->
+								<!--<th>编号</th>-->
+								<!--<th>班级名称</th>-->
+								<!--<th>班级描述</th>-->
+								<!--<th></th>-->
+							<!--</tr>-->
+							<!--</thead>-->
+							<!--<tbody id="list_result">-->
+							<!--<tr th:each="myclass:${list}">-->
+								<!--<td><input type="checkbox" class="checkItem"></td>-->
+								<!--<td th:text="${myclass.classId}">1</td>-->
+								<!--<td th:text="${myclass.className}">19软件</td>-->
+								<!--&lt;!&ndash;<td th:text="${myclass.cdesc}">19软件工程</td>&ndash;&gt;-->
+								<!--<td>-->
+									<!--<a th:href="@{/classUpdate(id=${myclass.classId})}">修改</a>&nbsp;&nbsp;-->
+									<!--<a th:href="@{/delete(classId=${myclass.classId})}" onclick="javascript:return del();">删除</a>-->
+								<!--</td>-->
+							<!--</tr>-->
+							<!--</tbody>-->
+						<!--</table>-->
+					<!--</div>-->
 
 					<div class="text-center">
 						<ul class="pagination">
@@ -88,43 +99,63 @@
 <script th:src="@{/templates/js/bootstrap.min.js}" ></script>
 <script th:src="@{/templates/plugins/layer/layer.js}"></script>
 <script th:src="@{/templates/js/base.js}"></script>
+<!--<script>-->
+    <!--function del() {-->
+        <!--var msg = "您真的确定要删除吗？\n\n请确认！";-->
+        <!--if (confirm(msg)==true){-->
+            <!--return true;-->
+        <!--}else{-->
+            <!--return false;-->
+        <!--}-->
+    <!--}-->
+
+	<!--function findByClassName() {-->
+		<!--var className = $("#className").val();-->
+		<!--var res = $.ajax({-->
+			<!--url:"/findByClassName/"+className,-->
+			<!--type:"get",-->
+			<!--dataType:"json",-->
+			<!--success:function (data) {-->
+				<!--var html = '';-->
+
+				<!--for (var i = 0; i < data.length; i++) {-->
+					<!--var d = data[i];-->
+					<!--html += "<tr >" +-->
+							<!--"<td><input type=\"checkbox\" class=\"checkItem\"></td>\n" +-->
+							<!--"<td >"+data[i]['id']+"</td>\n" +-->
+							<!--"<td >"+d['className']+"</td>\n" +-->
+							<!--// "<td >"+data[i].cdesc+"</td>\n" +-->
+							<!--"<td>\n" +-->
+							<!--"<a href=\"/classUpdate?id="+data[i]['id']+"\">修改</a>&nbsp;&nbsp;\n" +-->
+							<!--"<a href=\"/delete?id="+data[i]['id']+"\" onclick=\"javascript:return del();\">删除</a>\n" +-->
+							<!--"</td>\n" +-->
+							<!--"</tr>\n";-->
+				<!--}-->
+
+				<!--$("#list_result").html(html);-->
+			<!--}-->
+		<!--});-->
+	<!--}-->
+<!--</script>-->
 <script>
-    function del() {
-        var msg = "您真的确定要删除吗？\n\n请确认！";
-        if (confirm(msg)==true){
-            return true;
-        }else{
-            return false;
-        }
-    }
-
-	function findByClassName() {
-		var className = $("#className").val();
-		var res = $.ajax({
-			url:"/findByClassName/"+className,
-			type:"get",
-			dataType:"json",
-			success:function (data) {
-				var html = '';
-
-				for (var i = 0; i < data.length; i++) {
-					var d = data[i];
-					html += "<tr >" +
-							"<td><input type=\"checkbox\" class=\"checkItem\"></td>\n" +
-							"<td >"+data[i]['id']+"</td>\n" +
-							"<td >"+d['className']+"</td>\n" +
-							// "<td >"+data[i].cdesc+"</td>\n" +
-							"<td>\n" +
-							"<a href=\"/classUpdate?id="+data[i]['id']+"\">修改</a>&nbsp;&nbsp;\n" +
-							"<a href=\"/delete?id="+data[i]['id']+"\" onclick=\"javascript:return del();\">删除</a>\n" +
-							"</td>\n" +
-							"</tr>\n";
-				}
-
-				$("#list_result").html(html);
-			}
-		});
-	}
+    function updateClass () {
+        var classId=$("input[name='classId']").val();
+        var className=$("input[name='className']").val();
+        //var classId=$("input[name='classId']").val();
+        $.ajax({
+            url:'/updateClass'+'/'+classId+'-'+className,
+            type:"post",
+            dataType:"text",
+            data:{"className":className},
+            success:function(data){
+                window.alert("添加班级成功");
+                window.location.href='/classUpdate'
+            },
+            error:function () {
+                window.alert("添加失败");
+            }
+        });
+    };
 </script>
 
 </body>

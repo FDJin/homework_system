@@ -4,15 +4,16 @@ import gxun.soft.homework_system.domain.Account;
 import gxun.soft.homework_system.domain.Student;
 
 import java.util.List;
+import java.util.Map;
 
 public interface StudentService {
 
     /**
      * 添加学生
-     * @param student
+     * @param studentMap
      * @return
      */
-    int addStudent(Student student);
+    int addStudent(Map studentMap);
 
     /**
      * 修改学生密码

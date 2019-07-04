@@ -6,8 +6,10 @@ import gxun.soft.homework_system.mapper.AccountMapper;
 import gxun.soft.homework_system.mapper.TeacherMapper;
 import gxun.soft.homework_system.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 
 public class TeacherServiceImp implements TeacherService {
 
@@ -16,8 +18,13 @@ public class TeacherServiceImp implements TeacherService {
     AccountMapper accountMapper;
 
     @Override
-    public int addTeacher(Teacher teacher) {
-        return teacherMapper.addTeacher(teacher);
+    @Transactional
+    public int addTeacher(Map teacherMap) {
+        Account account = (Account) teacherMap.get("account");
+        Teacher teacher = (Teacher) teacherMap.get("teacher");
+        accountMapper.addAccount(account);
+        teacherMapper.addTeacher(teacher);
+        return 0;
     }
 
     @Override

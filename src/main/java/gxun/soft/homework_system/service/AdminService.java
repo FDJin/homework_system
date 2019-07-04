@@ -5,14 +5,15 @@ import gxun.soft.homework_system.domain.Admin;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface AdminService {
     /**
      * 新增管理员
-     * @param admin
+     * @param adminMap
      * @return
      */
-    int addAdmin(Admin admin);
+    int addAdmin(Map adminMap);
 
     /**
      * 修改管理员密码
