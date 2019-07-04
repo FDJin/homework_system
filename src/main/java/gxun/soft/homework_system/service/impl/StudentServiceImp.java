@@ -1,13 +1,16 @@
 package gxun.soft.homework_system.service.impl;
 
 import gxun.soft.homework_system.domain.Account;
+import gxun.soft.homework_system.domain.Stu_work;
 import gxun.soft.homework_system.domain.Student;
 import gxun.soft.homework_system.mapper.AccountMapper;
 import gxun.soft.homework_system.mapper.StudentMapper;
 import gxun.soft.homework_system.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 
 public class StudentServiceImp implements StudentService {
 
@@ -16,8 +19,14 @@ public class StudentServiceImp implements StudentService {
     AccountMapper accountMapper;
 
     @Override
-    public int addStudent(Student student) {
-        return studentMapper.addStudent(student);
+    @Transactional
+    public int addStudent(Map studenMap) {
+
+        Student student = (Student) studenMap.get("student");
+        Account account = (Account) studenMap.get("account");
+        accountMapper.addAccount(account);
+        studentMapper.addStudent(student);
+        return 0;
     }
 
     @Override
