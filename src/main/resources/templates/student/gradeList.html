@@ -1,76 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>成绩管理</title>
-</head>
-<body>
-<!--<input type="button" onclick="refurbishIndex()" value="点击查看所有"/>-->
-
-<table id="list">
-    <tr>
-        <th>作业ID</th>
-        <th>作业名称</th>
-        <th>发布者</th>
-        <th>结束时间</th>
-        <th>完成状态</th>
-        <th>分数</th>
-        <!--<th>操作&nbsp;&nbsp;删除</th>-->
-    </tr>
-    <tbody id="tbodydata"></tbody>
-</table>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>成绩管理</title>
+    </head>
+    <body>
+    <!--<input type="button" onclick="refurbishIndex()" value="点击查看所有"/>-->
+        <form class="form-inline m-t-15 m-b-10" >
+            <div class="form-group form-group-sm">
+                <label>作业名称：</label>
+                <input name="workName" id="workName" type="text" class="form-control">
+            </div>
+            <div class="form-group form-group-sm">
+                <input type="button" onclick="findByWorkName()" class="btn btn-primary btn-sm"
+                       value="搜索">
+            </div>
+        </form>
+        <table id="list">
+            <tr>
+                <th>作业ID</th>
+                <th>作业名称</th>
+                <th>发布者</th>
+                <th>结束时间</th>
+                <th>完成状态</th>
+                <th>分数</th>
+                <!--<th>操作&nbsp;&nbsp;删除</th>-->
+            </tr>
+            <tbody id="tbodydata"></tbody>
+        </table>
+    </body>
 </html>
-<script src="../js/jquery-1.12.4.min.js" ></script>
-<script type="text/javascript">
-    //点击查看所有
-    $(function () {
+    <script src="../js/jquery-1.12.4.min.js" ></script>
+    <script type="text/javascript">
+        //点击查看所有
+        $(function () {
+                var res = $.ajax({
+                    url:"/findMyGradeList",
+                    type:"get",
+                    dataType:"json",
+                    success:function (data) {
+                        render.list(data);
+                    }
+                });
+        });
+        // //删除
+        // function del(workId){
+        //     $.ajax({
+        //         type:"get",
+        //         url:"/deleteWork/"+workId,
+        //         dataType:"json",
+        //         success:function(data){
+        //             alert("删除成功");
+        //             render.list(data);
+        //         },
+        //         error:function (data) {
+        //             alert("删除失败");
+        //         }
+        //     });
+        // };
+
+        var render = {
+            list:function (data) {
+                var html = '';
+                for (var i = 0; i < data.length; i++) {
+                    var d = data[i];
+                    html += "<tr >" +
+                        "<td >"+data[i]['workid']+"</td>\n" +
+                        "<td >"+data[i]['workName']+"</td>\n" +
+                        "<td >"+d['teaId']+"</td>\n" +
+                        "<td >"+data[i]['endTime']+"</td>\n" +
+                        "<td >"+data[i]['status']+"</td>\n" +
+                        "<td >"+data[i]['score']+"</td>\n" +
+                        "<td>\n" +
+                        "<td>"
+                    //     +
+                    //     // "<input type='button' id='upBtn' value='修改'/>"
+                    // "<a href=\"/workUpdate?id="+data[i].workId+"\">修改</a>&nbsp;&nbsp;\n"
+                    //     +"<input type='button' id='delBtn' value='删除' onclick='del("+data[i].id+")'/>"+"</td>"+
+                    //     "</tr>\n";
+                }
+                $("#tbodydata").html(html);
+            }
+        }
+        function findByWorkName() {
+            var className = $("#className").val();
             var res = $.ajax({
-                url:"/findMyGradeList",
+                url:"/findByWorkName/"+workName,
                 type:"get",
                 dataType:"json",
                 success:function (data) {
-                    render.list(data);
+                    var html = '';
+
+                    for (var i = 0; i < data.length; i++) {
+                        var d = data[i];
+                        html += "<tr >" +
+                            "<td><input type=\"checkbox\" class=\"checkItem\"></td>\n" +
+                            "<td >"+data[i]['id']+"</td>\n" +
+                            "<td >"+d['className']+"</td>\n" +
+                            // "<td >"+data[i].cdesc+"</td>\n" +
+                            "<td>\n" +
+                            // "<a href=\"/classUpdate?id="+data[i]['id']+"\">修改</a>&nbsp;&nbsp;\n" +
+                            // "<a href=\"/delete?id="+data[i]['id']+"\" onclick=\"javascript:return del();\">删除</a>\n" +
+                            "</td>\n" +
+                            "</tr>\n";
+                    }
+
+                    $("#list_result").html(html);
                 }
             });
-    });
-    // //删除
-    // function del(workId){
-    //     $.ajax({
-    //         type:"get",
-    //         url:"/deleteWork/"+workId,
-    //         dataType:"json",
-    //         success:function(data){
-    //             alert("删除成功");
-    //             render.list(data);
-    //         },
-    //         error:function (data) {
-    //             alert("删除失败");
-    //         }
-    //     });
-    // };
-
-    var render = {
-        list:function (data) {
-            var html = '';
-            for (var i = 0; i < data.length; i++) {
-                var d = data[i];
-                html += "<tr >" +
-                    "<td >"+data[i]['workid']+"</td>\n" +
-                    "<td >"+data[i]['workName']+"</td>\n" +
-                    "<td >"+d['teaId']+"</td>\n" +
-                    "<td >"+data[i]['endTime']+"</td>\n" +
-                    "<td >"+data[i]['status']+"</td>\n" +
-                    "<td >"+data[i]['score']+"</td>\n" +
-                    "<td>\n" +
-                    "<td>"
-                //     +
-                //     // "<input type='button' id='upBtn' value='修改'/>"
-                // "<a href=\"/workUpdate?id="+data[i].workId+"\">修改</a>&nbsp;&nbsp;\n"
-                //     +"<input type='button' id='delBtn' value='删除' onclick='del("+data[i].id+")'/>"+"</td>"+
-                //     "</tr>\n";
-            }
-            $("#tbodydata").html(html);
         }
-    }
-</script>
+    </script>

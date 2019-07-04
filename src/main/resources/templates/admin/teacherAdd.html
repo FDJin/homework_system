@@ -41,11 +41,11 @@
 						<div class="form-group">
 							<label class="control-label col-md-2">班级名称：</label>
 							<div class="col-md-3">
-								<!--<select class="form-control"  name="cname" th:value="*{cname}">-->
-									<!--&lt;!&ndash;<option value="男" th:selected="*{sex=='男'}">男</option>&ndash;&gt;-->
-									<!--&lt;!&ndash;<option value="女" th:selected="*{sex=='女'}">女</option>&ndash;&gt;-->
-								<!--</select>-->
-								<input name="className" type="text" class="form-control" required>
+								<select class="form-control"  name="className" th:value="*{className}">
+									<option value="请选择" th:selected="*{className=='请选择'}">请选择</option>
+									<option value="19软件" th:selected="*{className=='19软件'}">19软件</option>
+								</select>
+								<!--<input name="className" type="text" class="form-control" required>-->
 							</div>
 						</div>
 
@@ -54,7 +54,7 @@
 						<div class="form-group">
 							<div class="col-md-10 col-md-offset-2">
 								<button type="submit" class="btn btn-primary">保存</button>
-								<a th:href="@{add_student}"  class="btn btn-default">取消</a>
+								<a th:href="@{/teacher/teacherAdd}"  class="btn btn-default">取消</a>
 							</div>
 						</div>
 					</form>
