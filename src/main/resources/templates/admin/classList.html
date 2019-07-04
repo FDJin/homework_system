@@ -112,7 +112,7 @@
         var res = $.ajax({
             url:"/findAllClassList",
             type:"get",
-            dataType:"json",
+            dataType:"jsonArray",
             success:function (data) {
                 render.list(data);
             }

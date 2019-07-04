@@ -20,7 +20,7 @@ public interface Stu_workMapper {
     int addStu_Work(@Param("stu_work") Stu_work stu_work);
 
     /**
-     * 更新答题记录,可更新 分数、答题状态、答题答案
+     * 更新答题记录,可更新:分数、答题状态、答题答案
      * @param stu_work
      * @return
      */
