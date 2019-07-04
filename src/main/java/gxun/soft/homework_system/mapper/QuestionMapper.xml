@@ -2,4 +2,40 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="gxun.soft.homework_system.mapper.QuestionMapper">
 
+    <insert id="addQuestion" parameterType="gxun.soft.homework_system.domain.Question">
+        insert into question(questionId, questionType, score, details, answer, correctAnswer)
+        values (#{question.questionId},#{question.questionType},#{question.score},#{question.details},#{question.answer},#{question.correctAnswer})
+    </insert>
+
+    <delete id="deleteQuestionByQuestionId" parameterType="int">
+        delete from question where questionId = #{questionId}
+    </delete>
+
+    <select id="findQuestionByQuestionId" parameterType="int" resultType="gxun.soft.homework_system.domain.Question">
+        select * from question where questionId = #{questionId}
+    </select>
+
+    <select id="getQuestionsByQuestionType" parameterType="int" resultType="gxun.soft.homework_system.domain.Question">
+        select * from question where questionType = #{questionType}
+    </select>
+
+    <select id="getAllQuestions" resultType="gxun.soft.homework_system.domain.Question">
+        select * from question;
+    </select>
 </mapper>
+
+
+<!--        int addQuestion(@Param("question") Question question);-->
+
+<!--        int deleteQuestionById(@Param("questionId") Integer questionId);-->
+
+<!--        Question findQuestionById(@Param("questionId") Integer questionId);-->
+
+<!--        //按questionType查找题目-->
+<!--        List<Question> getQuestionsByQuestionType(@Param("questionType") Integer questionType);-->
+
+<!--//获取一页数量的题目-->
+<!--List<Question> getOnePageQuestions();-->
+
+<!--    //获取全部题目-->
+<!--    List<Question> getAllQuestions();-->

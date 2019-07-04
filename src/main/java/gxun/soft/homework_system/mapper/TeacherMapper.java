@@ -13,8 +13,6 @@ public interface TeacherMapper {
 
     int addTeacher(@Param("teacher") Teacher teacher);
 
-    int updateTeacherPassword(@Param("teacher") Teacher teacher);
-
     int deleteTeacherByTeacherId(@Param("teaId") Integer teaId);
 
     Teacher findTeacherByTeacherId(@Param("teaId") Integer teaId);

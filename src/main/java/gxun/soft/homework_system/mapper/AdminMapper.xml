@@ -6,7 +6,7 @@
         insert into admin (adminId, adminName) VALUES (#{adminId},#{adminName})
     </insert>
 <!--    按id查找管理员-->
-   <select id="findAdminById" parameterType="int" resultType="gxun.soft.homework_system.domain.Admin">
+   <select id="findAdminByAdminId" parameterType="int" resultType="gxun.soft.homework_system.domain.Admin">
        select * from admin where adminId = #{adminId}
    </select>
 <!--    查找所有管理-->

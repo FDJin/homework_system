@@ -12,8 +12,6 @@ public interface StudentMapper {
     //学生操作
     int addStudent(@Param("student") Student student);
 
-    int updateStudentPassword(@Param("student") Student student);
-
     int deleteStudentById(@Param("stuId") Integer stuId);
 
     Student findStudentByStudentId(@Param("stuId") Integer stuId);

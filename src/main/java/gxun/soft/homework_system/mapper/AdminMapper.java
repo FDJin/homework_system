@@ -11,9 +11,19 @@ import java.util.List;
 public interface AdminMapper {
     //管理员操作
 
+    /**
+     * 新增管理员
+     * @param admin
+     * @return
+     */
     int addAdmin(@Param("admin") Admin admin);
 
-    Admin findAdminById(@Param("adminId") Integer adminId);
+    /**
+     * 按adminId查找管理员
+     * @param adminId
+     * @return
+     */
+    Admin findAdminByAdminId(@Param("adminId") Integer adminId);
 
     List<Admin> getAllAdmins();
 
