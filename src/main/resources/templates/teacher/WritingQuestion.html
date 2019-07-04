@@ -6,23 +6,15 @@
 </head>
 <body>
 
-<input name="workName" placeholder="请输入作业题目" /><br>
+<input name="Detail" placeholder="请输入作业题目" /><br>
     <form class="form-horizontal" th:action="@{studentAdd}">
-        <div class="form-group">
-            <div class="col-md-3">
-                <option name="stuName" type="text" class="form-control" required>
-            </div>
-        </div>
 
-        <div class="form-group">
-
-            </div>
-        </div>
 
         <div class="form-group">
             <label class="control-label col-md-2">题目类型：</label><br>
-            <input name="workName" /><br>
+            <input name="questionType" /><br>
         </div>
+
         <div class="form-group">
             <label class="control-label col-md-2">分值：</label>
             <div class="col-md-4">
@@ -38,7 +30,7 @@
                 <!--&lt;!&ndash;<option value="男" th:selected="*{sex=='男'}">男</option>&ndash;&gt;-->
                 <!--&lt;!&ndash;<option value="女" th:selected="*{sex=='女'}">女</option>&ndash;&gt;-->
                 <!--</select>-->
-                <input name="className" type="text" class="form-control" required>
+                <input name="answer" type="text" class="form-control" required>
             </div>
         </div>
 
@@ -70,15 +62,15 @@
 <!--</script>-->
 <script>
     function add () {
-        var workName=$("input[name='workName']").val();
-        var teaId=$("input[name='teaId']").val();
-        var startTime=$("input[name='startTime']").val();
-        var endTime=$("input[name='endTime']").val();
+        var Detail=$("input[name='Detail']").val();
+        var questionType=$("input[name='questionType']").val();
+        var score=$("input[name='score']").val();
+        var answer=$("input[name='answer']").val();
         $.ajax({
             url:'/addWork',
             type:"post",
             dataType:"text",
-            data:{"workName":workName,"teaId":teaId,"startTime":startTime,"endTime":endTime},
+            data:{"Detail":Detail,"questionType":questionType,"score":score,"answer":answer },
             success:function(data){
                  window.alert("新增成功");
                  window.location.href='/work'

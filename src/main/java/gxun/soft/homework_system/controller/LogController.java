@@ -76,18 +76,16 @@ public class LogController {
         Account account = new Account();
         Integer id = Integer.parseInt(userId);
         String psw = password;
-
         account.setUserId(id);
         account.setPassword(psw);
         account = loginService.accountLogin(account);
+        System.out.println("account has type >>>>>>>>>!!!!!"+account.toString());
         if (account != null) {
             session.setAttribute("userId", userId);
             session.setAttribute("password",password);
             Integer accountType = account.getAccountType();
             switch (accountType){
                 case 0:
-//                    获取用户姓名
-//                    String stuName = ...
                     return "student/workList";
                 case 1:
                     return "teacher/workList";

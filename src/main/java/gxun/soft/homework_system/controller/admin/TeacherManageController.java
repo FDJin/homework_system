@@ -1,17 +1,12 @@
 package gxun.soft.homework_system.controller.admin;
 
-import com.alibaba.fastjson.JSONArray;
-import gxun.soft.homework_system.component.ToJsonArray;
-import gxun.soft.homework_system.domain.MyClass;
 import gxun.soft.homework_system.domain.Teacher;
-import gxun.soft.homework_system.service.MyClassService;
 import gxun.soft.homework_system.service.TeacherService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
