@@ -12,7 +12,7 @@ public interface ClassMapper {
 
     int addClass(@Param("myClass") Class myClass);
 
-    int deleteClassById(@Param("classId") Integer classId);
+    int deleteClassByClassId(@Param("classId") Integer classId);
 
     Class findClassByClassId(@Param("classId") Integer classId);
 
