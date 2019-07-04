@@ -89,6 +89,24 @@
 	}).on("changeDate", function () {
 		validator.element(this);
 	});
+    function add () {
+        var stuId=$("input[name='stuId']").val();
+        var stuName=$("input[name='stuName']").val();
+        var classId=$("input[name='classId']").val();
+        $.ajax({
+            url:'/addTeacher',
+            type:"post",
+            dataType:"text",
+            data:{"stuId":stuId,"stuName":stuName,"classId":classId},
+            success:function(data){
+                window.alert("添加成功");
+                window.location.href='/teacher'
+            },
+            error:function () {
+                window.alert("添加失败");
+            }
+        });
+    };
 
 	/* 表单验证 */
 	// var validator = $("form").validate({

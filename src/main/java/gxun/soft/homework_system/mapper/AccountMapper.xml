@@ -1,19 +1,30 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="gxun.soft.homework_system.mapper.AccountMapper">
+
+<!--    新增账号-->
     <insert id="addAccount" parameterType="gxun.soft.homework_system.domain.Account">
         insert into account(userId, password, accountType) values(#{account.userId},#{account.password},#{account.accountType})
     </insert>
 
+<!--    删除账号-->
+    <delete id="deleteAccountByUserId" parameterType="int">
+        delete from account when id = #{userId}
+    </delete>
 
-    int addAccount(@Param("account") Account account);
+<!--    修改密码-->
+    <update id="updatePassword" parameterType="gxun.soft.homework_system.domain.Account">
+        update account set password = #{account.password} where userId = #{account.userId}
+    </update>
 
-    int deleteAccountById(@Param("accountId") Integer accountId);
+<!--    按id查找账号-->
+    <select id="findAccountByUserId" parameterType="int" resultType="gxun.soft.homework_system.domain.Account">
+        select * from account where userId = #{userId}
+    </select>
 
-    int updatePassword(@Param("account") Account account);
-
-    Account findAccountById(@Param("accountId") Integer accountId);
-
-    List<Account> getAllAccounts();
+<!--    查看所有账号-->
+    <select id="getAllAccounts" resultType="gxun.soft.homework_system.domain.Account">
+        select * from account
+    </select>
 
 </mapper>

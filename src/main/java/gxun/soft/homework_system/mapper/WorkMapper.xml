@@ -1,0 +1,39 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gxun.soft.homework_system.mapper.WorkMapper">
+    <insert id="addWork" parameterType="gxun.soft.homework_system.domain.Work">
+        insert into work (workId, teaId, workName, startTime, endTime, correctAnswerList) values(#{work.workId},#{work.teaId},#{work.workName},#{work.startTime},#{work.endTime},#{work.correctAnswerList})
+    </insert>
+
+    <delete id="deleteWorkByWorkId" parameterType="int">
+        delete from work where workId = #{workId}
+    </delete>
+
+    <select id="findWorkByWorkId" parameterType="int" resultType="gxun.soft.homework_system.domain.Work">
+        select * from work where workId = #{workId}
+    </select>
+
+    <select id="finWorkByTeacherId" parameterType="int" resultType="gxun.soft.homework_system.domain.Work">
+        select * from work where teaId = #{teaId}
+    </select>
+
+    <select id="findWorkByWorkName" parameterType="String" resultType="gxun.soft.homework_system.domain.Work">
+        select * from work where workName = #{workName}
+    </select>
+
+    <select id="getAllWorks" resultType="gxun.soft.homework_system.domain.Work">
+        select * from work
+    </select>
+
+    <!--int addWork(@Param("work") Work work);-->
+
+    <!--int deleteWorkByWorkId(@Param("workId") Integer workId);-->
+
+    <!--Work findWorkByWorkId(@Param("workId") Integer workId);-->
+
+    <!--List<Work> finWorkByTeacherId(@Param("teaId") Integer teaId);-->
+
+    <!--List<Work> findWorkByWorkName(@Param("workName") String workName);-->
+
+    <!--List<Work> getAllWorks();-->
+</mapper>
