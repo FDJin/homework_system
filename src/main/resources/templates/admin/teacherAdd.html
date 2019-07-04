@@ -41,13 +41,20 @@
 						</div>
 
 						<div class="form-group">
-							<label class="control-label col-md-2">班级名称：</label>
+							<label class="control-label col-md-2">密码：</label>
 							<div class="col-md-3">
-								<select class="form-control"  name="className" th:value="*{className}">
-									<option value="请选择" th:selected="*{className=='请选择'}">请选择</option>
-									<option value="19软件" th:selected="*{className=='19软件'}">19软件</option>
-								</select>
-								<!--<input name="className" type="text" class="form-control" required>-->
+								<input name="password" type="text" class="form-control" required>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-md-2">班级ID：</label>
+							<div class="col-md-3">
+								<!--<select class="form-control"  onclick="selectClass()" name="className" th:value="*{className}">-->
+									<!--<option value="请选择" th:selected="*{className=='请选择'}">请选择</option>-->
+									<!--<option value="19软件" th:selected="*{className=='19软件'}"></option>-->
+								<!--</select>-->
+								<input name="classId" type="text" class="form-control" required>
 							</div>
 						</div>
 
@@ -80,29 +87,34 @@
 <script src="../plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 <script src="../plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js"></script>
 <script src="../js/base.js"></script>
-<script>
-	// 日期控件
-	$(".datepicker").datepicker({
-		format: "yyyy-mm-dd",
-		language: "zh-CN",
-		todayBtn: "linked",
-		todayHighlight: true,
-		autoclose: true
-	}).on("changeDate", function () {
-		validator.element(this);
-	});
-</script>
+<!--<script>-->
+	<!--// 日期控件-->
+	<!--$(".datepicker").datepicker({-->
+		<!--format: "yyyy-mm-dd",-->
+		<!--language: "zh-CN",-->
+		<!--todayBtn: "linked",-->
+		<!--todayHighlight: true,-->
+		<!--autoclose: true-->
+	<!--}).on("changeDate", function () {-->
+		<!--validator.element(this);-->
+	<!--});-->
+<!--</script>-->
 
 <script>
+    function selectClass(){
+
+	}
 	function addTeacher() {
 
-		var className=$("input[name='teaName']").val();
-		var classId=$("input[name='teaId']").val();
+        var password=$("input[name='password']").val();
+        var classId=$("input[name='classId']").val();
+		var teaName=$("input[name='teaName']").val();
+		var teaId=$("input[name='teaId']").val();
 		$.ajax({
-			url:'/addTeacher'+teaName+teaId,
+			url:'/addTeacher',
 			type:"post",
 			dataType:"text",
-			data:{"teaName":teaName,"teaId":teaId},
+			data:{"teaName":teaName,"teaId":teaId,"classId":classId,"password":password},
 			success:function(data){
 				window.alert("添加老师成功");
 				window.location.href='/teacherAdd'

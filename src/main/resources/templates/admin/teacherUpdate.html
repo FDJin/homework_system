@@ -24,7 +24,7 @@
 					</h4>
 					<hr/>
 
-					<form class="form-horizontal" th:action="@{teacherUpdate}" th:object="${tea}" method="post">
+					<form class="form-horizontal" th:action="@{teacherUpdate}" th:object="${teacherList}" method="post">
 						<input th:value="*{teaId}"  name="id" type="hidden" required>
 						<div class="form-group">
 							<label class="control-label col-md-2">工号：</label>
@@ -41,9 +41,9 @@
 						</div>
 
 						<div class="form-group">
-							<label class="control-label col-md-2">班级名称：</label>
+							<label class="control-label col-md-2">班级ID：</label>
 							<div class="col-md-3">
-								<input th:value="*{className}" name="className" type="text" class="form-control" required>
+								<input th:value="*{classId}" name="className" type="text" class="form-control" required>
 							</div>
 						</div>
 
@@ -92,12 +92,13 @@
 	function updateTeacher() {
 		var teaId=$("input[name='teaId']").val();
 		var teaName=$("input[name='teaName']").val();
-		var className=$("input[name='className']").val();
+		var classId=$("input[name='classId']").val();
+		var password=$("input[name='password']").val();
 		$.ajax({
-			url:'/updateTeacher'+'/'+teaId+'-'+teaName+"-"+className,
+			url:'/updateTeacher',
 			type:"post",
 			dataType:"text",
-			data:{"teaId":teaId,"teaName":teaName,"teaName":teaName},
+			data:{"teaId":teaId,"teaName":teaName,"teaName":teaName,"classId":classId,"password":password},
 			success:function(data){
 				window.alert("添加老师成功");
 				window.location.href='/teacherUpdate'

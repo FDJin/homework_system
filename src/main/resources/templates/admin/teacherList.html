@@ -64,14 +64,14 @@
 							</tr>
 							</thead>
 							<tbody>
-							<tr th:each="tea:${list}">
+							<tr th:each="tea:${teacherList}">
 								<td><input type="checkbox" class="checkItem"></td>
 								<td th:text="${tea.teaId}">080606110</td>
-								<td th:text="${tea.teacherName}">唐僧</td>
+								<td th:text="${tea.teaName}">唐僧</td>
 								<td th:text="${tea.classId}">cname</td>
 								<td>
-									<a th:href="@{/teacherUpdate(id=${tea.id})}">修改</a>&nbsp;&nbsp;
-									<a th:href="@{/deleteById(id=${tea.id})}" onclick="javascript:return delTeacher();">删除</a>
+									<a th:href="@{/teacherUpdate(id=${tea.teaId})}">修改</a>&nbsp;&nbsp;
+									<a th:href="@{/deleteById(id=${tea.teaId})}" onclick="javascript:return delTeacher();">删除</a>
 								</td>
 							</tr>
 							</tbody>
@@ -157,11 +157,12 @@
 	}
 
 	function findByTeacherName() {
-		var className = $("#teaName").val();
+		var teaName = $("#teaName").val();
 		var res = $.ajax({
-			url:"/findByTeacherName/"+teaName,
-			type:"get",
+			url:"/findByTeacherName",
+			type:"post",
 			dataType:"json",
+			data:{"teaName":teaName},
 			success:function (data) {
 				var html = '';
 
@@ -171,6 +172,7 @@
 							"<td><input type=\"checkbox\" class=\"checkItem\"></td>\n" +
 							"<td >"+data[i]['teaId']+"</td>\n" +
 							"<td >"+d['teaName']+"</td>\n" +
+                        	"<td >"+d['classId']+"</td>\n" +
 							// "<td >"+data[i].cdesc+"</td>\n" +
 							"<td>\n" +
 							"<a href=\"/classUpdate?id="+data[i]['teaId']+"\">修改</a>&nbsp;&nbsp;\n" +

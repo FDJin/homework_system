@@ -41,7 +41,7 @@
 							<!--</select>-->
 						<!--</div>-->
 						<div class="form-group form-group-sm">
-							<button type="button" class="btn btn-primary btn-sm" onclick="findStudentByName()">
+							<button type="button" class="btn btn-primary btn-sm" onclick="findByStudentName()">
 								<span class="glyphicon glyphicon-search"></span> 搜索
 							</button>
 						</div>
@@ -64,16 +64,16 @@
 								<th><input type="checkbox" class="checkAll"></th>
 								<th>学号</th>
 								<th>姓名</th>
-								<th>班级名称</th>
+								<th>班级ID</th>
 								<th>操作</th>
 							</tr>
 							</thead>
 							<tbody>
-							<tr th:each="stu:${list}">
+							<tr th:each="stu:${studentList}">
 								<td><input type="checkbox" class="checkItem"></td>
 								<td th:text="${stu.stuId}">080606110</td>
 								<td th:text="${stu.stuName}">唐僧</td>
-								<td th:text="${stu.className}">className</td>
+								<td th:text="${stu.classId}">班级ID</td>
 								<td>
 									<a th:href="@{/studentUpdate(id=${stu.stuId})}">修改</a>&nbsp;&nbsp;
 									<a th:href="@{/deleteById(id=${stu.stuId})}" onclick="javascript:return delStudent();">删除</a>
@@ -115,13 +115,13 @@
 <script th:src="@{/templates/js/base.js}"></script>
 <script>
 	// 日期控件
-	$(".datepicker").datepicker({
-		format: "yyyy-mm-dd",
-		language: "zh-CN",
-		todayBtn: "linked",
-		todayHighlight: true,
-		autoclose: true
-	});
+	// $(".datepicker").datepicker({
+	// 	format: "yyyy-mm-dd",
+	// 	language: "zh-CN",
+	// 	todayBtn: "linked",
+	// 	todayHighlight: true,
+	// 	autoclose: true
+	// });
 
 	function delStudent() {
 		var msg = "您真的确定要删除吗？\n\n请确认！";
@@ -131,12 +131,13 @@
 			return false;
 		}
 	}
-    function findStudentByName() {
+    function findByStudentName() {
         var stuName = $("#stuName").val();
         var res = $.ajax({
-            url:"/findStudentByName/"+stuName,
-            type:"get",
+            url:"/findByStudentName",
+            type:"post",
             dataType:"json",
+			data:{"stuName":stuName},
             success:function (data) {
                 var html = '';
 
@@ -146,7 +147,7 @@
                         "<td><input type=\"checkbox\" class=\"checkItem\"></td>\n" +
                         "<td >"+data[i]['stuId']+"</td>\n" +
                         "<td >"+d['stuName']+"</td>\n" +
-                        "<td >"+data[i]['className']+"</td>\n" +
+                        "<td >"+data[i]['classId']+"</td>\n" +
                         "<td>\n" +
                         "<a href=\"/classUpdate?id="+data[i]['stuId']+"\">修改</a>&nbsp;&nbsp;\n" +
                         "<a href=\"/delete?id="+data[i]['stuId']+"\" onclick=\"javascript:return delStudent();\">删除</a>\n" +

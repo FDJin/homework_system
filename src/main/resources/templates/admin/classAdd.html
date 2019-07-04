@@ -67,9 +67,9 @@
         var className=$("input[name='className']").val();
         var classId=$("input[name='classId']").val();
         $.ajax({
-            url:'/addClass'+className+classId,
+            url:'/addClass/',
             type:"post",
-            dataType:"text",
+            dataType:"json",
             data:{"className":className,"classId":classId},
             success:function(data){
                 window.alert("添加班级成功");

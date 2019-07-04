@@ -131,9 +131,10 @@
 	function findByClassName() {
 		var className = $("#className").val();
 		var res = $.ajax({
-			url:"/findByClassName/"+className,
-			type:"get",
+			url:"/findByClassName/",
+			type:"post",
 			dataType:"json",
+            data:{"className":className},
 			success:function (data) {
 				var html = '';
 

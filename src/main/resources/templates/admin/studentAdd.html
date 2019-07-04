@@ -41,6 +41,13 @@
 						</div>
 
 						<div class="form-group">
+							<label class="control-label col-md-2">密码：</label>
+							<div class="col-md-3">
+								<input name="password" type="text" class="form-control" required>
+							</div>
+						</div>
+
+						<div class="form-group">
 							<label class="control-label col-md-2">班级名称：</label>
 							<div class="col-md-3">
 								<!--<select class="form-control"  name="cname" th:value="*{cname}">-->
@@ -82,24 +89,25 @@
 <script src="../js/base.js"></script>
 <script>
 	// 日期控件
-	$(".datepicker").datepicker({
-		format: "yyyy-mm-dd",
-		language: "zh-CN",
-		todayBtn: "linked",
-		todayHighlight: true,
-		autoclose: true
-	}).on("changeDate", function () {
-		validator.element(this);
-	});
+	// $(".datepicker").datepicker({
+	// 	format: "yyyy-mm-dd",
+	// 	language: "zh-CN",
+	// 	todayBtn: "linked",
+	// 	todayHighlight: true,
+	// 	autoclose: true
+	// }).on("changeDate", function () {
+	// 	validator.element(this);
+	// });
     function addStudent() {
         var stuId=$("input[name='stuId']").val();
         var stuName=$("input[name='stuName']").val();
         var classId=$("input[name='classId']").val();
+        var password=$("input[name='password']").val();
         $.ajax({
-            url:'/addStudent'+stuId+stuName+classId,
+            url:'/addStudent',
             type:"post",
-            dataType:"text",
-            data:{"stuId":stuId,"stuName":stuName,"classId":classId},
+            dataType:"json",
+            data:{"stuId":stuId,"stuName":stuName,"classId":classId,"password":password},
             success:function(data){
                 window.alert("添加学生成功");
                 window.location.href='/studentAdd'
