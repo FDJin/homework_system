@@ -14,6 +14,8 @@ public interface AccountService {
      */
     int addAccount(Account account);
 
+    int deleteAccountByUserId(Integer userId);
+
     /**
      * 修改密码
      * @param account

@@ -4,6 +4,7 @@ import gxun.soft.homework_system.domain.Work;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.Date;
 import java.util.List;
 
 @Mapper
@@ -18,6 +19,20 @@ public interface WorkMapper {
      */
     int addWork(@Param("work") Work work);
 
+    /**
+     * 按workId更改作业名
+     * @param workId
+     * @return
+     */
+    int updateWorkNameByWorkId(@Param("workId") Integer workId, @Param("workName") String workName);
+
+    /**
+     * 按workId更改作业结束时间
+     * @param workId
+     * @param endTime
+     * @return
+     */
+    int updateWorkEndTimeByWorkId(@Param("workId") Integer workId, @Param("endTime")Date endTime);
     /**
      * 按workId删除作业
      * @param workId
