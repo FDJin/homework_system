@@ -2,17 +2,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="gxun.soft.homework_system.mapper.Work_classMapper">
 
-    <select id="addWork_class" parameterType="gxun.soft.homework_system.domain.Work_class">
-        insert into work_class (workId, classId) values(#{work_class.workId},#{work_class.classId})
-    </select>
-
-    <delete id="deleteWork_classByWork_classId" parameterType="int">
-        delete from work_class where classId = #{workClassId}
-    </delete>
-
-    <select id="findWork_ClassByWork_classId" parameterType="int" resultType="gxun.soft.homework_system.domain.Work_class">
-        select * from work_class where classId = #{workClassId}
-    </select>
+    <insert id="addWork_class" parameterType="gxun.soft.homework_system.domain.Work_class">
+        insert into work_class (workId, classId) values (#{work_class.workId},#{work_class.classId})
+    </insert>
 
     <select id="findWork_ClassByWorkId" parameterType="int" resultType="gxun.soft.homework_system.domain.Work_class">
         select * from work_class where workId = #{workId}
@@ -22,17 +14,4 @@
         select * from work_class where classId = #{classId}
     </select>
 
-    <!--int addWork_class(@Param("work_class") Work_class work_class);-->
-
-    <!--int deleteWork_classByWork_classId(@Param("workClassId") Integer workClassId);-->
-
-    <!--//查看单次作业分发情况-->
-    <!--Work_class findWork_ClassByWork_classId(@Param("workClassId") Integer workClassId);-->
-
-    <!--//按workId查看作业分发情况-->
-    <!--List<Work_class> findWork_ClassByWorkId(@Param("workId") Integer workId);-->
-
-    <!--//按classId查看作业分发情况-->
-    <!--List<Work_class> findWork_ClassByClassId(@Param("classId") Integer classId);-->
-    <!---->
 </mapper>

@@ -13,11 +13,6 @@ public interface Work_classMapper {
 
     int addWork_class(@Param("work_class") Work_class work_class);
 
-    int deleteWork_classByWork_classId(@Param("workClassId") Integer workClassId);
-
-    //查看单次作业分发情况
-    Work_class findWork_ClassByWork_classId(@Param("workClassId") Integer workClassId);
-
     //按workId查看作业分发情况
     List<Work_class> findWork_ClassByWorkId(@Param("workId") Integer workId);
 

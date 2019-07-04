@@ -10,18 +10,39 @@ import java.util.List;
 public interface QuestionMapper {
     //题目操作
 
-//    新增题目
+    /**
+     * 新增为题库题目
+     * @param question
+     * @return
+     */
     int addQuestion(@Param("question") Question question);
 
-//    按题目id删除题目
+
+    /**
+     * 按questionId删除题目
+     * @param questionId
+     * @return
+     */
     int deleteQuestionByQuestionId(@Param("questionId") Integer questionId);
 
-//    按题目id查询题目
+    /**
+     * 按questionId查找题目
+     * @param questionId
+     * @return
+     */
     Question findQuestionByQuestionId(@Param("questionId") Integer questionId);
 
-//    按questionType查找题目
+
+    /**
+     * 按questionType查找题目 0：选择题  1：填空题  2：简答题
+     * @param questionType
+     * @return
+     */
     List<Question> getQuestionsByQuestionType(@Param("questionType") Integer questionType);
 
-//    获取全部题目
+    /**
+     * 获取所有题目
+     * @return
+     */
     List<Question> getAllQuestions();
 }

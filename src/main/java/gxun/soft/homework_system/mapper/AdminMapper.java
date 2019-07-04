@@ -25,6 +25,10 @@ public interface AdminMapper {
      */
     Admin findAdminByAdminId(@Param("adminId") Integer adminId);
 
+    /**
+     * 获取所有管理员信息
+     * @return
+     */
     List<Admin> getAllAdmins();
 
 }
