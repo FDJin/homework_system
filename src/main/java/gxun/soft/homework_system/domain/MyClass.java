@@ -3,7 +3,7 @@ package gxun.soft.homework_system.domain;
 //import com.baomidou.mybatisplus.annotations.TableName;
 //
 //@TableName("class")
-public class Class {
+public class MyClass {
     private Integer classId;
     private String className;
 

@@ -1,7 +1,9 @@
 package gxun.soft.homework_system.controller.admin;
 
-import gxun.soft.homework_system.domain.Class;
-import gxun.soft.homework_system.service.ClassService;
+import com.alibaba.fastjson.JSONArray;
+import gxun.soft.homework_system.component.ToJsonArray;
+import gxun.soft.homework_system.domain.MyClass;
+import gxun.soft.homework_system.service.MyClassService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +15,8 @@ import java.util.List;
 public class ClassManageController {
 
     @Autowired
-    private ClassService classService;
+    private MyClassService myClassService;
+    private ToJsonArray toJsonArray = new ToJsonArray();
 
     @ApiOperation(value = "班级管理")
     @GetMapping("/classList")
@@ -23,13 +26,9 @@ public class ClassManageController {
 
     @ApiOperation(value = "查询所有班级")
     @GetMapping("/findAllClassList")
-    public List<Class> getClassList(){
-        List<Class> classList = classService.getAllClasses();
-        for (Class myclass: classList
-             ) {
-            System.out.println(myclass);
-        }
-        return classList;
+    public JSONArray getClassList(){
+        List<MyClass> myClassList = myClassService.getAllClasses();
+        return toJsonArray.classListToJsonArray(myClassList);
     }
 
 }

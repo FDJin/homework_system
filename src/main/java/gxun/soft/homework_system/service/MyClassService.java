@@ -1,16 +1,16 @@
 package gxun.soft.homework_system.service;
 
-import gxun.soft.homework_system.domain.Class;
+import gxun.soft.homework_system.domain.MyClass;
 import java.util.List;
 
-public interface ClassService {
+public interface MyClassService {
 
     /**
      * 新增班级
      * @param myClass
      * @return
      */
-    int addClass(Class myClass);
+    int addClass(MyClass myClass);
 
     /**
      * 按classId删除班级
@@ -24,18 +24,18 @@ public interface ClassService {
      * @param classId
      * @return
      */
-    Class findClassByClassId(Integer classId);
+    MyClass findClassByClassId(Integer classId);
 
     /**
      * 按班级名查找班级
      * @param className
      * @return
      */
-    List<Class> findClassByClassName(String className);
+    List<MyClass> findClassByClassName(String className);
 
     /**
      * 获取所有班级
      * @return
      */
-    List<Class> getAllClasses();
+    List<MyClass> getAllClasses();
 }

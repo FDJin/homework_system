@@ -1,21 +1,21 @@
 package gxun.soft.homework_system.service.impl;
 
-import gxun.soft.homework_system.domain.Class;
+import gxun.soft.homework_system.domain.MyClass;
 import gxun.soft.homework_system.mapper.ClassMapper;
-import gxun.soft.homework_system.service.ClassService;
+import gxun.soft.homework_system.service.MyClassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class ClassServiceImp implements ClassService {
+public class MyClassServiceImp implements MyClassService {
 
     @Autowired
     private ClassMapper classMapper;
 
     @Override
-    public int addClass(Class myClass) {
+    public int addClass(MyClass myClass) {
         return classMapper.addClass(myClass);
     }
 
@@ -25,17 +25,17 @@ public class ClassServiceImp implements ClassService {
     }
 
     @Override
-    public Class findClassByClassId(Integer classId) {
+    public MyClass findClassByClassId(Integer classId) {
         return classMapper.findClassByClassId(classId);
     }
 
     @Override
-    public List<Class> findClassByClassName(String className) {
+    public List<MyClass> findClassByClassName(String className) {
         return classMapper.findClassByClassName(className);
     }
 
     @Override
-    public List<Class> getAllClasses() {
+    public List<MyClass> getAllClasses() {
         return classMapper.getAllClasses();
     }
 }

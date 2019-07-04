@@ -1,8 +1,8 @@
 package gxun.soft.homework_system.controller.admin;
 
-import gxun.soft.homework_system.domain.Class;
+import gxun.soft.homework_system.domain.MyClass;
 import gxun.soft.homework_system.domain.Teacher;
-import gxun.soft.homework_system.service.ClassService;
+import gxun.soft.homework_system.service.MyClassService;
 import gxun.soft.homework_system.service.TeacherService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

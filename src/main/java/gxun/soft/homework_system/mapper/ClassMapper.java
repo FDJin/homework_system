@@ -1,6 +1,6 @@
 package gxun.soft.homework_system.mapper;
 
-import gxun.soft.homework_system.domain.Class;
+import gxun.soft.homework_system.domain.MyClass;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -15,7 +15,7 @@ public interface ClassMapper {
      * @param myClass
      * @return
      */
-    int addClass(@Param("myClass") Class myClass);
+    int addClass(@Param("myClass") MyClass myClass);
 
     /**
      * 按classId删除班级
@@ -29,18 +29,18 @@ public interface ClassMapper {
      * @param classId
      * @return
      */
-    Class findClassByClassId(@Param("classId") Integer classId);
+    MyClass findClassByClassId(@Param("classId") Integer classId);
 
     /**
      * 按className模糊查找班级
      * @param className
      * @return
      */
-    List<Class> findClassByClassName(@Param("className") String className);
+    List<MyClass> findClassByClassName(@Param("className") String className);
 
     /**
      * 获取所有班级
      * @return
      */
-    List<Class> getAllClasses();
+    List<MyClass> getAllClasses();
 }
