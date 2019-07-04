@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -31,25 +32,25 @@ public class ClassManageController {
     }
 
     @ApiOperation(value = "班级查询")
-    @GetMapping("/findByClassName")
+    @PostMapping("/findByClassName")
     public String findByClassName(@Param("className")String className, Model model){
         List<MyClass> myClassList = myClassService.findClassByClassName(className);
         model.addAttribute("myClassList", myClassList);
         return "admin/classList";
     }
-
-    @ApiOperation(value = "班级添加")
-    @GetMapping("/addClass")
-    public String findByClassName(@Param("className")String className,@Param("classId") Integer classId,
-                                   Model model){
-        MyClass myClass = new MyClass();
-        myClass.setClassId(classId);
-        myClass.setClassName(className);
-        myClassService.addClass(myClass);
-        List<MyClass> myClassList = myClassService.getAllClasses();
-        model.addAttribute("myClassList", myClassList);
-        return "admin/classList";
-    }
+//
+//    @ApiOperation(value = "班级添加")
+//    @GetMapping("/addClass")
+//    public String findByClassName(@Param("className")String className,@Param("classId") Integer classId,
+//                                   Model model){
+//        MyClass myClass = new MyClass();
+//        myClass.setClassId(classId);
+//        myClass.setClassName(className);
+//        myClassService.addClass(myClass);
+//        List<MyClass> myClassList = myClassService.getAllClasses();
+//        model.addAttribute("myClassList", myClassList);
+//        return "admin/classList";
+//    }
 
     @ApiOperation(value = "班级删除")
     @GetMapping("/deleteClass")
