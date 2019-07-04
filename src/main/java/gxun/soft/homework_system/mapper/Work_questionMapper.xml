@@ -2,4 +2,40 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="gxun.soft.homework_system.mapper.Work_questionMapper">
 
+    <insert id="addWork_question" parameterType="gxun.soft.homework_system.domain.Work_question">
+        insert into work_question (workId, questionId) values(#{work_question.workId},#{work_question.questionId})
+    </insert>
+
+    <delete id="deleteWork_questionByWork_questionId" parameterType="int">
+        delete from work_question where questionId = #{workQuestionId}
+    </delete>
+
+    <select id="findWork_questionByWork_questionId" parameterType="int" resultType="gxun.soft.homework_system.domain.Work_question">
+        select * from work_question where questionId = #{workQuestionId}
+    </select>
+
+    <select id="findWork_QuestionByWorkId" parameterType="int" resultType="gxun.soft.homework_system.domain.Work_question">
+        select * from work_question where workId = #{workId}
+    </select>
+
+    <select id="findWork_QuestionByQuestionId" parameterType="int" resultType="gxun.soft.homework_system.domain.Work_question">
+        select * from work_question where questionId = #{questionId}
+    </select>
+
+    <select id="getAllWork_questions" resultType="gxun.soft.homework_system.domain.Work_question">
+        select * from work_question
+    </select>
+
+    <!--int addWork_question(Work_question work_question);-->
+
+    <!--int deleteWork_questionByWork_questionId(@Param("workQuestionId") Integer workQuestionId);-->
+
+    <!--Work_question findWork_questionByWork_questionId(@Param("workQuestionId") Integer workQuestionId);-->
+
+    <!--List<Work_question> findWork_QuestionByWorkId(@Param("workId") Integer workId);-->
+
+    <!--List<Work_question> findWork_QuestionByQuestionId(@Param("questionId") Integer questionId);-->
+
+    <!--List<Work_question> getAllWork_questions();-->
+    <!---->
 </mapper>

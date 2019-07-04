@@ -2,4 +2,40 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="gxun.soft.homework_system.mapper.TeacherMapper">
 
+    <insert id="addTeacher" parameterType="gxun.soft.homework_system.domain.Teacher">
+        insert into teacher (teaId, classId, teaName) values(#{teacher.teaId},#{teacher.classId},#{teacher.teaName}})
+    </insert>
+    
+    <delete id="deleteTeacherByTeacherId" parameterType="int">
+        delete from teacher where teaId = #{teaId}
+    </delete>
+
+    <select id="findTeacherByTeacherId" parameterType="int" resultType="gxun.soft.homework_system.domain.Teacher">
+        select * from teacher where teaId = #{teaId}
+    </select>
+
+    <select id="findTeacherByTeacherName" parameterType="String" resultType="gxun.soft.homework_system.domain.Teacher">
+        select * from teacher where teaName = #{teaName}
+    </select>
+
+    <select id="findTeacherByClassId" parameterType="int" resultType="gxun.soft.homework_system.domain.Teacher">
+        select * from teacher where classId = #{classId}
+    </select>
+
+    <select id="getAllTeacher" resultType="gxun.soft.homework_system.domain.Teacher">
+        select * from teacher
+    </select>
+
+    <!--int addTeacher(@Param("teacher") Teacher teacher);-->
+
+    <!--int deleteTeacherByTeacherId(@Param("teaId") Integer teaId);-->
+
+    <!--Teacher findTeacherByTeacherId(@Param("teaId") Integer teaId);-->
+
+    <!--List<Teacher> findTeacherByTeacherName(@Param("teaName") String teaName);-->
+
+    <!--List<Teacher> findTeacherByClassId(@Param("classId") Integer classId);-->
+
+    <!--List<Teacher> getAllTeacher();-->
+
 </mapper>
