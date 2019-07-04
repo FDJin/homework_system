@@ -24,27 +24,9 @@ public class ClassManageController {
 
     @ApiOperation(value = "班级管理")
     @GetMapping("/classList")
-    public String classManage(){
-        return "admin/classList";
-    }
-
-    @ApiOperation(value = "查询所有班级")
-    @ResponseBody
-    @GetMapping("/findAllClassList")
     public String getClassList(Model model){
         List<MyClass> myClassList = myClassService.getAllClasses();
         model.addAttribute("myClassList", myClassList);
-//        JSONArray classListJsonArray = ToJsonArray.classListToJsonArray(myClassList);
-        return null;
+        return "admin/classList";
     }
-//
-//    @ApiOperation(value = "班级模糊查询")
-//    @ResponseBody
-//    @GetMapping("/findClassByName")
-//    public JSONArray findClassByName(@RequestParam String className){
-//
-//    }
-
-
-
 }
