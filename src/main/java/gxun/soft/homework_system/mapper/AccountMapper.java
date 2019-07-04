@@ -12,9 +12,11 @@
 package gxun.soft.homework_system.mapper;
 
 import gxun.soft.homework_system.domain.Account;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
+@Mapper
 public interface AccountMapper {
 
     //账户操作

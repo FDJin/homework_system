@@ -1,10 +1,12 @@
 package gxun.soft.homework_system.mapper;
 
 import gxun.soft.homework_system.domain.Work;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@Mapper
 public interface WorkMapper {
 
     //作业操作

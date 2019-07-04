@@ -1,14 +1,15 @@
-package gxun.soft.homework_system.service.accountManagement;
+package gxun.soft.homework_system.service.impl;
 
 import gxun.soft.homework_system.domain.Account;
 import gxun.soft.homework_system.mapper.AccountMapper;
+import gxun.soft.homework_system.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class AccountService {
+public class AccountServiceImp implements AccountService {
     @Autowired
     AccountMapper accountManagementMapper;
 
@@ -17,7 +18,8 @@ public class AccountService {
      * @param account
      * @return
      */
-    int addAccount(Account account){
+    @Override
+    public int addAccount(Account account){
         int result = accountManagementMapper.addAccount(account);
         return result;
     }
@@ -27,7 +29,8 @@ public class AccountService {
      * @param account
      * @return
      */
-    int updatePassword(Account account){
+    @Override
+    public int updatePassword(Account account){
         int result = accountManagementMapper.updatePassword(account);
         return result;
     }
@@ -37,7 +40,8 @@ public class AccountService {
      * @param id
      * @return
      */
-    Account findAccountById(Integer id){
+    @Override
+    public Account findAccountById(Integer id){
         Account account = accountManagementMapper.findAccountById(id);
         return account;
     }
@@ -46,7 +50,8 @@ public class AccountService {
      * 查找所有用户
      * @return
      */
-    List<Account> getAllAccounts(){
+    @Override
+    public List<Account> getAllAccounts(){
         List<Account> allAccounts = accountManagementMapper.getAllAccounts();
         return allAccounts;
     }
