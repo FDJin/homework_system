@@ -2,4 +2,20 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="gxun.soft.homework_system.mapper.Work_questionMapper">
 
+
+    <insert id="addWork_question" parameterType="gxun.soft.homework_system.domain.Work_question">
+        insert into work_question (workId, questionId) values(#{work_question.workId},#{work_question.questionId})
+    </insert>
+
+    <select id="findWork_QuestionByWorkId" parameterType="int" resultType="gxun.soft.homework_system.domain.Work_question">
+        select * from work_question where workId = #{workId}
+    </select>
+
+    <select id="findWork_QuestionByQuestionId" parameterType="int" resultType="gxun.soft.homework_system.domain.Work_question">
+        select * from work_question where questionId = #{questionId}
+    </select>
+
+    <select id="getAllWork_questions" resultType="gxun.soft.homework_system.domain.Work_question">
+        select * from work_question
+    </select>
 </mapper>

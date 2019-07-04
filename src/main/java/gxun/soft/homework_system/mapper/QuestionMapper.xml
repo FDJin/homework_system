@@ -2,4 +2,24 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="gxun.soft.homework_system.mapper.QuestionMapper">
 
+    <insert id="addQuestion" parameterType="gxun.soft.homework_system.domain.Question">
+        insert into question(questionId, questionType, score, details, answer, correctAnswer)
+        values (#{question.questionId},#{question.questionType},#{question.score},#{question.details},#{question.answer},#{question.correctAnswer})
+    </insert>
+
+    <delete id="deleteQuestionByQuestionId" parameterType="int">
+        delete from question where questionId = #{questionId}
+    </delete>
+
+    <select id="findQuestionByQuestionId" parameterType="int" resultType="gxun.soft.homework_system.domain.Question">
+        select * from question where questionId = #{questionId}
+    </select>
+
+    <select id="getQuestionsByQuestionType" parameterType="int" resultType="gxun.soft.homework_system.domain.Question">
+        select * from question where questionType = #{questionType}
+    </select>
+
+    <select id="getAllQuestions" resultType="gxun.soft.homework_system.domain.Question">
+        select * from question;
+    </select>
 </mapper>

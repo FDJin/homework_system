@@ -1,55 +1,47 @@
-package gxun.soft.homework_system.mapper;
+package gxun.soft.homework_system.service;
 
 import gxun.soft.homework_system.domain.Work;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
 
-@Mapper
-public interface WorkMapper {
-
-    //作业操作
-
+public interface WorkService {
     /**
      * 新增作业
      * @param work
      * @return
      */
-    int addWork(@Param("work") Work work);
+    int addWork(Work work);
 
     /**
      * 按workId删除作业
      * @param workId
      * @return
      */
-    int deleteWorkByWorkId(@Param("workId") Integer workId);
+    int deleteWorkByWorkId(Integer workId);
 
     /**
      * 按workId查找作业
      * @param workId
      * @return
      */
-    Work findWorkByWorkId(@Param("workId") Integer workId);
+    Work findWorkByWorkId(Integer workId);
 
     /**
      *按teacherId查找作业
      * @param teaId
      * @return
      */
-    List<Work> finWorkByTeacherId(@Param("teaId") Integer teaId);
+    List<Work> finWorkByTeacherId(Integer teaId);
 
     /**
      * 按workName查找作业
      * @param workName
      * @return
      */
-    List<Work> findWorkByWorkName(@Param("workName") String workName);
+    List<Work> findWorkByWorkName(String workName);
 
     /**
      * 获取所有作业
      * @return
      */
     List<Work> getAllWorks();
-
 }

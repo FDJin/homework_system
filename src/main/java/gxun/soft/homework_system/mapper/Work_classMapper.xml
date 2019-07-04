@@ -2,4 +2,16 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="gxun.soft.homework_system.mapper.Work_classMapper">
 
+    <insert id="addWork_class" parameterType="gxun.soft.homework_system.domain.Work_class">
+        insert into work_class (workId, classId) values (#{work_class.workId},#{work_class.classId})
+    </insert>
+
+    <select id="findWork_ClassByWorkId" parameterType="int" resultType="gxun.soft.homework_system.domain.Work_class">
+        select * from work_class where workId = #{workId}
+    </select>
+
+    <select id="findWork_ClassByClassId" parameterType="int" resultType="gxun.soft.homework_system.domain.Work_class">
+        select * from work_class where classId = #{classId}
+    </select>
+
 </mapper>

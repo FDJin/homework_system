@@ -2,14 +2,28 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="gxun.soft.homework_system.mapper.ClassMapper">
 
+<!--    新增班级-->
+    <insert id="addClass" parameterType="gxun.soft.homework_system.domain.Class">
+        insert into class(classId, className) values (#myClass.classId, #myClass.className)
+    </insert>
+
+<!--    按班级id删除班级-->
+    <delete id="deleteClassByClassId" parameterType="int">
+        delete from class where classId = #{classId}
+    </delete>
+
+<!--    按班级id查找班级-->
+    <select id="findClassByClassId" parameterType="int" resultType="gxun.soft.homework_system.domain.Class">
+        select * from class where classId = classId = #{classId}
+    </select>
+
+<!--    按班级名称查找班级-->
+    <select id="findClassByClassName" parameterType="string" resultType="gxun.soft.homework_system.domain.Class">
+        select * from  class where className = #{className}
+    </select>
+
+<!--    查看所有班级-->
+    <select id="getAllClasses" resultType="gxun.soft.homework_system.domain.Class">
+        select * from class
+    </select>
 </mapper>
-
-<!--        int addClass(@Param("myClass") Class myClass);-->
-
-<!--        int deleteClassById(@Param("classId") Integer classId);-->
-
-<!--        Class findClassByClassId(@Param("classId") Integer classId);-->
-
-<!--        List<Class> findClassByClassName(@Param("className") String className);-->
-
-<!--        List<Class> getAllClasses();-->

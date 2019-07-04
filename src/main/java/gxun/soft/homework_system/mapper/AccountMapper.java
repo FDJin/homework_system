@@ -21,14 +21,38 @@ public interface AccountMapper {
 
     //账户操作
 
+    /**
+     * 新增账户
+     * @param account
+     * @return
+     */
     int addAccount(@Param("account") Account account);
 
+    /**
+     * 按userId删除账户
+     * @param userId
+     * @return
+     */
     int deleteAccountByUserId(@Param("userId") Integer userId);
 
+    /**
+     * 更新账户密码
+     * @param account
+     * @return
+     */
     int updatePassword(@Param("account") Account account);
 
+    /**
+     * 按userId查找账户
+     * @param userId
+     * @return
+     */
     Account findAccountByUserId(@Param("userId") Integer userId);
 
+    /**
+     * 获取全部账户
+     * @return
+     */
     List<Account> getAllAccounts();
 
 }

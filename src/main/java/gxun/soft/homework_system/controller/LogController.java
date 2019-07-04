@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 @Api(value = "登录")
 @Controller
-public class LoginController {
+public class LogController {
     @Autowired
     private LoginService loginService;
 //    /**

@@ -2,4 +2,37 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="gxun.soft.homework_system.mapper.Stu_workMapper">
 
+    <insert id="addStu_Work" parameterType="gxun.soft.homework_system.domain.Stu_work">
+        insert into stu_work(workId, stuId, score, answerList, status) values (#{stu_work.workId}, #{stu_work.stuId},#{stu_work.score},#{stu_work.answerList},#{stu_work.status})
+    </insert>
+
+    <update id="updateStu_work" parameterType="gxun.soft.homework_system.domain.Stu_work">
+        update stu_work set score = #{stu_work.score}, answerList = #{stu_work.answerList}, status = #{stu_work.status} where workId = #{stu_work.workId} and stuId = #{stu_work.stuId}
+    </update>
+
+    <select id="findStu_workByWorkId" parameterType="int" resultType="gxun.soft.homework_system.domain.Stu_work">
+        select * from stu_work where workId = #{workId}
+    </select>
+
+    <select id="findStuWorkByStuId" parameterType="int" resultType="gxun.soft.homework_system.domain.Stu_work">
+        select * from stu_work where stuId = #{stuId}
+    </select>
+
+    <select id="getAllStu_works" resultType="gxun.soft.homework_system.domain.Stu_work">
+        select * from stu_work
+    </select>
 </mapper>
+
+
+<!--        int addStu_Work(@Param("stu_work") Stu_work stu_work);-->
+
+<!--        int updateStu_work(@Param("Stu_work") Stu_work stu_work);-->
+
+<!--        //以workId查找学生答题记录-->
+<!--        List<Stu_work> findStu_workByWorkId(@Param("workId") Integer workId);-->
+
+<!--//以stuId查找学生答题记录-->
+<!--List<Stu_work> findStuWorkByStuId(@Param("stuId") Integer stuId);-->
+
+<!--    //获取全部学生答题记录-->
+<!--    List<Stu_work> getAllStu_works();-->

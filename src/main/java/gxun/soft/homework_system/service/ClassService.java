@@ -1,42 +1,37 @@
-package gxun.soft.homework_system.mapper;
+package gxun.soft.homework_system.service;
 
 import gxun.soft.homework_system.domain.Class;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
 
-@Mapper
-public interface ClassMapper {
-    //班级操作
+public interface ClassService {
 
     /**
      * 新增班级
      * @param myClass
      * @return
      */
-    int addClass(@Param("myClass") Class myClass);
+    int addClass(Class myClass);
 
     /**
      * 按classId删除班级
      * @param classId
      * @return
      */
-    int deleteClassByClassId(@Param("classId") Integer classId);
+    int deleteClassByClassId(Integer classId);
 
     /**
      * 按classId查找班级
      * @param classId
      * @return
      */
-    Class findClassByClassId(@Param("classId") Integer classId);
+    Class findClassByClassId(Integer classId);
 
     /**
      * 按班级名查找班级
      * @param className
      * @return
      */
-    List<Class> findClassByClassName(@Param("className") String className);
+    List<Class> findClassByClassName(String className);
 
     /**
      * 获取所有班级

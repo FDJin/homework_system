@@ -6,5 +6,10 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface LoginMapper {
+    /**
+     * 账户登录
+     * @param account
+     * @return
+     */
     Account accountLogin(@Param("account") Account account);
 }

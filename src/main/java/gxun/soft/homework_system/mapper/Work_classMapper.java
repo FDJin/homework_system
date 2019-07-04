@@ -11,16 +11,24 @@ public interface Work_classMapper {
 
     //作业分发操作
 
+    /**
+     * 添加作业分发情况
+     * @param work_class
+     * @return
+     */
     int addWork_class(@Param("work_class") Work_class work_class);
 
-    int deleteWork_classByWork_classId(@Param("workClassId") Integer workClassId);
-
-    //查看单次作业分发情况
-    Work_class findWork_ClassByWork_classId(@Param("workClassId") Integer workClassId);
-
-    //按workId查看作业分发情况
+    /**
+     * 按workId查找作业分发情况
+     * @param workId
+     * @return
+     */
     List<Work_class> findWork_ClassByWorkId(@Param("workId") Integer workId);
 
-    //按classId查看作业分发情况
+    /**
+     * 按classId查找作业分发情况
+     * @param classId
+     * @return
+     */
     List<Work_class> findWork_ClassByClassId(@Param("classId") Integer classId);
 }
