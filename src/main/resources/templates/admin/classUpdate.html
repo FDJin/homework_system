@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>作业批改系统</title>
+	<link th:href="@{/templates/css/bootstrap.min.css}" rel="stylesheet">
+	<link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+
+<header th:include="include/header :: header"></header>
+<article>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="content">
+					<h4>
+						<strong>班级管理</strong>
+						<a class="btn btn-info btn-xs" th:href="@{classAdd}">
+							<span class="glyphicon glyphicon-plus"></span> 添加
+						</a>
+
+					</h4>
+					<hr/>
+
+					<form class="form-inline m-t-15 m-b-10" >
+						<div class="form-group form-group-sm">
+							<label>班级名称：</label>
+							<input name="className" id="className" type="text" class="form-control">
+						</div>
+						<div class="form-group form-group-sm">
+						<input type="button" onclick="findByClassName()" class="btn btn-primary btn-sm"
+							   value="搜索">
+					</div>
+					</form>
+
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead>
+							<tr>
+								<th><input type="checkbox" class="checkAll"></th>
+								<th>编号</th>
+								<th>班级名称</th>
+								<th>班级描述</th>
+								<th></th>
+							</tr>
+							</thead>
+							<tbody id="list_result">
+							<tr th:each="myclass:${list}">
+								<td><input type="checkbox" class="checkItem"></td>
+								<td th:text="${myclass.classId}">1</td>
+								<td th:text="${myclass.className}">19软件</td>
+								<!--<td th:text="${myclass.cdesc}">19软件工程</td>-->
+								<td>
+									<a th:href="@{/classUpdate(id=${myclass.classId})}">修改</a>&nbsp;&nbsp;
+									<a th:href="@{/delete(classId=${myclass.classId})}" onclick="javascript:return del();">删除</a>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="text-center">
+						<ul class="pagination">
+							<li><a href="#">&laquo;</a></li>
+							<li class="active"><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">&raquo;</a></li>
+						</ul>
+					</div>
+
+				</div><!--/.content-->
+			</div><!--/.col-md-12-->
+		</div><!--/.row-->
+	</div><!--/.container-->
+</article>
+
+<footer>
+	<p class="copyright">
+		&copy;2019 <a href="#"></a> 作业批改系统
+	</p>
+</footer>
+
+<script th:src="@{/templates/js/jquery-1.12.4.min.js}" ></script>
+<script th:src="@{/templates/js/bootstrap.min.js}" ></script>
+<script th:src="@{/templates/plugins/layer/layer.js}"></script>
+<script th:src="@{/templates/js/base.js}"></script>
+<script>
+    function del() {
+        var msg = "您真的确定要删除吗？\n\n请确认！";
+        if (confirm(msg)==true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+	function findByClassName() {
+		var className = $("#className").val();
+		var res = $.ajax({
+			url:"/findByClassName/"+className,
+			type:"get",
+			dataType:"json",
+			success:function (data) {
+				var html = '';
+
+				for (var i = 0; i < data.length; i++) {
+					var d = data[i];
+					html += "<tr >" +
+							"<td><input type=\"checkbox\" class=\"checkItem\"></td>\n" +
+							"<td >"+data[i]['id']+"</td>\n" +
+							"<td >"+d['className']+"</td>\n" +
+							// "<td >"+data[i].cdesc+"</td>\n" +
+							"<td>\n" +
+							"<a href=\"/classUpdate?id="+data[i]['id']+"\">修改</a>&nbsp;&nbsp;\n" +
+							"<a href=\"/delete?id="+data[i]['id']+"\" onclick=\"javascript:return del();\">删除</a>\n" +
+							"</td>\n" +
+							"</tr>\n";
+				}
+
+				$("#list_result").html(html);
+			}
+		});
+	}
+</script>
+
+</body>
+</html>

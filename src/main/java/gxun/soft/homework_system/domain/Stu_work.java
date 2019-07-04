@@ -6,21 +6,11 @@ import springfox.documentation.spring.web.json.Json;
 //
 //@TableName("stu_work" )
 public class Stu_work {
-    private Integer stuWorkId;
     private Integer workId;
     private Integer stuId;
-    private Integer questionType;
     private Integer score;
     private Json answerList;
     private Integer status;
-
-    public Integer getStuWorkId() {
-        return stuWorkId;
-    }
-
-    public void setStuWorkId(Integer stuWorkId) {
-        this.stuWorkId = stuWorkId;
-    }
 
     public Integer getWorkId() {
         return workId;
@@ -36,14 +26,6 @@ public class Stu_work {
 
     public void setStuId(Integer stuId) {
         this.stuId = stuId;
-    }
-
-    public Integer getQuestionType() {
-        return questionType;
-    }
-
-    public void setQuestionType(Integer questionType) {
-        this.questionType = questionType;
     }
 
     public Integer getScore() {

@@ -5,8 +5,8 @@ package gxun.soft.homework_system.domain;
 //@TableName("teacher")
 public class Teacher {
     private Integer teaId;
-    private String teaName;
     private Integer classId;
+    private String teaName;
 
     public Integer getTeaId() {
         return teaId;

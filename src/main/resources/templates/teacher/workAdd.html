@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>作业批改系统</title>
+</head>
+<body>
+作业名称：<input name="workName"/><br>
+发布者：<input name="teaId"/><br>
+开始时间：<input name="startTime"/><br>
+结束时间：<input name="endTime"/><br>
+
+<input onclick="add()" type="button" value="确定" />
+</body>
+</html>
+<script src="../js/jquery-1.12.4.min.js" ></script>
+<script>
+    // 日期控件
+    $(".datepicker").datepicker({
+        format: "yyyy-mm-dd",
+        language: "zh-CN",
+        todayBtn: "linked",
+        todayHighlight: true,
+        autoclose: true
+    }).on("changeDate", function () {
+        validator.element(this);
+    });
+
+</script>
+<script>
+    function add () {
+        var workName=$("input[name='workName']").val();
+        var teaId=$("input[name='teaId']").val();
+        var startTime=$("input[name='startTime']").val();
+        var endTime=$("input[name='endTime']").val();
+        $.ajax({
+            url:'/addWork',
+            type:"post",
+            dataType:"text",
+            data:{"workName":workName,"teaId":teaId,"startTime":startTime,"endTime":endTime},
+            success:function(data){
+                 window.alert("发布成功");
+                 window.location.href='/work'
+            },
+            error:function () {
+                window.alert("发布失败");
+            }
+        });
+    };
+
+</script>
