@@ -2,14 +2,15 @@ package gxun.soft.homework_system.controller;
 
 
 import gxun.soft.homework_system.domain.Account;
-import gxun.soft.homework_system.service.login.LoginService;
+import gxun.soft.homework_system.service.LoginService;
+import gxun.soft.homework_system.service.impl.LoginServiceImp;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -63,21 +64,22 @@ public class LoginController {
      * 登录
      * @param
      * @param
-     * @param request
+     * @param
      * @return
      */
     @ApiOperation(value = "登录")
    @PostMapping(value = {"/login"})
-    public String login(Account account, @RequestBody HttpServletRequest request, HttpSession session) {
-        Integer userId = Integer.parseInt(request.getParameter("userId"));
-        String password = request.getParameter("password");
-        account.setUserId(userId);
-        account.setPassword(password);
+    public String login(@RequestParam("userId") String userId,
+                         @RequestParam("password") String password,
+                         HttpSession session) {
+        Account account = new Account();
+        Integer id = Integer.parseInt(userId);
+        String psw = password;
+        account.setUserId(id);
+        account.setPassword(psw);
         System.out.println(account.toString());
-        account =this.loginService.accountLogin(account);
-        System.out.println("account>>>>>>>"+account);
+        account = loginService.accountLogin(account);
         if (account != null) {
-            session=request.getSession();
             session.setAttribute("userId", userId);
             session.setAttribute("password",password);
             Integer accountType = account.getAccountType();
@@ -93,6 +95,7 @@ public class LoginController {
                     default: return "index";
             }
         } else {
+            System.out.println("账号不存在>>>>>>>重新登录");
             return "index";
         }
 

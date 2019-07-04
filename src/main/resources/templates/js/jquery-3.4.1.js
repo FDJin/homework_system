@@ -9023,7 +9023,7 @@ function ajaxConvert( s, response, jqXHR, isSuccess ) {
 		}
 	}
 
-	return { state: "success", data: response };
+	return { state: "templates.success", data: response };
 }
 
 jQuery.extend( {

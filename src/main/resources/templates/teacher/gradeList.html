@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>成绩管理</title>
 </head>
 <body>
 <!--<input type="button" onclick="refurbishIndex()" value="点击查看所有"/>-->
 <div>
-    <a href="/workAdd">添加</a>
+    <a href="/workAdd">发布作业</a>
 </div>
 <table id="list">
     <tr>
@@ -28,7 +28,7 @@
     //点击查看所有
     $(function () {
             var res = $.ajax({
-                url:"/findgradeList",
+                url:"/findAllGradeList",
                 type:"get",
                 dataType:"json",
                 success:function (data) {
@@ -36,21 +36,21 @@
                 }
             });
     });
-    //删除
-    function del(workId){
-        $.ajax({
-            type:"get",
-            url:"/deleteWork/"+workId,
-            dataType:"json",
-            success:function(data){
-                alert("删除成功");
-                render.list(data);
-            },
-            error:function (data) {
-                alert("删除失败");
-            }
-        });
-    };
+    // //删除
+    // function del(workId){
+    //     $.ajax({
+    //         type:"get",
+    //         url:"/deleteWork/"+workId,
+    //         dataType:"json",
+    //         success:function(data){
+    //             alert("删除成功");
+    //             render.list(data);
+    //         },
+    //         error:function (data) {
+    //             alert("删除失败");
+    //         }
+    //     });
+    // };
 
     var render = {
         list:function (data) {
@@ -65,11 +65,12 @@
                     "<td >"+data[i]['status']+"</td>\n" +
                     "<td >"+data[i]['score']+"</td>\n" +
                     "<td>\n" +
-                    "<td>"+
-                    // "<input type='button' id='upBtn' value='修改'/>"
-                "<a href=\"/workUpdate?id="+data[i].workId+"\">修改</a>&nbsp;&nbsp;\n"
-                    +"<input type='button' id='delBtn' value='删除' onclick='del("+data[i].id+")'/>"+"</td>"+
-                    "</tr>\n";
+                    "<td>"
+                    // +
+                //     // "<input type='button' id='upBtn' value='修改'/>"
+                // "<a href=\"/workUpdate?id="+data[i].workId+"\">修改</a>&nbsp;&nbsp;\n"
+                //     +"<input type='button' id='delBtn' value='删除' onclick='del("+data[i].id+")'/>"+"</td>"+
+                //     "</tr>\n";
             }
             $("#tbodydata").html(html);
         }

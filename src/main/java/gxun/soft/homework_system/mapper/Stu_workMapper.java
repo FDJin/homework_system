@@ -2,10 +2,12 @@ package gxun.soft.homework_system.mapper;
 
 
 import gxun.soft.homework_system.domain.Stu_work;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@Mapper
 public interface Stu_workMapper {
 
     //学生答题情况操作
