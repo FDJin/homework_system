@@ -23,11 +23,11 @@ public interface AccountMapper {
 
     int addAccount(@Param("account") Account account);
 
-    int deleteAccountById(@Param("accountId") Integer accountId);
+    int deleteAccountByUserId(@Param("userId") Integer userId);
 
     int updatePassword(@Param("account") Account account);
 
-    Account findAccountById(@Param("accountId") Integer accountId);
+    Account findAccountByUserId(@Param("userId") Integer userId);
 
     List<Account> getAllAccounts();
 

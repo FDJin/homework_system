@@ -1,0 +1,18 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gxun.soft.homework_system.mapper.AdminMapper">
+<!--    添加管理员-->
+    <insert id="addAdmin" parameterType="gxun.soft.homework_system.domain.Admin">
+        insert into admin (adminId, adminName) VALUES (#{adminId},#{adminName})
+    </insert>
+<!--    按id查找管理员-->
+   <select id="findAdminById" parameterType="int" resultType="gxun.soft.homework_system.domain.Admin">
+       select * from admin where adminId = #{adminId}
+   </select>
+<!--    查找所有管理-->
+    <select id="getAllAdmins" resultType="gxun.soft.homework_system.domain.Admin">
+        select * from account where accountType = 2;
+    </select>
+
+</mapper>
+
