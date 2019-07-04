@@ -48,7 +48,7 @@
 							</tr>
 							</thead>
 							<tbody id="list_result">
-							<tr th:each="myclass:${list}">
+							<tr th:each="myclass:${myClassList}">
 								<td><input type="checkbox" class="checkItem"></td>
 								<td th:text="${myclass.classId}">1</td>
 								<td th:text="${myclass.className}">19软件</td>
@@ -89,35 +89,36 @@
 <script th:src="@{/templates/plugins/layer/layer.js}"></script>
 <script th:src="@{/templates/js/base.js}"></script>
 <script>
-    var render = {
-        list:function (data) {
-            var html = '';
-            for (var i = 0; i < data.length; i++) {
-                var d = data[i];
-                html += "<tr >" +
-                    "<td >"+data[i]['classId']+"</td>\n" +
-                    "<td >"+data[i]['className']+"</td>\n" +
-                    "<td>\n" +
-                    "<td>"
-                // +
-                //     // "<input type='button' id='upBtn' value='修改'/>"
-                // "<a href=\"/workUpdate?id="+data[i].workId+"\">修改</a>&nbsp;&nbsp;\n"
-                //     +"<input type='button' id='delBtn' value='删除' onclick='del("+data[i].id+")'/>"+"</td>"+
-                //     "</tr>\n";
-            }
-            $("#tbodydata").html(html);
-        }
-    }
-    $(function () {
-        var res = $.ajax({
-            url:"/findAllClassList",
-            type:"get",
-            dataType:"json",
-            success:function (data) {
-                render.list(data);
-            }
-        });
-    });
+    // var render = {
+    //     list:function (data) {
+    //         var html = '';
+    //         for (var i = 0; i < data.length; i++) {
+    //             var d = data[i];
+    //             html += "<tr >" +
+    //                 "<td >"+data[i]['classId']+"</td>\n" +
+    //                 "<td >"+data[i]['className']+"</td>\n" +
+    //                 "<td>\n" +
+    //                 "<td>"
+    //             // +
+    //             //     // "<input type='button' id='upBtn' value='修改'/>"
+    //             // "<a href=\"/workUpdate?id="+data[i].workId+"\">修改</a>&nbsp;&nbsp;\n"
+    //             //     +"<input type='button' id='delBtn' value='删除' onclick='del("+data[i].id+")'/>"+"</td>"+
+    //             //     "</tr>\n";
+    //         }
+    //         $("#tbodydata").html(html);
+    //     }
+    // }
+    // $(function () {
+    //     var res = $.ajax({
+    //         url:"/findAllClassList",
+    //         type:"get",
+    //         dataType:"json",
+    //         success:function (data) {
+    //             console.log(data);
+    //             // render.list(data);
+    //         }
+    //     });
+    // });
     function delClass() {
         var msg = "您真的确定要删除吗？\n\n请确认！";
         if (confirm(msg)==true){

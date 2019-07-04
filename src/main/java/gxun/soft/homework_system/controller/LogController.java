@@ -88,9 +88,9 @@ public class LogController {
                 case 0:
 //                    获取用户姓名
 //                    String stuName = ...
-                    return "student";
+                    return "student/workList";
                 case 1:
-                    return "teacher";
+                    return "teacher/workList";
                 case 2:
                     return "admin/admin";
                     default: return "index";
