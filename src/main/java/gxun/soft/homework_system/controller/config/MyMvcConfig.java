@@ -9,8 +9,8 @@ public class MyMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry){
-        registry.addViewController("/").setViewName("success");
-        registry.addViewController("/home").setViewName("success");
+        registry.addViewController("/").setViewName("index");
+        registry.addViewController("/home").setViewName("index");
 //        registry.addViewController("/Swagger2").setViewName("swagger-ui");
     }
     @Override
@@ -19,6 +19,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
                 .addResourceLocations("classpath:/META-INF/resources/");
         registry.addResourceHandler("/webjars/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
+        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
     }
 //    @Override
 //    public void addInterceptors(InterceptorRegistry registry) {
