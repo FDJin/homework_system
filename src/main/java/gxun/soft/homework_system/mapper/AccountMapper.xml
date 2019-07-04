@@ -5,15 +5,4 @@
         insert into account(userId, password, accountType) values(#{account.userId},#{account.password},#{account.accountType})
     </insert>
 
-
-    <!--int addAccount(@Param("account") Account account);-->
-
-    <!--int deleteAccountById(@Param("accountId") Integer accountId);-->
-
-    <!--int updatePassword(@Param("account") Account account);-->
-
-    <!--Account findAccountById(@Param("accountId") Integer accountId);-->
-
-    <!--List<Account> getAllAccounts();-->
-
 </mapper>

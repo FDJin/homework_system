@@ -24,16 +24,4 @@
     <select id="getAllWorks" resultType="gxun.soft.homework_system.domain.Work">
         select * from work
     </select>
-
-    <!--int addWork(@Param("work") Work work);-->
-
-    <!--int deleteWorkByWorkId(@Param("workId") Integer workId);-->
-
-    <!--Work findWorkByWorkId(@Param("workId") Integer workId);-->
-
-    <!--List<Work> finWorkByTeacherId(@Param("teaId") Integer teaId);-->
-
-    <!--List<Work> findWorkByWorkName(@Param("workName") String workName);-->
-
-    <!--List<Work> getAllWorks();-->
 </mapper>
