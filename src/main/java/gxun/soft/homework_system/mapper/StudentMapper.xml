@@ -3,7 +3,7 @@
 <mapper namespace="gxun.soft.homework_system.mapper.StudentMapper">
 
     <insert id="addStudent" parameterType="gxun.soft.homework_system.domain.Student">
-        insert into student(stuId, classId, stuName) values (#{student.stuId},#{student.classId},#{student.stuName})
+        insert into student (stuId, classId, stuName) values (#{student.stuId},#{student.classId},#{student.stuName})
     </insert>
     
     <delete id="deleteStudentByStudentId" parameterType="int">

@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
 import java.util.List;
@@ -32,10 +33,10 @@ public class TeacherManageController {
 
     @ApiOperation(value = "教师添加")
     @PostMapping("/addTeacher")
-    public String addTeacher(@Param("teaName") String teaName,
-                               @Param("teaId") Integer teaId,
-                               @Param("classId") Integer classId,
-                               @Param("password") String password,
+    public String addTeacher(@RequestParam("teaName") String teaName,
+                               @RequestParam("teaId") Integer teaId,
+                               @RequestParam("classId") Integer classId,
+                               @RequestParam("password") String password,
                                Model model){
 
         Account account = new Account();
@@ -61,7 +62,7 @@ public class TeacherManageController {
 
     @ApiOperation(value = "教师查询")
     @PostMapping("/findByTeacherName")
-    public String FindByTeacherName(@Param("teaName") String teaName,
+    public String FindByTeacherName(@RequestParam("teaName") String teaName,
                                     Model model){
         List<Teacher> teacherList = teacherService.findTeacherByTeacherName(teaName);
         model.addAttribute("teacherList",teacherList);
@@ -69,7 +70,7 @@ public class TeacherManageController {
     }
 
     @ApiOperation(value = "教师删除")
-    @GetMapping("/deleteTeacher")
+    @DeleteMapping("/deleteTeacher")
     public String DeleteTeacher(@Param("teaId") Integer teaId,
                                 Model model){
         teacherService.deleteTeacherByTeacherId(teaId);
@@ -81,8 +82,8 @@ public class TeacherManageController {
 
     @ApiOperation(value = "教师更新")
     @PostMapping("/updateTeacherPassword")
-    public String UpdateTeacherPassword(@Param("teaId") Integer teaId,
-                                        @Param("password") String password,
+    public String UpdateTeacherPassword(@RequestParam("teaId") Integer teaId,
+                                        @RequestParam("password") String password,
                                         Model model){
         Account account = new Account();
         account.setUserId(teaId);

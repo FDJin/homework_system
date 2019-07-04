@@ -4,7 +4,7 @@
 
 <!--    新增班级-->
     <insert id="addClass" parameterType="gxun.soft.homework_system.domain.MyClass">
-        insert into class(classId, className) values (#myClass.classId, #myClass.className)
+        insert into class(classId, className) values (#{myClass.classId}, #{myClass.className})
     </insert>
 
 <!--    按班级id删除班级-->
@@ -19,7 +19,7 @@
 
 <!--    按班级名称查找班级-->
     <select id="findClassByClassName" parameterType="string" resultType="gxun.soft.homework_system.domain.MyClass">
-        select * from  class where className like "%"#{className}"%"
+        select * from  class where className like '%${className}%'
     </select>
 
 <!--    查看所有班级-->

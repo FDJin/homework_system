@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
 import java.util.List;
@@ -30,11 +32,11 @@ public class StudentManageController {
 
 
     @ApiOperation(value = "学生添加")
-    @GetMapping("/addStudent")
-    public String AddStudent(@Param("stuId") Integer stuId,
-                             @Param("stuName") String stuName,
-                             @Param("classId") Integer classId,
-                             @Param("password")String password,
+    @PostMapping("/addStudent")
+    public String AddStudent(@RequestParam("stuId") Integer stuId,
+                             @RequestParam("stuName") String stuName,
+                             @RequestParam("classId") Integer classId,
+                             @RequestParam("password")String password,
                              Model model){
         Account account = new Account();
         Student student = new Student();

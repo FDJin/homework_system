@@ -18,14 +18,18 @@ public class StudentServiceImp implements StudentService {
 
     @Autowired
     StudentMapper studentMapper;
+    @Autowired
     AccountMapper accountMapper;
 
     @Override
     @Transactional
-    public int addStudent(Map studenMap) {
+    public int addStudent(Map studentMap) {
 
-        Student student = (Student) studenMap.get("student");
-        Account account = (Account) studenMap.get("account");
+        Student student = (Student) studentMap.get("student");
+        Account account = (Account) studentMap.get("account");
+
+        System.out.println(student.toString());
+        System.out.println(account.toString());
         accountMapper.addAccount(account);
         studentMapper.addStudent(student);
         return 0;
