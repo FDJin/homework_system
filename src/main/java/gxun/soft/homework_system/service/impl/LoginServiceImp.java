@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class LoginServiceImp implements LoginService {
 
     @Autowired
-    LoginMapper loginMapper;
+    private LoginMapper loginMapper;
 
     /**
      * 用户登录
@@ -22,12 +22,7 @@ public class LoginServiceImp implements LoginService {
     @Override
     public Account accountLogin(@Param("account") Account account){
         System.out.println("account>>>>>>>>>!!!!!"+account.toString());
-        if (loginMapper.accountLogin(account) != null) {
-            account = loginMapper.accountLogin(account);
-            return account;
-        }
-        else {
-            return new Account();
-        }
+        account = loginMapper.accountLogin(account);
+        return account;
     }
 }
