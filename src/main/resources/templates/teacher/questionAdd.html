@@ -6,27 +6,80 @@
 </head>
 <body>
 作业名称：<input name="workName"/><br>
-发布者：<input name="teaId"/><br>
+发布者：<label name="teaId" /><br>
 开始时间：<input name="startTime"/><br>
 结束时间：<input name="endTime"/><br>
 
 <input onclick="add()" type="button" value="确定" />
+    <form class="form-horizontal" th:action="@{studentAdd}">
+        <div class="form-group">
+
+            <label class="control-label col-md-2">题目类型：</label>
+            <div class="col-md-3">
+                <option name="stuName" type="text" class="form-control" required>
+            </div>
+            、、
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">题目：</label>
+            <div class="col-md-3">
+                <!--<select class="form-control"  name="cname" th:value="*{cname}">-->
+                <!--&lt;!&ndash;<option value="男" th:selected="*{sex=='男'}">男</option>&ndash;&gt;-->
+                <!--&lt;!&ndash;<option value="女" th:selected="*{sex=='女'}">女</option>&ndash;&gt;-->
+                <!--</select>-->
+                <input name="className" type="text" class="form-control" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">选择题选项（选填）：</label>
+            <div class="col-md-3">
+                <!--<select class="form-control"  name="cname" th:value="*{cname}">-->
+                <!--&lt;!&ndash;<option value="男" th:selected="*{sex=='男'}">男</option>&ndash;&gt;-->
+                <!--&lt;!&ndash;<option value="女" th:selected="*{sex=='女'}">女</option>&ndash;&gt;-->
+                <!--</select>-->
+                <input name="className" type="text" class="form-control" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">答案：</label>
+            <div class="col-md-3">
+                <!--<select class="form-control"  name="cname" th:value="*{cname}">-->
+                <!--&lt;!&ndash;<option value="男" th:selected="*{sex=='男'}">男</option>&ndash;&gt;-->
+                <!--&lt;!&ndash;<option value="女" th:selected="*{sex=='女'}">女</option>&ndash;&gt;-->
+                <!--</select>-->
+                <input name="className" type="text" class="form-control" required>
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-10 col-md-offset-2">
+                <button type="submit" class="btn btn-primary">保存</button>
+                <a th:href="@{questionAdd}"  class="btn btn-default">取消</a>
+            </div>
+        </div>
+    </form>
+
 </body>
 </html>
 <script src="../js/jquery-1.12.4.min.js" ></script>
-<script>
-    // 日期控件
-    $(".datepicker").datepicker({
-        format: "yyyy-mm-dd",
-        language: "zh-CN",
-        todayBtn: "linked",
-        todayHighlight: true,
-        autoclose: true
-    }).on("changeDate", function () {
-        validator.element(this);
-    });
+<!--<script>-->
+    <!--// 日期控件-->
+    <!--$(".datepicker").datepicker({-->
+        <!--format: "yyyy-mm-dd",-->
+        <!--language: "zh-CN",-->
+        <!--todayBtn: "linked",-->
+        <!--todayHighlight: true,-->
+        <!--autoclose: true-->
+    <!--}).on("changeDate", function () {-->
+        <!--validator.element(this);-->
+    <!--});-->
 
-</script>
+<!--</script>-->
 <script>
     function add () {
         var workName=$("input[name='workName']").val();
@@ -39,11 +92,11 @@
             dataType:"text",
             data:{"workName":workName,"teaId":teaId,"startTime":startTime,"endTime":endTime},
             success:function(data){
-                 window.alert("发布成功");
+                 window.alert("新增成功");
                  window.location.href='/work'
             },
             error:function () {
-                window.alert("发布失败");
+                window.alert("新增失败");
             }
         });
     };
