@@ -6,7 +6,7 @@
     <title>作业批改系统</title>
 </head>
 <body>
-<input name="workName" placeholder="请输入题目" />
+<input name="Detail" placeholder="请输入题目" />
 <form class="form-horizontal" th:action="@{studentAdd}">
     <div class="form-group">
         <div class="col-md-3">
@@ -15,36 +15,32 @@
     </div>
 
     <div class="form-group">
-
-    </div>
-    </div>
-
-    <div class="form-group">
         <label class="control-label col-md-2">题目类型：</label><br>
-        <input name="workName" /><br>
+        <div class="col-md-4">
+            <input th:value="*{questionType}"  name="questionType" type="text" class="form-control" readonly="true" />
+        </div><br>
     </div>
+
     <div class="form-group">
         <label class="control-label col-md-2">分值：</label>
         <div class="col-md-4">
             <input th:value="*{score}" name="score"   type="text" class="form-control" required>
-        </div>
+        </div><br>
     </div>
 
     <div class="form-group">
         <label class="control-label col-md-2">选项：</label>
         <div class="form-group">
             <input type="radio" th:value="option1" name="type">A
-            <input name="workName" /><br><br>
+            <input name="opt1" /><br><br>
             <input type="radio" th:value="option2" name="type">B
-            <input name="workName" /><br><br>
+            <input name="opt2" /><br><br>
             <input type="radio" th:value="option3" name="type">C
-            <input name="workName" /><br><br>
+            <input name="opt3" /><br><br>
             <input type="radio" th:value="option4" name="type">D
-            <input name="workName" /><br><br>
+            <input name="opt4" /><br><br>
         </div>
     </div>
-
-
 
     <div class="form-group">
         <div class="col-md-10 col-md-offset-2">
@@ -72,15 +68,18 @@
 <!--</script>-->
 <script>
     function add () {
-        var workName=$("input[name='workName']").val();
-        var teaId=$("input[name='teaId']").val();
-        var startTime=$("input[name='startTime']").val();
-        var endTime=$("input[name='endTime']").val();
+        var Detail=$("input[name='Detail']").val();
+        var questionType=$("input[name='questionType']").val();
+        var score=$("input[name='score']").val();
+        var opt1=$("input[name='opt1']").val();
+        var opt2=$("input[name='opt2']").val();
+        var opt3=$("input[name='opt3']").val();
+        var opt4=$("input[name='opt4']").val();
         $.ajax({
             url:'/addWork',
             type:"post",
             dataType:"text",
-            data:{"workName":workName,"teaId":teaId,"startTime":startTime,"endTime":endTime},
+            data:{"Detail":Detail,"questionType":questionType,"score":score,"opt1":opt1,"opt2":opt2,"opt3":opt3,"opt4":opt4},
             success:function(data){
                 window.alert("新增成功");
                 window.location.href='/work'
