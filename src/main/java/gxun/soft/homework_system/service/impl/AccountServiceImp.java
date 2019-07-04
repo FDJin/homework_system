@@ -14,7 +14,6 @@ public class AccountServiceImp implements AccountService {
 
     @Override
     public int addAccount(Account account) {
-
         return accountMapper.addAccount(account);
     }
 

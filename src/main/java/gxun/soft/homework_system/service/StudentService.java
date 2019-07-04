@@ -1,5 +1,6 @@
 package gxun.soft.homework_system.service;
 
+import gxun.soft.homework_system.domain.Account;
 import gxun.soft.homework_system.domain.Student;
 
 import java.util.List;
@@ -12,6 +13,13 @@ public interface StudentService {
      * @return
      */
     int addStudent(Student student);
+
+    /**
+     * 修改学生密码
+     * @param account
+     * @return
+     */
+    int updateStudentPassword(Account account);
 
     /**
      * 按stuId删除学生

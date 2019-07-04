@@ -1,7 +1,6 @@
 package gxun.soft.homework_system.service;
 
 import gxun.soft.homework_system.domain.Account;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
