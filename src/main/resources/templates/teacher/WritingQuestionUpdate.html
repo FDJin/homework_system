@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>简答题修改</title>
+    <link th:href="@{/templates/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="content">
+                    <form class="form-horizontal" th:action="@{/update}" th:object="${question}"  method="post">
+                        <div class="form-group">
+                            <label class="control-label col-md-2">编号：</label>
+                            <div class="col-md-4">
+                                <label th:value="*{questionId}"  name="workId" type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <input name="workName" placeholder="请输入题目" />
+                        <div class="form-group">
+                            <label class="control-label col-md-2">题目类型：</label>
+                            <div class="col-md-4">
+                                <input th:value="*{questionType}"  name="questionType" type="text" class="form-control" readonly="true" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">分值：</label>
+                            <div class="col-md-4">
+                                <input th:value="*{score}" name="score"   type="text" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">答案：</label>
+                            <div class="col-md-4">
+                                <input th:value="*{correctAnswer}" name="className" type="text" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-4 col-md-offset-2">
+                                <button type="submit" class="btn btn-primary">保存</button>
+                                <a th:href="@{/teacher/questionUpdate}" class="btn btn-default">取消</a>
+                            </div>
+                        </div>
+                    </form>
+
+                </div><!--/.content-->
+            </div><!--/.col-md-12-->
+        </div><!--/.row-->
+    </div><!--/.container-->
+</article>
+
+<footer>
+    <p class="copyright">
+        &copy;2019 <a href="#"></a> 作业批改系统
+    </p>
+</footer>
+
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../plugins/layer/layer.js"></script>
+<script src="../js/base.js"></script>
+
+</body>
+</html>
