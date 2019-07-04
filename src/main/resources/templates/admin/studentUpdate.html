@@ -29,12 +29,14 @@
 						<div class="form-group">
 							<label class="control-label col-md-2">学号：</label>
 							<div class="col-md-3">
-								<input th:value="*{stuId}"  name="teaId" type="text" class="form-control" required>
+								<input th:value="*{stuId}"  name="stuId" type="text" class="form-control" required>
 							</div>
+						</div>
 
+						<div class="form-group">
 							<label class="control-label col-md-2">姓名：</label>
 							<div class="col-md-3">
-								<input th:value="*{stuName}" name="teaName" type="text" class="form-control" required>
+								<input th:value="*{stuName}" name="stuName" type="text" class="form-control" required>
 							</div>
 						</div>
 
@@ -43,10 +45,11 @@
 							<div class="col-md-3">
 								<input th:value="*{className}" name="className" type="text" class="form-control" required>
 							</div>
+						</div>
 
 						<div class="form-group">
 							<div class="col-md-10 col-md-offset-2">
-								<button type="submit" class="btn btn-primary">确定</button>
+								<button type="submit" class="btn btn-primary" onclick="updateStudent()">确定</button>
 								<a th:href="@{studentUpdate}"  class="btn btn-default">取消</a>
 							</div>
 						</div>
@@ -85,5 +88,25 @@
 
 </script>
 
+<script>
+	function updateStudent() {
+		var stuId=$("input[name='stuId']").val();
+		var stuName=$("input[name='stuName']").val();
+		var className=$("input[name='className']").val();
+		$.ajax({
+			url:'/updateStudent'+'/'+stuId+'-'+stuName+"-"+className,
+			type:"post",
+			dataType:"text",
+			data:{"stuId":stuId,"stuName":stuName,"className":className},
+			success:function(data){
+				window.alert("添加学生成功");
+				window.location.href='/studentUpdate'
+			},
+			error:function () {
+				window.alert("添加失败");
+			}
+		});
+	};
+</script>
 </body>
 </html>

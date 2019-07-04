@@ -22,6 +22,7 @@ $(document).ready(function(){
   $("#d6").hide();
   $("#d7").hide();
   $("#d8").hide();
+
   });
   $("#tc_publish").click(function(){
 	    $("#tc_index").attr("class","");
@@ -79,12 +80,12 @@ $(document).ready(function(){
         $("#tc_publish").attr("class","");
 		$("#tc_correct").attr("class","");
 		$("#tc_score").attr("class","");
-		$("#tc_ques").attr("class","current");
+		$("#qe_index").attr("class","current");
 		$("tc_personal").attr("class",""); 
   $("#d1").hide();
   $("#d2").hide();
   $("#d3").hide();
-  $("#d4").show();
+  $("#d4").hide();
   $("#d5").hide();
   $("#d6").hide();
   $("#d7").hide();
@@ -98,7 +99,7 @@ $(document).ready(function(){
 		$("#tc_correct").attr("class","");
 		$("#tc_score").attr("class","");
 		$("#tc_ques").attr("class","");
-		$("tc_personal").attr("class","current"); 
+	$("tc_personal").attr("class","current"); 
   $("#d1").hide();
   $("#d2").hide();
   $("#d3").hide();
@@ -107,9 +108,70 @@ $(document).ready(function(){
   $("#d6").hide();
   $("#d7").show();
   $("#d8").hide();
-  
+
   });
   
+   /*
+   $("#qe_index").click(function(){
+	    $("#tc_index").attr("class","");
+        $("#tc_publish").attr("class","");
+		$("#tc_correct").attr("class","");
+		$("#tc_score").attr("class","");
+		$("#tc_ques").attr("class","");
+	$("qe_index").attr("class","current"); 
+		$("qe_pulish").attr("class",""); 
+  $("#d1").hide();
+  $("#d2").hide();
+  $("#d3").hide();
+  $("#d4").hide();
+  $("#d5").hide();
+  $("#d6").hide();
+  $("#d7").hide();
+  $("#d8").show();
+ 
+  });*/
+  
+ /* $("#qe_publish").click(function(){
+	    $("#tc_index").attr("class","");
+        $("#tc_publish").attr("class","");
+		$("#tc_correct").attr("class","");
+		$("#tc_score").attr("class","");
+		$("#tc_ques").attr("class","");
+		$("qe_index").attr("class",""); 
+	$("qe_publish").attr("class","current"); 
+  $("#d1").hide();
+  $("#d2").hide();
+  $("#d3").hide();
+  $("#d4").hide();
+  $("#d5").hide();
+  $("#d6").hide();
+  $("#d7").hide();
+  $("#d8").hide();
+ 
+  });*/
+  
+  /* $("#qe_correct").click(function(){
+	    $("#tc_index").attr("class","");
+        $("#tc_publish").attr("class","");
+		$("#tc_correct").attr("class","");
+		$("#tc_score").attr("class","");
+		$("#tc_ques").attr("class","");
+		$("qe_index").attr("class",""); 
+		$("qe_publish").attr("class","");
+	$("qe_correct").attr("class","current"); 
+  $("#d1").hide();
+  $("#d2").hide();
+  $("#d3").hide();
+  $("#d4").hide();
+  $("#d5").hide();
+  $("#d6").hide();
+  $("#d7").hide();
+  $("#d8").hide();
+  $("#d9").hide();
+  $("#d10").show();
+  
+  });
+*/  
   
      $("#table_work tbody tr").click(function(){
 	    $("#tc_index").attr("class","");

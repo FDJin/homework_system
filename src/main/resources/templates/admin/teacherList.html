@@ -45,7 +45,7 @@
 							</select>
 						</div>
 						<div class="form-group form-group-sm">
-							<button type="submit" class="btn btn-primary btn-sm">
+							<button type="submit" class="btn btn-primary btn-sm" onclick="findByTeacherName()">
 								<span class="glyphicon glyphicon-search"></span> 搜索
 							</button>
 						</div>
@@ -66,12 +66,12 @@
 							<tbody>
 							<tr th:each="stu:${list}">
 								<td><input type="checkbox" class="checkItem"></td>
-								<td th:text="${tea.teaid}">080606110</td>
+								<td th:text="${tea.teaId}">080606110</td>
 								<td th:text="${tea.teacherName}">唐僧</td>
 								<td th:text="${tea.classId}">cname</td>
 								<td>
 									<a th:href="@{/teacherUpdate(id=${tea.id})}">修改</a>&nbsp;&nbsp;
-									<a th:href="@{/deleteById(id=${tea.id})}" onclick="javascript:return del();">删除</a>
+									<a th:href="@{/deleteById(id=${tea.id})}" onclick="javascript:return delTeacher();">删除</a>
 								</td>
 							</tr>
 							</tbody>
@@ -118,13 +118,41 @@
 		autoclose: true
 	});
 
-	function del() {
+	function delTeacher() {
 		var msg = "您真的确定要删除吗？\n\n请确认！";
 		if (confirm(msg)==true){
 			return true;
 		}else{
 			return false;
 		}
+	}
+
+	function findByTeacherName() {
+		var className = $("#teaName").val();
+		var res = $.ajax({
+			url:"/findByTeacherName/"+teaName,
+			type:"get",
+			dataType:"json",
+			success:function (data) {
+				var html = '';
+
+				for (var i = 0; i < data.length; i++) {
+					var d = data[i];
+					html += "<tr >" +
+							"<td><input type=\"checkbox\" class=\"checkItem\"></td>\n" +
+							"<td >"+data[i]['teaId']+"</td>\n" +
+							"<td >"+d['teaName']+"</td>\n" +
+							// "<td >"+data[i].cdesc+"</td>\n" +
+							"<td>\n" +
+							"<a href=\"/classUpdate?id="+data[i]['teaId']+"\">修改</a>&nbsp;&nbsp;\n" +
+							"<a href=\"/delete?id="+data[i]['teaId']+"\" onclick=\"javascript:return delTeacher();\">删除</a>\n" +
+							"</td>\n" +
+							"</tr>\n";
+				}
+
+				$("#list_result").html(html);
+			}
+		});
 	}
 </script>
 

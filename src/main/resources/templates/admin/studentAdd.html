@@ -31,7 +31,9 @@
 								<input name="stuId" type="text" class="form-control" required>
 								<div style="color: red" th:text="${errormsg}"></div>
 							</div>
+						</div>
 
+						<div class="form-group">
 							<label class="control-label col-md-2">姓名：</label>
 							<div class="col-md-3">
 								<input name="stuName" type="text" class="form-control" required>
@@ -94,16 +96,16 @@
         var stuName=$("input[name='stuName']").val();
         var classId=$("input[name='classId']").val();
         $.ajax({
-            url:'/addTeacher',
+            url:'/addStudent'+stuId+stuName+classId,
             type:"post",
-            dataType:"json",
+            dataType:"text",
             data:{"stuId":stuId,"stuName":stuName,"classId":classId},
             success:function(data){
-                window.alert("添加成功");
-                window.location.href='/student'
+                window.alert("添加学生成功");
+                window.location.href='/studentAdd'
             },
             error:function () {
-                window.alert("添加失败,请确认输入是否正确");
+                window.alert("添加失败");
             }
         });
     };

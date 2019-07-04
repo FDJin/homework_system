@@ -30,7 +30,7 @@
 					<form class="form-inline m-t-15 m-b-10">
 						<div class="form-group form-group-sm">
 							<label>姓名：</label>
-							<input type="text" class="form-control" size="5">
+							<input type="text" class="form-control" size="8">
 						</div>
 
 						<!--<div class="form-group form-group-sm">-->
@@ -76,7 +76,7 @@
 								<td th:text="${stu.className}">className</td>
 								<td>
 									<a th:href="@{/studentUpdate(id=${stu.stuId})}">修改</a>&nbsp;&nbsp;
-									<a th:href="@{/deleteById(id=${stu.stuId})}" onclick="javascript:return del();">删除</a>
+									<a th:href="@{/deleteById(id=${stu.stuId})}" onclick="javascript:return delStudent();">删除</a>
 								</td>
 							</tr>
 							</tbody>
@@ -123,7 +123,7 @@
 		autoclose: true
 	});
 
-	function del() {
+	function delStudent() {
 		var msg = "您真的确定要删除吗？\n\n请确认！";
 		if (confirm(msg)==true){
 			return true;
@@ -149,7 +149,7 @@
                         "<td >"+data[i]['className']+"</td>\n" +
                         "<td>\n" +
                         "<a href=\"/classUpdate?id="+data[i]['stuId']+"\">修改</a>&nbsp;&nbsp;\n" +
-                        "<a href=\"/delete?id="+data[i]['id']+"\" onclick=\"javascript:return del();\">删除</a>\n" +
+                        "<a href=\"/delete?id="+data[i]['stuId']+"\" onclick=\"javascript:return delStudent();\">删除</a>\n" +
                         "</td>\n" +
                         "</tr>\n";
                 }
