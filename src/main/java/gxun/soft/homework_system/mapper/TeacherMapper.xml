@@ -3,7 +3,7 @@
 <mapper namespace="gxun.soft.homework_system.mapper.TeacherMapper">
 
     <insert id="addTeacher" parameterType="gxun.soft.homework_system.domain.Teacher">
-        insert into teacher (teaId, classId, teaName) values(#{teacher.teaId},#{teacher.classId},#{teacher.teaName}})
+        insert into teacher (teaId, classId, teaName) values(#{teacher.teaId},#{teacher.classId},#{teacher.teaName})
     </insert>
     
     <delete id="deleteTeacherByTeacherId" parameterType="int">

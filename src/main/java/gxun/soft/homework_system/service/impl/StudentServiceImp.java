@@ -21,6 +21,7 @@ public class StudentServiceImp implements StudentService {
     @Autowired
     AccountMapper accountMapper;
 
+    @Transactional
     @Override
     public int addStudent(Map studentMap) {
 

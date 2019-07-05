@@ -17,10 +17,11 @@ public class TeacherServiceImp implements TeacherService {
 
     @Autowired
     TeacherMapper teacherMapper;
+    @Autowired
     AccountMapper accountMapper;
 
-    @Override
     @Transactional
+    @Override
     public int addTeacher(Map teacherMap) {
         Account account = (Account) teacherMap.get("account");
         Teacher teacher = (Teacher) teacherMap.get("teacher");

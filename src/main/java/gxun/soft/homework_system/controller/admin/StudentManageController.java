@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,7 +30,6 @@ public class StudentManageController {
         model.addAttribute("studentList",studentList);
         return "admin/studentList";
     }
-
 
     @ApiOperation(value = "学生添加")
     @PostMapping("/addStudent")
@@ -54,6 +54,29 @@ public class StudentManageController {
         studentMap.put("student",student);
 
         studentService.addStudent(studentMap);
+        List<Student> studentList = studentService.getAllStudent();
+        model.addAttribute("studentList",studentList);
+        return "admin/studentList";
+    }
+
+    @ApiOperation(value = "学生删除")
+    @DeleteMapping("/deleteStudent")
+    public String deleteStudent(@RequestParam("stuId") Integer stuId, Model model){
+        studentService.deleteStudentByStudentId(stuId);
+        List<Student> studentList = studentService.getAllStudent();
+        model.addAttribute("studentList",studentList);
+        return "admin/studentList";
+    }
+
+    @ApiOperation(value = "学生修改密码")
+    @PostMapping("/updateStudentPassword")
+    public String updateStudentPassword(@RequestParam("stuId") Integer stuId,
+                                        @RequestParam("password") String password,
+                                        Model model){
+        Account account = new Account();
+        account.setUserId(stuId);
+        account.setPassword(password);
+        studentService.updateStudentPassword(account);
         List<Student> studentList = studentService.getAllStudent();
         model.addAttribute("studentList",studentList);
         return "admin/studentList";

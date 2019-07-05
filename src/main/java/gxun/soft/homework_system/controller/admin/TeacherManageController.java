@@ -71,7 +71,7 @@ public class TeacherManageController {
 
     @ApiOperation(value = "教师删除")
     @DeleteMapping("/deleteTeacher")
-    public String DeleteTeacher(@Param("teaId") Integer teaId,
+    public String DeleteTeacher(@RequestParam("teaId") Integer teaId,
                                 Model model){
         teacherService.deleteTeacherByTeacherId(teaId);
         List<Teacher> teacherList = teacherService.getAllTeacher();
