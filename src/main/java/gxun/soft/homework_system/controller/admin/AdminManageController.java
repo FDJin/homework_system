@@ -2,14 +2,11 @@ package gxun.soft.homework_system.controller.admin;
 
 import gxun.soft.homework_system.domain.Account;
 import gxun.soft.homework_system.domain.Admin;
-import gxun.soft.homework_system.domain.Teacher;
-import gxun.soft.homework_system.mapper.AdminMapper;
 import gxun.soft.homework_system.service.AdminService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
