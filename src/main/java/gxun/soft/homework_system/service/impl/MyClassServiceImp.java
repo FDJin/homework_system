@@ -3,6 +3,7 @@ package gxun.soft.homework_system.service.impl;
 import gxun.soft.homework_system.domain.MyClass;
 import gxun.soft.homework_system.mapper.ClassMapper;
 import gxun.soft.homework_system.service.MyClassService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +31,7 @@ public class MyClassServiceImp implements MyClassService {
     }
 
     @Override
-    public List<MyClass> findClassByClassName(String className) {
+    public List<MyClass> findClassByClassName(@Param("className") String className) {
         return classMapper.findClassByClassName(className);
     }
 

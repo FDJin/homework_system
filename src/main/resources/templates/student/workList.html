@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:th="http://http://www.thymeleaf.org">
+<html lang="en"  xmlns:th="http://http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
         <title>Title</title>
     </head>
     <body>
     <!--<header th:include="include/header_student :: header"></header>-->
-    <header th:include="include/header :: header_student"></header>
+    <header th:include="include/header_student :: header"></header>
     <!--<input type="button" onclick="refurbishIndex()" value="点击查看所有"/>-->
 
         <form class="form-inline m-t-15 m-b-10" >
             <div class="form-group form-group-sm">
                 <label>作业名称：</label>
+                <input name="userId" id="userId" type="text" class="form-control">
                 <input name="workName" id="workName" type="text" class="form-control">
             </div>
             <div class="form-group form-group-sm">
@@ -36,7 +37,7 @@
 <script type="text/javascript">
     //点击查看所有
     $(function () {
-            var stuId={sessionId};
+            var stuId = $("#stuId").val();
             var res = $.ajax({
                 url:"/findMyWorkList"+stuId,
                 type:"get",

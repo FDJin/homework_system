@@ -18,7 +18,7 @@
 				<div class="content">
 					<h4>
 						<strong>班级管理</strong>
-						<a class="btn btn-info btn-xs" th:href="@{classAdd}">
+						<a class="btn btn-info btn-xs" th:href="@{toaddclass}">
 							<span class="glyphicon glyphicon-plus"></span> 添加
 						</a>
 
@@ -40,7 +40,8 @@
 						<table class="table table-bordered table-hover">
 							<thead>
 							<tr>
-								<th><input type="checkbox" class="checkAll"></th>
+								<!--<th><input type="checkbox" class="checkAll"></th>-->
+								<th>编号</th>
 								<th>编号</th>
 								<th>班级名称</th>
 								<!--<th>班级描述</th>-->
@@ -55,7 +56,7 @@
 								<!--<td th:text="${myclass.cdesc}">19软件工程</td>-->
 								<td>
 									<a th:href="@{/classUpdate(id=${myclass.classId})}">修改</a>&nbsp;&nbsp;
-									<a th:href="@{/delete(classId=${myclass.classId})}" onclick="javascript:return delClass();">删除</a>
+									<a th:href="@{/deleteClass(id=${myclass.classId})}" onclick="javascript:return del();">删除</a>
 								</td>
 							</tr>
 							</tbody>
@@ -89,37 +90,19 @@
 <script th:src="@{/templates/plugins/layer/layer.js}"></script>
 <script th:src="@{/templates/js/base.js}"></script>
 <script>
-    // var render = {
-    //     list:function (data) {
-    //         var html = '';
-    //         for (var i = 0; i < data.length; i++) {
-    //             var d = data[i];
-    //             html += "<tr >" +
-    //                 "<td >"+data[i]['classId']+"</td>\n" +
-    //                 "<td >"+data[i]['className']+"</td>\n" +
-    //                 "<td>\n" +
-    //                 "<td>"
-    //             // +
-    //             //     // "<input type='button' id='upBtn' value='修改'/>"
-    //             // "<a href=\"/workUpdate?id="+data[i].workId+"\">修改</a>&nbsp;&nbsp;\n"
-    //             //     +"<input type='button' id='delBtn' value='删除' onclick='del("+data[i].id+")'/>"+"</td>"+
-    //             //     "</tr>\n";
-    //         }
-    //         $("#tbodydata").html(html);
-    //     }
-    // }
+
     // $(function () {
     //     var res = $.ajax({
-    //         url:"/findAllClassList",
+    //         url:"/classList",
     //         type:"get",
     //         dataType:"json",
     //         success:function (data) {
     //             console.log(data);
-    //             // render.list(data);
+    //             render.list(data);
     //         }
     //     });
     // });
-    function delClass() {
+    function del() {
         var msg = "您真的确定要删除吗？\n\n请确认！";
         if (confirm(msg)==true){
             return true;
@@ -130,6 +113,7 @@
 
 	function findByClassName() {
 		var className = $("#className").val();
+		console.log(className);
 		var res = $.ajax({
 			url:"/findByClassName",
 			type:"post",
@@ -144,10 +128,10 @@
 							"<td><input type=\"checkbox\" class=\"checkItem\"></td>\n" +
 							"<td >"+data[i]['classId']+"</td>\n" +
 							"<td >"+d['className']+"</td>\n" +
-							// "<td >"+data[i].cdesc+"</td>\n" +
 							"<td>\n" +
-							"<a href=\"/classUpdate?id="+data[i]['classId']+"\">修改</a>&nbsp;&nbsp;\n" +
-							"<a href=\"/deleteClass?id="+data[i]['classId']+"\" onclick=\"javascript:return delClass();\">删除</a>\n" +
+                        "<a href=\"/update_classes?id="+data[i]['id']+"\">修改</a>&nbsp;&nbsp;\n" +
+                        "<a href=\"/delete?id="+data[i]['classId']+"\" onclick=\"javascript:return del();\">删除</a>\n" +
+							// "<input type='button' id='delBtn' value='shanchu' onclick='del("+data[i].classId+")'/>"+
 							"</td>\n" +
 							"</tr>\n";
 				}
@@ -159,7 +143,55 @@
 
             }
 		});
-	}
+	};
+    // function del(classId) {
+    //
+    //      $.ajax({
+    //         url:"/deleteClass/"+classId,
+    //         type:"get",
+    //         dataType:"json",
+    //         success:function (data) {
+    //             alert("success");
+    //             var html = '';
+    //
+    //             for (var i = 0; i < data.length; i++) {
+    //                 var d = data[i];
+    //                 html += "<tr >" +
+    //                     "<td><input type=\"checkbox\" class=\"checkItem\"></td>\n" +
+    //                     "<td >"+data[i]['classId']+"</td>\n" +
+    //                     "<td >"+d['className']+"</td>\n" +
+    //                     "<td>\n" +
+    //                     "<a href=\"/update_classes?id="+data[i]['id']+"\">修改</a>&nbsp;&nbsp;\n" +
+    //                     // "<a href=\"/delete?id="+data[i]['classId']+"\" onclick=\"javascript:return del();\">删除</a>\n" +
+    //                     "<input type='button' id='delBtn' value='shanchu' onclick='del("+data[i].classId+")'/>"+
+    //                     "</td>\n" +
+    //                     "</tr>\n";
+    //             }
+    //             $("#list_result").html(html);
+    //         }
+    //     });
+    // };
+    // var render = {
+    //     list:function (data) {
+    //         var html = '';
+    //         for (var i = 0; i < data.length; i++) {
+    //             var d = data[i];
+    //             html += "<tr >" +
+    //                 // "<td>"+"<input type="checkbox" class="checkItem">"+"</td>"+
+    //                 "<td >"+data[i]['classId']+"</td>\n" +
+    //                 "<td >"+data[i]['classId']+"</td>\n" +
+    //                 "<td >"+data[i]['className']+"</td>\n" +
+    //                 "<td>\n" +
+    //                 "<td>"
+    //                 +
+    //                 // "<input type='button' id='upBtn' value='修改'/>"
+    //                 "<a href=\"/workUpdate?id="+data[i].workId+"\">修改</a>&nbsp;&nbsp;\n"
+    //                 +"<input type='button' id='delBtn' value='删除' onclick='del("+data[i].classId+")'/>"+"</td>"+
+    //                 "</tr>\n";
+    //         }
+    //         $("#list_result").html(html);
+    //     }
+    // }
 </script>
 
 </body>
