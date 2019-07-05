@@ -131,7 +131,7 @@
 	function findByClassName() {
 		var className = $("#className").val();
 		var res = $.ajax({
-			url:"/findByClassName/",
+			url:"/findByClassName",
 			type:"post",
 			dataType:"json",
             data:{"className":className},
@@ -147,13 +147,17 @@
 							// "<td >"+data[i].cdesc+"</td>\n" +
 							"<td>\n" +
 							"<a href=\"/classUpdate?id="+data[i]['classId']+"\">修改</a>&nbsp;&nbsp;\n" +
-							"<a href=\"/delete?id="+data[i]['classId']+"\" onclick=\"javascript:return delClass();\">删除</a>\n" +
+							"<a href=\"/deleteClass?id="+data[i]['classId']+"\" onclick=\"javascript:return delClass();\">删除</a>\n" +
 							"</td>\n" +
 							"</tr>\n";
 				}
 
 				$("#list_result").html(html);
-			}
+			},
+			fail:function (data) {
+			    console.log(data);
+
+            }
 		});
 	}
 </script>

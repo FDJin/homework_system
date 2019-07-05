@@ -67,7 +67,7 @@
         var className=$("input[name='className']").val();
         var classId=$("input[name='classId']").val();
         $.ajax({
-            url:'/addClass/',
+            url:'/addClass',
             type:"post",
             dataType:"json",
             data:{"className":className,"classId":classId},
