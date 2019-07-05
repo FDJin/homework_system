@@ -22,7 +22,6 @@ public class StudentServiceImp implements StudentService {
     AccountMapper accountMapper;
 
     @Override
-    @Transactional
     public int addStudent(Map studentMap) {
 
         Student student = (Student) studentMap.get("student");
