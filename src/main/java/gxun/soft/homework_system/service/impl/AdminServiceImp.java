@@ -18,6 +18,7 @@ public class AdminServiceImp implements AdminService {
 
     @Autowired
     AccountMapper accountMapper;
+    @Autowired
     AdminMapper adminMapper;
 
     @Transactional
