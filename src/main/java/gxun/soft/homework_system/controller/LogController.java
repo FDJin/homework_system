@@ -92,6 +92,7 @@ public class LogController {
                 case 2:
                     return "admin/admin";
                     default: return "index";
+
             }
         } else {
             System.out.println("账号不存在>>>>>>>重新登录");
